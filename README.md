@@ -2,6 +2,9 @@
 
 Development Game-2D Version Demo
 
+## เอกสารโครงงาน Game 2D
+https://docs.google.com/document/d/1jwUYVoKrzYlW4FP8yZENRFVg8EeeHwkiMioWPO45FYw/edit?usp=sharing
+
 # Member of AI Group-09
 (EN)
 1. Krissanapong Songkramsong 663380251-8 AI-Sec.02
