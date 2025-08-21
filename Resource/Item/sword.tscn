@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bipk27qnf10vr"]
+
+[node name="Sword" type="Sprite2D"]
