@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @export_category("Player Properties") # You can tweak these changes according to your likings
 @export var move_speed : float = 350
-@export var jump_force : float = 830
+@export var jump_force : float = 600
 @export var gravity : float = 30
 @export var max_jump_count : int = 2
 var jump_count : int = 2
@@ -13,7 +13,6 @@ var jump_count : int = 2
 @export var double_jump : = false
 
 var is_grounded : bool = false
-
 #@onready var player_sprite = $Player1
 @onready var spawn_point = %SpawnPoint
 @onready var particle_trails = $ParticleTrails
@@ -46,7 +45,7 @@ func movement():
 	handle_jumping()
 	
 	# Move Player
-	var inputAxis = Input.get_axis("Left", "Right")
+	var inputAxis = Input.get_axis("Move_Left", "Move_Right")
 	velocity = Vector2(inputAxis * move_speed, velocity.y)
 	move_and_slide()
 
@@ -67,24 +66,28 @@ func jump():
 
 # Handle Player Animations
 func player_animations():
-	particle_trails.emitting = false
+	#particle_trails.emitting = false
 
 	if is_on_floor():
 		if abs(velocity.x) > 0:
-			particle_trails.emitting = true
-			$character2D/AnimationPlayer.play("walk",1,5)
+			#particle_trails.emitting = true
+			$AnimatedSprite2D.play("Run",1)
 		else:
-			$character2D/AnimationPlayer.play("Idle",1)
+			$AnimatedSprite2D.play("Idle",1)
 			
 	else:
-		$character2D/AnimationPlayer.play("jump",1,2)
+		$AnimatedSprite2D.play("Jump",1,2)
 
 # Flip player sprite based on X velocity
 func flip_player():
-	if velocity.x < 0 and $character2D.scale.x < 0:
-		$character2D.scale.x *= -1
-	elif velocity.x > 0 and $character2D.scale.x > 0:
-		$character2D.scale.x *= -1
+	#if velocity.x < 0 and $character2D.scale.x < 0:
+		#$character2D.scale.x *= -1
+	if velocity.x < 0:
+		$AnimatedSprite2D.flip_h = true
+	#elif velocity.x > 0 and $character2D.scale.x > 0:
+		#$character2D.scale.x *= -1
+	elif velocity.x > 0:
+		$AnimatedSprite2D.flip_h = false
 
 # Tween Animations
 func death_tween():

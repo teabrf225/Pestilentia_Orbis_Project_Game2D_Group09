@@ -10,13 +10,10 @@ func _ready() -> void:
 	Credits.visible = false
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://World/Test/world_test.tscn")
-
+	get_tree().change_scene_to_file("res://World/Forest_day/forest_day.tscn")
 
 func _on_option_pressed() -> void:
 	Options.visible = true
-
-
 
 func _on_credit_pressed() -> void:
 	Credits.visible = true

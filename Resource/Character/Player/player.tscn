@@ -1,10 +1,10 @@
 [gd_scene load_steps=33 format=3 uid="uid://ptcb6lyi73id"]
 
-[ext_resource type="Texture2D" uid="uid://bg71bsu22wy38" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Idle.png" id="1_g1iqq"]
+[ext_resource type="Texture2D" uid="uid://cfw880siuswf6" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Idle.png" id="1_g1iqq"]
 [ext_resource type="Script" uid="uid://bt54mruv1y78m" path="res://Resource/Character/Player/player.gd" id="1_se16j"]
-[ext_resource type="Texture2D" uid="uid://crm4ch7stbi6g" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Jump.png" id="2_se16j"]
-[ext_resource type="Texture2D" uid="uid://deabyoh2nk4mu" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Run.png" id="3_pcn8h"]
-[ext_resource type="Texture2D" uid="uid://b7hc8jj587too" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Walk.png" id="4_b4ivt"]
+[ext_resource type="Texture2D" uid="uid://bprhs1rkh0uen" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Jump.png" id="2_se16j"]
+[ext_resource type="Texture2D" uid="uid://7p1xyii6wkxf" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Run.png" id="3_pcn8h"]
+[ext_resource type="Texture2D" uid="uid://ca5m1vf4fvm4r" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Walk.png" id="4_b4ivt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4l7td"]
 atlas = ExtResource("1_g1iqq")
@@ -217,13 +217,8 @@ animation = &"Jump"
 frame_progress = 0.524797
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(127, 23)
+position = Vector2(0, 16)
 shape = SubResource("CapsuleShape2D_sgc7k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="player_move" type="Node" parent="."]
-
-[node name="player_anime" type="Node" parent="."]
-
-[node name="Knight_atk" type="Node" parent="."]
+zoom = Vector2(1.75, 1.75)

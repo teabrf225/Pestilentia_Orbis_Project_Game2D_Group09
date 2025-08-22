@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://bcmvkkx6ovlfh"]
 
-[ext_resource type="Texture2D" uid="uid://b5gvshpueogc1" path="res://Interface/Menu_Game/Backgound_main_menu.png" id="1_6hw7b"]
+[ext_resource type="Texture2D" uid="uid://d1u03ryicebem" path="res://Interface/Menu_Game/Backgound_main_menu.png" id="1_6hw7b"]
 [ext_resource type="Script" uid="uid://sah41kihxeif" path="res://Interface/Menu_Game/menu_game.gd" id="1_yl80j"]
-[ext_resource type="AudioStream" uid="uid://djjmbmeuf34vo" path="res://Resource/Music/Horror Ambience (Free Background Music).mp3" id="3_1vqnn"]
-[ext_resource type="FontFile" uid="uid://cjoemjqyjg2as" path="res://Resource/Font/Kinnari.ttf" id="3_f0oqs"]
-[ext_resource type="Script" uid="uid://bh4v8brf8wdg2" path="res://Interface/Menu_Game/audio_control.gd" id="4_cnc36"]
+[ext_resource type="FontFile" uid="uid://c6yt4pglgqdyf" path="res://Resource/Font/kinnari/Kinnari.ttf" id="3_f0oqs"]
+[ext_resource type="Script" uid="uid://bh4v8brf8wdg2" path="res://Management/audio_control.gd" id="4_cnc36"]
+[ext_resource type="AudioStream" uid="uid://d3iulyqooe6ng" path="res://Resource/Music_BackGround/Horror Ambience (Free Background Music).mp3" id="4_f0oqs"]
 [ext_resource type="Script" uid="uid://c5sf27scwlt6h" path="res://Interface/Menu_Game/fullscreen_control.gd" id="5_7trak"]
-[ext_resource type="FontFile" uid="uid://bkhl7jnrkcxrf" path="res://Resource/Font/Kinnari-Bold.ttf" id="5_36cs2"]
+[ext_resource type="FontFile" uid="uid://dpblv8cxhbtoq" path="res://Resource/Font/kinnari/Kinnari-Bold.ttf" id="5_36cs2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1vqnn"]
 texture = ExtResource("1_6hw7b")
@@ -90,10 +90,9 @@ flat = true
 alignment = 0
 
 [node name="HorrorAmbience(freeBackgroundMusic)" type="AudioStreamPlayer" parent="Main_buttons"]
-stream = ExtResource("3_1vqnn")
+stream = ExtResource("4_f0oqs")
 autoplay = true
 bus = &"Music"
-parameters/looping = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

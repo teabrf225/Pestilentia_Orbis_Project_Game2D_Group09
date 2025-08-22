@@ -3,8 +3,6 @@
 /android/
 .nomedia
 *.mp4
-*.mp3
-*.wav
 
 # Godot-specific ignores
 *.import
