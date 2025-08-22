@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcmvkkx6ovlfh"]
+[gd_scene load_steps=12 format=3 uid="uid://bcmvkkx6ovlfh"]
 
 [ext_resource type="Texture2D" uid="uid://b5gvshpueogc1" path="res://Interface/Menu_Game/Backgound_main_menu.png" id="1_6hw7b"]
 [ext_resource type="Script" uid="uid://sah41kihxeif" path="res://Interface/Menu_Game/menu_game.gd" id="1_yl80j"]
 [ext_resource type="AudioStream" uid="uid://djjmbmeuf34vo" path="res://Resource/Music/Horror Ambience (Free Background Music).mp3" id="3_1vqnn"]
+[ext_resource type="FontFile" uid="uid://cjoemjqyjg2as" path="res://Resource/Font/Kinnari.ttf" id="3_f0oqs"]
 [ext_resource type="Script" uid="uid://bh4v8brf8wdg2" path="res://Interface/Menu_Game/audio_control.gd" id="4_cnc36"]
 [ext_resource type="Script" uid="uid://c5sf27scwlt6h" path="res://Interface/Menu_Game/fullscreen_control.gd" id="5_7trak"]
+[ext_resource type="FontFile" uid="uid://bkhl7jnrkcxrf" path="res://Resource/Font/Kinnari-Bold.ttf" id="5_36cs2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1vqnn"]
 texture = ExtResource("1_6hw7b")
@@ -51,6 +53,7 @@ offset_bottom = 512.0
 modulate = Color(1, 1, 0.67451, 1)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_f0oqs")
 theme_override_font_sizes/font_size = 50
 text = "Start"
 flat = true
@@ -60,8 +63,9 @@ alignment = 0
 modulate = Color(1, 1, 0.67451, 1)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_f0oqs")
 theme_override_font_sizes/font_size = 50
-text = "Option"
+text = "Options"
 flat = true
 alignment = 0
 
@@ -69,6 +73,7 @@ alignment = 0
 modulate = Color(1, 1, 0.67451, 1)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_f0oqs")
 theme_override_font_sizes/font_size = 50
 text = "Credit"
 flat = true
@@ -78,6 +83,7 @@ alignment = 0
 modulate = Color(1, 1, 0.67451, 1)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_f0oqs")
 theme_override_font_sizes/font_size = 50
 text = "Exit"
 flat = true
@@ -96,11 +102,11 @@ offset_top = 77.0
 offset_right = 445.0
 offset_bottom = 163.0
 theme_override_colors/font_color = Color(0.956863, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_36cs2")
 theme_override_font_sizes/font_size = 50
 text = "Pestilentia Orbis"
 
 [node name="Options" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.607
@@ -122,8 +128,9 @@ offset_left = 21.0
 offset_top = 19.0
 offset_right = 180.0
 offset_bottom = 79.0
+theme_override_fonts/font = ExtResource("5_36cs2")
 theme_override_font_sizes/font_size = 40
-text = "Option"
+text = "Options"
 
 [node name="Music" type="Label" parent="Options"]
 layout_mode = 1
@@ -137,6 +144,7 @@ offset_top = -21.138
 offset_right = 42.684
 offset_bottom = 20.862
 theme_override_colors/font_color = Color(1, 1, 0.67451, 1)
+theme_override_fonts/font = ExtResource("3_f0oqs")
 theme_override_font_sizes/font_size = 30
 text = "Music"
 
@@ -152,6 +160,7 @@ offset_top = -21.093
 offset_right = 42.546
 offset_bottom = 20.907
 theme_override_colors/font_color = Color(1, 1, 0.67451, 1)
+theme_override_fonts/font = ExtResource("3_f0oqs")
 theme_override_font_sizes/font_size = 30
 text = "SFX"
 
@@ -199,6 +208,7 @@ offset_left = 46.0
 offset_top = 286.0
 offset_right = 173.0
 offset_bottom = 317.0
+theme_override_fonts/font = ExtResource("3_f0oqs")
 theme_override_font_sizes/font_size = 20
 text = "Fullscreen"
 script = ExtResource("5_7trak")
@@ -222,20 +232,22 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_yl80j")
 [node name="Label" type="Label" parent="Credits"]
 modulate = Color(1, 1, 0.67451, 1)
 layout_mode = 0
-offset_left = 21.0
-offset_top = 19.0
-offset_right = 180.0
-offset_bottom = 79.0
+offset_left = 22.0
+offset_top = 4.00002
+offset_right = 181.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("5_36cs2")
 theme_override_font_sizes/font_size = 40
 text = "Credits"
 
 [node name="name" type="Label" parent="Credits"]
 modulate = Color(1, 1, 0.67451, 1)
 layout_mode = 0
-offset_left = 76.0
-offset_top = 82.0
-offset_right = 495.0
-offset_bottom = 304.0
+offset_left = 89.0
+offset_top = 61.0
+offset_right = 508.0
+offset_bottom = 343.0
+theme_override_fonts/font = ExtResource("3_f0oqs")
 theme_override_font_sizes/font_size = 30
 text = "CP-AI
 Tanatorn Boontem
