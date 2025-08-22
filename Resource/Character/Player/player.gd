@@ -57,7 +57,7 @@ func handle_jumping():
 		elif double_jump and jump_count > 0:
 			jump()
 			jump_count -= 1
-
+		
 # Player jump
 func jump():
 	jump_tween()
@@ -76,8 +76,14 @@ func player_animations():
 			$AnimatedSprite2D.play("Idle",1)
 			
 	else:
-		$AnimatedSprite2D.play("Jump",1,2)
-
+		if $AnimatedSprite2D.animation != "Jump":
+			#print("Before Frame ",$AnimatedSprite2D.frame)
+			$AnimatedSprite2D.play("Jump",1,2)
+			$AnimatedSprite2D.frame = 0
+			if await $AnimatedSprite2D.animation_finished == null:
+				#print("After Frame ",$AnimatedSprite2D.frame)
+				$AnimatedSprite2D.pause()
+				
 # Flip player sprite based on X velocity
 func flip_player():
 	#if velocity.x < 0 and $character2D.scale.x < 0:
