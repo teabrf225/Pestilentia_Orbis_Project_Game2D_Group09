@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b5gvshpueogc1" path="res://Interface/Menu_Game/Backgound_main_menu.png" id="1_6hw7b"]
 [ext_resource type="Script" uid="uid://sah41kihxeif" path="res://Interface/Menu_Game/menu_game.gd" id="1_yl80j"]
-[ext_resource type="AudioStream" uid="uid://djjmbmeuf34vo" path="res://Resource/Sound/Horror Ambience (Free Background Music).mp3" id="3_1vqnn"]
+[ext_resource type="AudioStream" uid="uid://djjmbmeuf34vo" path="res://Resource/Music/Horror Ambience (Free Background Music).mp3" id="3_1vqnn"]
 [ext_resource type="Script" uid="uid://bh4v8brf8wdg2" path="res://Interface/Menu_Game/audio_control.gd" id="4_cnc36"]
 [ext_resource type="Script" uid="uid://c5sf27scwlt6h" path="res://Interface/Menu_Game/fullscreen_control.gd" id="5_7trak"]
 
