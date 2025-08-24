@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://cqvp6siwv82"]
 
-[ext_resource type="Texture2D" uid="uid://csr386k7018n1" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_6uywx"]
-[ext_resource type="Texture2D" uid="uid://nn14wx1qb8mj" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Tileset Ground_16.png" id="2_5b50y"]
+[ext_resource type="Texture2D" uid="uid://dhfqgmoav84di" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_6uywx"]
+[ext_resource type="Texture2D" uid="uid://bib7okbnkc0m5" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Tileset Ground_16.png" id="2_5b50y"]
 [ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="3_5b50y"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6uywx"]
@@ -718,3 +718,4 @@ tile_set = SubResource("TileSet_2ba5h")
 
 [node name="Knight" parent="." instance=ExtResource("3_5b50y")]
 position = Vector2(40, 520)
+gravity = 20.0
