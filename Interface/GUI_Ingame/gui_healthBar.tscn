@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl4017qkb7b8n"]
+
+[ext_resource type="Texture2D" uid="uid://v87qxeltp0iw" path="res://Interface/GUI_Ingame/HealthBar.png" id="1_rk8bo"]
+[ext_resource type="Texture2D" uid="uid://da6kn6i1lfr4" path="res://Interface/GUI_Ingame/Progress.png" id="2_7pkbe"]
+
+[node name="GUI" type="CanvasLayer"]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 14.0
+offset_top = 19.0
+offset_right = 373.0
+offset_bottom = 104.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_rk8bo")
+texture_progress = ExtResource("2_7pkbe")
