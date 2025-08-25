@@ -1,11 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://ptcb6lyi73id"]
+[gd_scene load_steps=36 format=3 uid="uid://ptcb6lyi73id"]
 
-[ext_resource type="Texture2D" uid="uid://cfw880siuswf6" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Idle.png" id="1_g1iqq"]
+[ext_resource type="Texture2D" uid="uid://bumyr5ge1u66y" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Idle.png" id="1_g1iqq"]
 [ext_resource type="Script" uid="uid://bt54mruv1y78m" path="res://Resource/Character/Player/player.gd" id="1_se16j"]
-[ext_resource type="Texture2D" uid="uid://bprhs1rkh0uen" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Jump.png" id="2_se16j"]
-[ext_resource type="Texture2D" uid="uid://7p1xyii6wkxf" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Run.png" id="3_pcn8h"]
-[ext_resource type="Texture2D" uid="uid://ca5m1vf4fvm4r" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Walk.png" id="4_b4ivt"]
-[ext_resource type="PackedScene" uid="uid://dl4017qkb7b8n" path="res://Interface/GUI_Ingame/gui_healthBar.tscn" id="6_4l7td"]
+[ext_resource type="Texture2D" uid="uid://cljc1j6pxjbua" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Jump.png" id="2_se16j"]
+[ext_resource type="Texture2D" uid="uid://5lqmu8qgar8a" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Run.png" id="3_pcn8h"]
+[ext_resource type="Texture2D" uid="uid://b67n2ppfinlfi" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Walk.png" id="4_b4ivt"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/health_component.tscn" id="6_b4ivt"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/hit_component.tscn" id="7_b4ivt"]
 
@@ -224,15 +223,6 @@ animation = &"Jump"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 16)
 shape = SubResource("CapsuleShape2D_sgc7k")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.75, 1.75)
-
-[node name="GUI" parent="Camera2D" instance=ExtResource("6_4l7td")]
-scale = Vector2(0.565, 0.565)
-transform = Transform2D(0.565, 0, 0, 0.565, 0, 0)
-follow_viewport_enabled = true
-follow_viewport_scale = 0.001
 
 [node name="HealthComponent" parent="." instance=ExtResource("6_b4ivt")]
 
