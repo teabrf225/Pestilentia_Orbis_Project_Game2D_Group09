@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=4 uid="uid://cqvp6siwv82"]
 
-[ext_resource type="Texture2D" uid="uid://ol0h781uvy7t" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_6uywx"]
-[ext_resource type="Texture2D" uid="uid://cy3lgicfs8uma" path="res://Asset/Map/Jungle/1.Backround.png" id="1_q1b8r"]
-[ext_resource type="Texture2D" uid="uid://bgsfcltn1treh" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_biglw"]
+[ext_resource type="Texture2D" uid="uid://csr386k7018n1" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_6uywx"]
+[ext_resource type="Texture2D" uid="uid://b54and4cyarb2" path="res://Asset/Map/Jungle/1.Backround.png" id="1_q1b8r"]
+[ext_resource type="Texture2D" uid="uid://dsi5h5a2iu2t8" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_biglw"]
 [ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="3_5b50y"]
-[ext_resource type="Texture2D" uid="uid://d3gjo3xtnlxqp" path="res://Asset/Map/Jungle/3.Trees_front.png" id="3_unruh"]
-[ext_resource type="Texture2D" uid="uid://gabd0eg22i6u" path="res://Asset/Map/Jungle/4.Ground.png" id="4_r2ywe"]
-[ext_resource type="Texture2D" uid="uid://bg14rkc3cn4js" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="6_kn21a"]
+[ext_resource type="Texture2D" uid="uid://dgw552e7slgc4" path="res://Asset/Map/Jungle/3.Trees_front.png" id="3_unruh"]
+[ext_resource type="Texture2D" uid="uid://dm5bqr5il247w" path="res://Asset/Map/Jungle/4.Ground.png" id="4_r2ywe"]
+[ext_resource type="Texture2D" uid="uid://l3v65ix684gu" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="6_kn21a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6uywx"]
 

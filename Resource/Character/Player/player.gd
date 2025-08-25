@@ -5,9 +5,11 @@ extends CharacterBody2D
 @export_category("Player Properties") # You can tweak these changes according to your likings
 @export var move_speed : float = 350
 @export var jump_force : float = 600
-@export var gravity : float = 10
+@export var gravity : float = 25
 @export var max_jump_count : int = 2
 var jump_count : int = 2
+
+
 
 @export_category("Toggle Functions") # Double jump feature is disable by default (Can be toggled from inspector)
 @export var double_jump : = false
