@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfdwgq4sgixi5"]
+
+[ext_resource type="Script" uid="uid://ddfpthb5i8jpe" path="res://Management/hit_component.gd" id="1_ho52x"]
+
+[node name="HitComponent" type="Area2D"]
+script = ExtResource("1_ho52x")
