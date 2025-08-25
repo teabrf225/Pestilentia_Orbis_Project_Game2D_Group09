@@ -12,6 +12,9 @@ var jump_count : int = 2
 @export_category("Toggle Functions") # Double jump feature is disable by default (Can be toggled from inspector)
 @export var double_jump : = false
 
+#--------Inventory--------
+@export var inv:Inv
+
 var is_grounded : bool = false
 #@onready var player_sprite = $Player1
 @onready var spawn_point = %SpawnPoint

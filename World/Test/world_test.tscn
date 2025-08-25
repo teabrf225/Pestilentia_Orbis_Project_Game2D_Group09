@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=4 uid="uid://dlhjieromwo4r"]
 
-[ext_resource type="Texture2D" uid="uid://cy3lgicfs8uma" path="res://Asset/Map/Jungle/1.Backround.png" id="1_88t1m"]
-[ext_resource type="Texture2D" uid="uid://bgsfcltn1treh" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_ioul8"]
-[ext_resource type="Texture2D" uid="uid://d3gjo3xtnlxqp" path="res://Asset/Map/Jungle/3.Trees_front.png" id="3_8ujth"]
-[ext_resource type="Texture2D" uid="uid://gabd0eg22i6u" path="res://Asset/Map/Jungle/4.Ground.png" id="4_lfcpg"]
-[ext_resource type="Texture2D" uid="uid://ol0h781uvy7t" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="5_oaxnm"]
-[ext_resource type="Texture2D" uid="uid://bg14rkc3cn4js" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="6_s8a55"]
+[ext_resource type="Texture2D" uid="uid://cr5t2gl37g5dp" path="res://Asset/Map/Jungle/1.Backround.png" id="1_88t1m"]
+[ext_resource type="Texture2D" uid="uid://b46bgm78vohxw" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_ioul8"]
+[ext_resource type="Texture2D" uid="uid://dcptlr8g6pk6c" path="res://Asset/Map/Jungle/3.Trees_front.png" id="3_8ujth"]
+[ext_resource type="Texture2D" uid="uid://ni488ddi3ldj" path="res://Asset/Map/Jungle/4.Ground.png" id="4_lfcpg"]
+[ext_resource type="Texture2D" uid="uid://tevbmbylg34g" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="5_oaxnm"]
+[ext_resource type="Texture2D" uid="uid://d128832o8gys2" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="6_s8a55"]
 [ext_resource type="PackedScene" uid="uid://bwtvdbrcjbq03" path="res://Resource/Trap/wood_spear.tscn" id="7_6oi5g"]
 [ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="8_g2w0k"]
 
@@ -1068,4 +1068,4 @@ position = Vector2(872, 777)
 position = Vector2(920, 777)
 
 [node name="Knight" parent="." instance=ExtResource("8_g2w0k")]
-position = Vector2(331, 699)
+position = Vector2(337, 711)

@@ -1,10 +1,12 @@
-[gd_scene load_steps=33 format=3 uid="uid://ptcb6lyi73id"]
+[gd_scene load_steps=35 format=3 uid="uid://ptcb6lyi73id"]
 
-[ext_resource type="Texture2D" uid="uid://cfw880siuswf6" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Idle.png" id="1_g1iqq"]
+[ext_resource type="Texture2D" uid="uid://b1jm5a44j22ri" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Idle.png" id="1_g1iqq"]
 [ext_resource type="Script" uid="uid://bt54mruv1y78m" path="res://Resource/Character/Player/player.gd" id="1_se16j"]
-[ext_resource type="Texture2D" uid="uid://bprhs1rkh0uen" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Jump.png" id="2_se16j"]
-[ext_resource type="Texture2D" uid="uid://7p1xyii6wkxf" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Run.png" id="3_pcn8h"]
-[ext_resource type="Texture2D" uid="uid://ca5m1vf4fvm4r" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Walk.png" id="4_b4ivt"]
+[ext_resource type="Resource" uid="uid://unqfhhyqot7s" path="res://Interface/Inventory/player_inv.tres" id="2_pcn8h"]
+[ext_resource type="Texture2D" uid="uid://dx0lcsxbxk1jq" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Jump.png" id="2_se16j"]
+[ext_resource type="Texture2D" uid="uid://bguehhi4wam2f" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Run.png" id="3_pcn8h"]
+[ext_resource type="Texture2D" uid="uid://bu5vrd1tldy6d" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Walk.png" id="4_b4ivt"]
+[ext_resource type="PackedScene" uid="uid://15an63hko4s0" path="res://Interface/Inventory/inv_ui.tscn" id="7_b4ivt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4l7td"]
 atlas = ExtResource("1_g1iqq")
@@ -210,6 +212,7 @@ height = 62.0
 
 [node name="Knight" type="CharacterBody2D"]
 script = ExtResource("1_se16j")
+inv = ExtResource("2_pcn8h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eyaih")
@@ -221,3 +224,9 @@ shape = SubResource("CapsuleShape2D_sgc7k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.75, 1.75)
+
+[node name="Inv_UI" parent="." instance=ExtResource("7_b4ivt")]
+offset_left = -37.0
+offset_top = 63.0
+offset_right = 38.0
+offset_bottom = 141.0
