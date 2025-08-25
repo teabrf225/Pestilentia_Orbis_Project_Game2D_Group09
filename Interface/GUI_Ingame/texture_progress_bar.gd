@@ -1,9 +1,8 @@
 extends TextureProgressBar
 
-@export var player:Player
-
-func _ready() -> void:
-		player.healthChanged.connect(update)
+#func _ready() -> void:
+		#player.healthChanged.connect(update)
+		#player.health_player.connect(update(player.health_player))
 		
-func update():
-	value = player.currentHealth * 100 / player.maxHealth
+#func update(health_player):
+	#value = health_player * 100 / player.maxHealth

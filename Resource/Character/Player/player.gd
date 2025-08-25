@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 # --------- VARIABLES ---------- #
 
 @export_category("Player Properties") # You can tweak these changes according to your likings
@@ -19,10 +19,11 @@ var is_grounded : bool = false
 @onready var spawn_point = %SpawnPoint
 @onready var particle_trails = $ParticleTrails
 @onready var death_particles = $DeathParticles
-
+@onready var health_player = $HealthComponent.health
 # --------- BUILT-IN FUNCTIONS ---------- #
 
 func _process(_delta):
+	#print("Hp now: ",health_player)
 	# Calling functions
 	movement()
 	player_animations()

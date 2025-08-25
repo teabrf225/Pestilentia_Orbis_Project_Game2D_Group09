@@ -13,7 +13,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("test_world") and Global.debug_mode:
 		SceneTransitions.transition()
 		await SceneTransitions.on_animation_finished
-		#get_tree().change_scene_to_file("res://World/Forest_day/forest_day.tscn")
 		var loading_scene = load("res://World/Test/world_test.tscn")
 		get_tree().change_scene_to_packed(loading_scene)
 
