@@ -14,6 +14,7 @@ config/name="Pestilentia Orbis"
 config/tags=PackedStringArray("2d", "demo")
 run/main_scene="uid://bcmvkkx6ovlfh"
 config/features=PackedStringArray("4.4", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [audio]
