@@ -1,12 +1,13 @@
 [gd_scene load_steps=76 format=3 uid="uid://ptcb6lyi73id"]
 
-[ext_resource type="Texture2D" uid="uid://cfw880siuswf6" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Idle.png" id="1_g1iqq"]
+[ext_resource type="Texture2D" uid="uid://b1jm5a44j22ri" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Idle.png" id="1_g1iqq"]
 [ext_resource type="Script" uid="uid://bt54mruv1y78m" path="res://Resource/Character/Player/player.gd" id="1_se16j"]
 [ext_resource type="Texture2D" uid="uid://i61o1x1ip185" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Attack 1.png" id="2_bj4lk"]
-[ext_resource type="Texture2D" uid="uid://bprhs1rkh0uen" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Jump.png" id="2_se16j"]
-[ext_resource type="Texture2D" uid="uid://7p1xyii6wkxf" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Run.png" id="3_pcn8h"]
+[ext_resource type="Resource" uid="uid://unqfhhyqot7s" path="res://Interface/Inventory/player_inv.tres" id="2_pcn8h"]
+[ext_resource type="Texture2D" uid="uid://dx0lcsxbxk1jq" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Jump.png" id="2_se16j"]
+[ext_resource type="Texture2D" uid="uid://bguehhi4wam2f" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Run.png" id="3_pcn8h"]
 [ext_resource type="Texture2D" uid="uid://524ar4dc7tau" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Attack 2.png" id="3_xb124"]
-[ext_resource type="Texture2D" uid="uid://ca5m1vf4fvm4r" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Walk.png" id="4_b4ivt"]
+[ext_resource type="Texture2D" uid="uid://bu5vrd1tldy6d" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Walk.png" id="4_b4ivt"]
 [ext_resource type="Texture2D" uid="uid://cdwp1gyemeppc" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Attack 3.png" id="4_jyudf"]
 [ext_resource type="Texture2D" uid="uid://d3bgk4chynjrn" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Dead.png" id="5_bq3od"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/health_component.tscn" id="6_b4ivt"]
@@ -115,6 +116,7 @@ region = Rect2(7, 0, 47, 86)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xuyea"]
 atlas = ExtResource("7_xxdgw")
 region = Rect2(85, 0, 47, 86)
+[ext_resource type="PackedScene" uid="uid://15an63hko4s0" path="res://Interface/Inventory/inv_ui.tscn" id="7_b4ivt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4l7td"]
 atlas = ExtResource("1_g1iqq")
@@ -483,6 +485,7 @@ hit_component = NodePath("HitComponent")
 attack_component = NodePath("AttackComponet")
 attack_collision = NodePath("AttackComponet/CollisionShape2D")
 combo_time = 0.75
+inv = ExtResource("2_pcn8h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eyaih")
@@ -521,3 +524,9 @@ debug_color = Color(0.957204, 0, 0.533834, 0.42)
 one_shot = true
 
 [connection signal="hit_knockback" from="HitComponent" to="." method="_on_hit_component_hit_knockback"]
+
+[node name="Inv_UI" parent="." instance=ExtResource("7_b4ivt")]
+offset_left = -37.0
+offset_top = 63.0
+offset_right = 38.0
+offset_bottom = 141.0
