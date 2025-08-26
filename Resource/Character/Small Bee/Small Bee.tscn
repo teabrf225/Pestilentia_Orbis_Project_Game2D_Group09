@@ -1,0 +1,137 @@
+[gd_scene load_steps=21 format=3 uid="uid://bqk5ot8usv1hw"]
+
+[ext_resource type="Texture2D" uid="uid://d5trpveaghky" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Attack/Attack-Sheet.png" id="1_ofxg2"]
+[ext_resource type="Texture2D" uid="uid://dqv15k8vrh3py" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Fly/Fly-Sheet.png" id="2_vckj8"]
+[ext_resource type="Texture2D" uid="uid://yy1ty3386xa2" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Hit/Hit-Sheet.png" id="3_v77tc"]
+[ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/health_component.tscn" id="4_bf1v7"]
+[ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/hit_component.tscn" id="5_dmnft"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0f35"]
+atlas = ExtResource("1_ofxg2")
+region = Rect2(0, 0, 57, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pptub"]
+atlas = ExtResource("1_ofxg2")
+region = Rect2(65, 0, 57, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78tto"]
+atlas = ExtResource("1_ofxg2")
+region = Rect2(131, 0, 57, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccxjf"]
+atlas = ExtResource("1_ofxg2")
+region = Rect2(198, 0, 57, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnbmn"]
+atlas = ExtResource("2_vckj8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or8xx"]
+atlas = ExtResource("2_vckj8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7ig6"]
+atlas = ExtResource("2_vckj8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gw5q"]
+atlas = ExtResource("2_vckj8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hko6l"]
+atlas = ExtResource("3_v77tc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prr7f"]
+atlas = ExtResource("3_v77tc")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyc37"]
+atlas = ExtResource("3_v77tc")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1qtf"]
+atlas = ExtResource("3_v77tc")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vvpdx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0f35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pptub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78tto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccxjf")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnbmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or8xx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7ig6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gw5q")
+}],
+"loop": true,
+"name": &"Fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hko6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prr7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyc37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1qtf")
+}],
+"loop": true,
+"name": &"Hit",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ofxg2"]
+radius = 30.0
+height = 84.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vckj8"]
+radius = 40.0
+height = 108.0
+
+[node name="SmallBee" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_vvpdx")
+animation = &"Hit"
+frame_progress = 0.0453226
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ofxg2")
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_bf1v7")]
+
+[node name="HitComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_dmnft")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
+shape = SubResource("CapsuleShape2D_vckj8")
+debug_color = Color(0, 0.647986, 0.195116, 0.42)
