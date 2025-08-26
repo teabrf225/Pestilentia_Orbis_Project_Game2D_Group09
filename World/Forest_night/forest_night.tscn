@@ -1,18 +1,26 @@
-[gd_scene load_steps=23 format=4 uid="uid://cqvp6siwv82"]
+[gd_scene load_steps=31 format=4 uid="uid://cow2gjoks02t3"]
 
-[ext_resource type="Texture2D" uid="uid://bpqo7clss1a1b" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_6uywx"]
-[ext_resource type="Texture2D" uid="uid://bcrkdnn381ibs" path="res://Asset/Map/Jungle/1.Backround.png" id="1_q1b8r"]
-[ext_resource type="Texture2D" uid="uid://cbhuvm62dbhqd" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_biglw"]
-[ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="3_5b50y"]
-[ext_resource type="Texture2D" uid="uid://dqyk6h75blhho" path="res://Asset/Map/Jungle/3.Trees_front.png" id="3_unruh"]
-[ext_resource type="Texture2D" uid="uid://dif0xwrye3hpl" path="res://Asset/Map/Jungle/4.Ground.png" id="4_r2ywe"]
-[ext_resource type="Texture2D" uid="uid://drxi4den42x36" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="6_kn21a"]
-[ext_resource type="Texture2D" uid="uid://chjd1baptsl2u" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="6_unruh"]
-[ext_resource type="Texture2D" uid="uid://ctrl2d60pawk1" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="7_r2ywe"]
-[ext_resource type="PackedScene" uid="uid://dl4017qkb7b8n" path="res://Interface/GUI_Ingame/gui_healthBar.tscn" id="10_r2ywe"]
+[ext_resource type="Texture2D" uid="uid://b501rxc317wt6" path="res://Asset/Map/forest_night_layers/Layer_0011_0.png" id="1_35oa0"]
+[ext_resource type="Texture2D" uid="uid://bsog6l32xxcyt" path="res://Asset/Map/forest_night_layers/Layer_0010_1.png" id="2_263js"]
+[ext_resource type="Texture2D" uid="uid://cke87ab5rsubc" path="res://Asset/Map/forest_night_layers/Layer_0009_2.png" id="3_ebbgy"]
+[ext_resource type="Texture2D" uid="uid://bm4bm1oggc1c6" path="res://Asset/Map/forest_night_layers/Layer_0008_3.png" id="4_pkcsb"]
+[ext_resource type="Texture2D" uid="uid://cr04bon1n41gw" path="res://Asset/Map/forest_night_layers/Layer_0007_Lights.png" id="5_cqug0"]
+[ext_resource type="Texture2D" uid="uid://h60ij1tlfmo2" path="res://Asset/Map/forest_night_layers/Layer_0006_4.png" id="6_jnm1t"]
+[ext_resource type="Texture2D" uid="uid://cfh781o3wprvf" path="res://Asset/Map/forest_night_layers/Layer_0005_5.png" id="7_wvlmc"]
+[ext_resource type="Texture2D" uid="uid://bm4im7wq2a1ca" path="res://Asset/Map/forest_night_layers/Layer_0004_Lights.png" id="8_hnfc2"]
+[ext_resource type="Texture2D" uid="uid://baejpm63778wa" path="res://Asset/Map/forest_night_layers/Layer_0003_6.png" id="9_8pukk"]
+[ext_resource type="Texture2D" uid="uid://d0ksyeavnibet" path="res://Asset/Map/forest_night_layers/Layer_0002_7.png" id="10_hwxkb"]
+[ext_resource type="Texture2D" uid="uid://llv5xoq3jhuy" path="res://Asset/Map/forest_night_layers/Layer_0001_8.png" id="11_dxoe6"]
+[ext_resource type="Texture2D" uid="uid://cyimaonfaq6qg" path="res://Asset/Map/forest_night_layers/Layer_0000_9.png" id="12_0ixls"]
+[ext_resource type="Texture2D" uid="uid://ctrl2d60pawk1" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="13_yrcl6"]
+[ext_resource type="Texture2D" uid="uid://bpqo7clss1a1b" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="14_v5nps"]
+[ext_resource type="Texture2D" uid="uid://chjd1baptsl2u" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="15_laoyc"]
+[ext_resource type="Texture2D" uid="uid://drxi4den42x36" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="16_7vjmw"]
+[ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="17_1ocnr"]
+[ext_resource type="PackedScene" uid="uid://dl4017qkb7b8n" path="res://Interface/GUI_Ingame/gui_healthBar.tscn" id="18_e52jd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0p7ir"]
-texture = ExtResource("7_r2ywe")
+texture = ExtResource("13_yrcl6")
 26:0/0 = 0
 27:0/0 = 0
 44:0/0 = 0
@@ -1323,7 +1331,7 @@ texture = ExtResource("7_r2ywe")
 56:61/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nekhh"]
-texture = ExtResource("1_6uywx")
+texture = ExtResource("14_v5nps")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1790,7 +1798,7 @@ texture = ExtResource("1_6uywx")
 19:24/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jrng8"]
-texture = ExtResource("6_unruh")
+texture = ExtResource("15_laoyc")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -2083,7 +2091,7 @@ sources/1 = SubResource("TileSetAtlasSource_nekhh")
 sources/2 = SubResource("TileSetAtlasSource_jrng8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kn21a"]
-texture = ExtResource("1_6uywx")
+texture = ExtResource("14_v5nps")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -2550,7 +2558,7 @@ texture = ExtResource("1_6uywx")
 19:24/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ku6dd"]
-texture = ExtResource("6_unruh")
+texture = ExtResource("15_laoyc")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -2838,7 +2846,7 @@ texture = ExtResource("6_unruh")
 18:23/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q8t2n"]
-texture = ExtResource("7_r2ywe")
+texture = ExtResource("13_yrcl6")
 26:0/0 = 0
 27:0/0 = 0
 44:0/0 = 0
@@ -4156,7 +4164,7 @@ sources/2 = SubResource("TileSetAtlasSource_q8t2n")
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q1b8r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_biglw"]
-texture = ExtResource("1_6uywx")
+texture = ExtResource("14_v5nps")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -4684,7 +4692,7 @@ texture = ExtResource("1_6uywx")
 19:24/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_unruh"]
-texture = ExtResource("6_kn21a")
+texture = ExtResource("16_7vjmw")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -5157,44 +5165,112 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_q1b8r")
 sources/0 = SubResource("TileSetAtlasSource_biglw")
 sources/2 = SubResource("TileSetAtlasSource_unruh")
 
-[node name="Forest_day" type="Node2D"]
+[node name="Forest_night" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(1600, 0)
+motion_mirroring = Vector2(1577, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(800, 450)
-scale = Vector2(5, 5)
-texture = ExtResource("1_q1b8r")
+position = Vector2(789.8, 189.05)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("1_35oa0")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0, 1)
-motion_mirroring = Vector2(1600, 0)
+motion_mirroring = Vector2(1577, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(800, 450)
-scale = Vector2(5, 5)
-texture = ExtResource("2_biglw")
+position = Vector2(789.8, 189.05)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("2_263js")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.1, 1)
-motion_mirroring = Vector2(1600, 0)
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(1577, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2(800, 450)
-scale = Vector2(5, 5)
-texture = ExtResource("3_unruh")
+position = Vector2(789.8, 189.05)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("3_ebbgy")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.2, 1)
-motion_mirroring = Vector2(1600, 0)
+motion_scale = Vector2(0.85, 1)
+motion_mirroring = Vector2(1577, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
-position = Vector2(803, 448)
-scale = Vector2(5, 5)
-texture = ExtResource("4_r2ywe")
+position = Vector2(789.8, 188.05)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("4_pkcsb")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.94, 1)
+motion_mirroring = Vector2(1577, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2(790, 189)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("5_cqug0")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.825, 1)
+motion_mirroring = Vector2(1577, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+position = Vector2(789.8, 188.05)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("6_jnm1t")
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.875, 1)
+motion_mirroring = Vector2(1577, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+position = Vector2(789.8, 188.05)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("7_wvlmc")
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.96, 1)
+motion_mirroring = Vector2(1577, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8"]
+position = Vector2(790, 189)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("8_hnfc2")
+
+[node name="ParallaxLayer9" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.95, 1)
+motion_mirroring = Vector2(1577, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer9"]
+position = Vector2(790, 189)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("9_8pukk")
+
+[node name="ParallaxLayer10" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1577, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer10"]
+position = Vector2(790, 189)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("10_hwxkb")
+
+[node name="ParallaxLayer11" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1577, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer11"]
+position = Vector2(790, 189)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("11_dxoe6")
+
+[node name="ParallaxLayer12" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1577, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer12"]
+position = Vector2(790, 189)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("12_0ixls")
 
 [node name="Decoration" type="ParallaxLayer" parent="ParallaxBackground"]
 
@@ -5224,13 +5300,13 @@ layer = 1
 tile_map_data = PackedByteArray("AAD5AB0AAQARABMAAAD5AB4AAQARABQAAAD5AB8AAQARABUAAAD6AB0AAQASABMAAAD6AB4AAQASABQAAAD6AB8AAQASABUAAAAEAR0AAQARABMAAAAEAR4AAQARABQAAAAEAR8AAQARABUAAAAFAR0AAQASABMAAAAFAR4AAQASABQAAAAFAR8AAQASABUAAAAXAR0AAQARABMAAAAXAR4AAQARABQAAAAXAR8AAQARABUAAAAYAR0AAQASABMAAAAYAR4AAQASABQAAAAYAR8AAQASABUAAAAlAR0AAQARABMAAAAlAR4AAQARABQAAAAlAR8AAQARABUAAAAmAR0AAQASABMAAAAmAR4AAQASABQAAAAmAR8AAQASABUAAAAfAR0AAQATABMAAAAfAR4AAQATABQAAAAfAR8AAQATABUAAAAgAR0AAQAUABMAAAAgAR4AAQAUABQAAAAgAR8AAQAUABUAAAAQAR0AAQATABMAAAAQAR4AAQATABQAAAAQAR8AAQATABUAAAARAR0AAQAUABMAAAARAR4AAQAUABQAAAARAR8AAQAUABUAAAD/AB0AAQATABMAAAD/AB4AAQATABQAAAD/AB8AAQATABUAAAAAAR0AAQAUABMAAAAAAR4AAQAUABQAAAAAAR8AAQAUABUAAADDAC4AAQARAAEAAADDAC8AAQARAAIAAADEAC4AAQASAAEAAADEAC8AAQASAAIAAADFAC0AAQATAAAAAADFAC4AAQATAAEAAADFAC8AAQATAAIAAADGAC0AAQAUAAAAAADGAC4AAQAUAAEAAADGAC8AAQAUAAIAAADHAC0AAQAVAAAAAADHAC4AAQAVAAEAAADHAC8AAQAVAAIAAADIAC0AAQAWAAAAAADIAC4AAQAWAAEAAADIAC8AAQAWAAIAAADJAC4AAQAXAAEAAADJAC8AAQAXAAIAAADKAC4AAQAYAAEAAADKAC8AAQAYAAIAAAApAC4AAQARAAEAAAApAC8AAQARAAIAAAAqAC4AAQASAAEAAAAqAC8AAQASAAIAAAArAC0AAQATAAAAAAArAC4AAQATAAEAAAArAC8AAQATAAIAAAAsAC0AAQAUAAAAAAAsAC4AAQAUAAEAAAAsAC8AAQAUAAIAAAAtAC0AAQAVAAAAAAAtAC4AAQAVAAEAAAAtAC8AAQAVAAIAAAAuAC0AAQAWAAAAAAAuAC4AAQAWAAEAAAAuAC8AAQAWAAIAAAAvAC4AAQAXAAEAAAAvAC8AAQAXAAIAAAAwAC4AAQAYAAEAAAAwAC8AAQAYAAIAAAA=")
 tile_set = SubResource("TileSet_jrng8")
 
-[node name="Knight" parent="." instance=ExtResource("3_5b50y")]
-position = Vector2(384, 687)
+[node name="Knight" parent="." instance=ExtResource("17_1ocnr")]
+position = Vector2(377, 688)
 
 [node name="Camera2D2" type="Camera2D" parent="Knight"]
 zoom = Vector2(1.75, 1.75)
 
-[node name="GUI" parent="Knight/Camera2D2" instance=ExtResource("10_r2ywe")]
+[node name="GUI" parent="Knight/Camera2D2" instance=ExtResource("18_e52jd")]
 scale = Vector2(0.565, 0.565)
 transform = Transform2D(0.565, 0, 0, 0.565, 0, 0)
 follow_viewport_enabled = true
