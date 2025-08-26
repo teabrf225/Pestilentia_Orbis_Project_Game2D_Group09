@@ -1,0 +1,144 @@
+[gd_scene load_steps=22 format=3 uid="uid://bym7jmphv7rcx"]
+
+[ext_resource type="Texture2D" uid="uid://1o75hbfjkl2s" path="res://Asset/Character/King_Slime_attack.png" id="1_uqtad"]
+[ext_resource type="Texture2D" uid="uid://c8r2jjnyokp78" path="res://Asset/Character/King_Slime_Death.png" id="2_1du1x"]
+[ext_resource type="Texture2D" uid="uid://gfv1ecplxpqf" path="res://Asset/Character/KIng_Slime_Idle.png" id="2_rnh8y"]
+[ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/health_component.tscn" id="3_1du1x"]
+[ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/hit_component.tscn" id="4_pfi6w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh86y"]
+atlas = ExtResource("1_uqtad")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfx6w"]
+atlas = ExtResource("1_uqtad")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8xv5"]
+atlas = ExtResource("1_uqtad")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78f7f"]
+atlas = ExtResource("1_uqtad")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlp47"]
+atlas = ExtResource("1_uqtad")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfi6w"]
+atlas = ExtResource("2_1du1x")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cil35"]
+atlas = ExtResource("2_1du1x")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acg8c"]
+atlas = ExtResource("2_1du1x")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov7ah"]
+atlas = ExtResource("2_1du1x")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfkrr"]
+atlas = ExtResource("2_rnh8y")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uosw"]
+atlas = ExtResource("2_rnh8y")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd16w"]
+atlas = ExtResource("2_rnh8y")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcv8y"]
+atlas = ExtResource("2_rnh8y")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cil35"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rh86y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfx6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8xv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78f7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlp47")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfi6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cil35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acg8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ov7ah")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfkrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uosw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd16w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcv8y")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x6bi8"]
+radius = 34.0
+height = 102.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1d1sv"]
+size = Vector2(79, 107.75)
+
+[node name="KingSlime" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cil35")
+animation = &"Idle"
+frame_progress = 0.486513
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 0)
+shape = SubResource("CapsuleShape2D_x6bi8")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_1du1x")]
+
+[node name="HitComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_pfi6w")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
+position = Vector2(4.5, 0.125)
+shape = SubResource("RectangleShape2D_1d1sv")
+debug_color = Color(0, 0.645862, 0.250595, 0.42)
