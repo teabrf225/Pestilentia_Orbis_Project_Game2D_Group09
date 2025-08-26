@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://cpoln6dmnrc11"]
-
-[node name="Base_BackGround_Test" type="Node2D"]
-
-[node name="TileMapLayer" type="TileMapLayer" parent="."]

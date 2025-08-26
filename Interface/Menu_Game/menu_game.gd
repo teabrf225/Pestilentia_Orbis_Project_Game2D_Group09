@@ -9,7 +9,7 @@ func _ready() -> void:
 	Options.visible = false
 	Credits.visible = false
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("test_world") and Global.debug_mode:
 		SceneTransitions.transition()
 		await SceneTransitions.on_animation_finished

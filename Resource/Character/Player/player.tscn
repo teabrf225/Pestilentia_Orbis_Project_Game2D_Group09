@@ -1,19 +1,20 @@
-[gd_scene load_steps=74 format=3 uid="uid://ptcb6lyi73id"]
+[gd_scene load_steps=76 format=3 uid="uid://ptcb6lyi73id"]
 
-[ext_resource type="Texture2D" uid="uid://bg71bsu22wy38" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Idle.png" id="1_g1iqq"]
+[ext_resource type="Texture2D" uid="uid://cfw880siuswf6" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Idle.png" id="1_g1iqq"]
 [ext_resource type="Script" uid="uid://bt54mruv1y78m" path="res://Resource/Character/Player/player.gd" id="1_se16j"]
-[ext_resource type="Texture2D" uid="uid://bocwmke087i0s" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Attack 1.png" id="2_bj4lk"]
-[ext_resource type="Texture2D" uid="uid://crm4ch7stbi6g" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Jump.png" id="2_se16j"]
-[ext_resource type="Texture2D" uid="uid://deabyoh2nk4mu" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Run.png" id="3_pcn8h"]
-[ext_resource type="Texture2D" uid="uid://g36vm085dcbm" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Attack 2.png" id="3_xb124"]
-[ext_resource type="Texture2D" uid="uid://b7hc8jj587too" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Walk.png" id="4_b4ivt"]
-[ext_resource type="Texture2D" uid="uid://70biun88ptmw" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Attack 3.png" id="4_jyudf"]
-[ext_resource type="Texture2D" uid="uid://drk78nilgoxr8" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Dead.png" id="5_bq3od"]
+[ext_resource type="Texture2D" uid="uid://i61o1x1ip185" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Attack 1.png" id="2_bj4lk"]
+[ext_resource type="Texture2D" uid="uid://bprhs1rkh0uen" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Jump.png" id="2_se16j"]
+[ext_resource type="Texture2D" uid="uid://7p1xyii6wkxf" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Run.png" id="3_pcn8h"]
+[ext_resource type="Texture2D" uid="uid://524ar4dc7tau" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Attack 2.png" id="3_xb124"]
+[ext_resource type="Texture2D" uid="uid://ca5m1vf4fvm4r" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Walk.png" id="4_b4ivt"]
+[ext_resource type="Texture2D" uid="uid://cdwp1gyemeppc" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Attack 3.png" id="4_jyudf"]
+[ext_resource type="Texture2D" uid="uid://d3bgk4chynjrn" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Dead.png" id="5_bq3od"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/health_component.tscn" id="6_b4ivt"]
-[ext_resource type="Texture2D" uid="uid://bv7y0dstdgnnm" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Defend.png" id="6_n0jxm"]
+[ext_resource type="Texture2D" uid="uid://dop6ml3npunie" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Defend.png" id="6_n0jxm"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/hit_component.tscn" id="7_b4ivt"]
-[ext_resource type="Texture2D" uid="uid://b21inadjtlec6" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Hurt.png" id="7_xxdgw"]
-[ext_resource type="Texture2D" uid="uid://chghj1vfyjmi3" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Run+Attack.png" id="11_xxdgw"]
+[ext_resource type="Texture2D" uid="uid://p8qia6noh16x" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Hurt.png" id="7_xxdgw"]
+[ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/attack_componet.tscn" id="8_4l7td"]
+[ext_resource type="Texture2D" uid="uid://c7miwdo5yggr8" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Run+Attack.png" id="11_xxdgw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eyaih"]
 atlas = ExtResource("2_bj4lk")
@@ -257,7 +258,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l4myo")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack1",
 "speed": 7.0
 }, {
@@ -274,7 +275,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lujbi")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack2",
 "speed": 7.0
 }, {
@@ -288,7 +289,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_exfrs")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack3",
 "speed": 5.0
 }, {
@@ -431,7 +432,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hxf6f")
 }],
-"loop": true,
+"loop": false,
 "name": &"Run+Attack",
 "speed": 5.0
 }, {
@@ -472,27 +473,51 @@ height = 62.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4l7td"]
 size = Vector2(44, 71)
 
-[node name="Knight" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bj4lk"]
+size = Vector2(71, 30.5)
+
+[node name="Knight" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision")]
 script = ExtResource("1_se16j")
+health_component = NodePath("HealthComponent")
+hit_component = NodePath("HitComponent")
+attack_component = NodePath("AttackComponet")
+attack_collision = NodePath("AttackComponet/CollisionShape2D")
+combo_time = 0.75
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eyaih")
-animation = &"Run+Attack"
-frame_progress = 0.249704
+animation = &"Attack1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 16)
 shape = SubResource("CapsuleShape2D_sgc7k")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.75, 1.75)
-
 [node name="HealthComponent" parent="." instance=ExtResource("6_b4ivt")]
 
 [node name="HitComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_b4ivt")]
 health_component = NodePath("../HealthComponent")
+knockback = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HitComponent"]
 position = Vector2(0, 12.5)
 shape = SubResource("RectangleShape2D_4l7td")
 debug_color = Color(0.275072, 0.632076, 5.77569e-07, 0.42)
+
+[node name="AttackComponet" parent="." instance=ExtResource("8_4l7td")]
+damage = 30.0
+knockback = 100
+type_entity = "player"
+use_crit = true
+crit_rate = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponet"]
+position = Vector2(25.75, 12.5)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_bj4lk")
+one_way_collision_margin = 0.0
+debug_color = Color(0.957204, 0, 0.533834, 0.42)
+
+[node name="Combo_Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="hit_knockback" from="HitComponent" to="." method="_on_hit_component_hit_knockback"]

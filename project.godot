@@ -23,13 +23,12 @@ buses/default_bus_layout="res://Management/default_bus_layout.tres"
 
 [autoload]
 
-SceneNavigate="*res://Management/scene_navigate.gd"
-SceneTransitions="*res://Resource/Transitions/scene_transitions.tscn"
 Global="*res://Management/Global.gd"
+SceneTransitions="*res://Resource/Transitions/scene_transitions.tscn"
 
 [display]
 
-window/size/mode=3
+window/size/mode=1
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
@@ -57,6 +56,12 @@ Jump={
 test_world={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":59,"key_label":0,"unicode":59,"location":0,"echo":false,"script":null)
+]
+}
+Attack={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(192, 22),"global_position":Vector2(201, 70),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":74,"key_label":0,"unicode":106,"location":0,"echo":false,"script":null)
 ]
 }
 

@@ -108,7 +108,6 @@ theme_override_font_sizes/font_size = 80
 text = "Pestilentia Orbis"
 
 [node name="Options" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.607
@@ -212,11 +211,11 @@ offset_right = 173.0
 offset_bottom = 317.0
 theme_override_fonts/font = ExtResource("3_q67qq")
 theme_override_font_sizes/font_size = 35
-button_pressed = true
 text = "Fullscreen"
 script = ExtResource("5_7trak")
 
 [node name="Credits" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.607
