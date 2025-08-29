@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmmax87lhujuw"]
+
+[ext_resource type="Texture2D" uid="uid://14efkmf6ctfr" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/health_liear_bar_over.png" id="1_3mpy4"]
+[ext_resource type="Texture2D" uid="uid://b7ha6hg6salhv" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/health_liear_bar.png" id="2_11xld"]
+[ext_resource type="Texture2D" uid="uid://ditrmyu5eahuq" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/health_linear_bar_under.png" id="3_6l6qv"]
+[ext_resource type="Script" uid="uid://cxhk51mabpyrp" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/health_liear_bar.gd" id="3_11xld"]
+[ext_resource type="Texture2D" uid="uid://bhkeo58vsfftc" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/haelth_liear_damage_bar.png" id="4_4b08p"]
+
+[node name="Health_liear_bar" type="TextureProgressBar" node_paths=PackedStringArray("damage_bar", "timer")]
+offset_left = 64.0
+offset_top = 17.0
+offset_right = 437.66
+offset_bottom = 57.0
+value = 75.0
+nine_patch_stretch = true
+texture_over = ExtResource("1_3mpy4")
+texture_progress = ExtResource("2_11xld")
+script = ExtResource("3_11xld")
+damage_bar = NodePath("Damage_liear_bar")
+timer = NodePath("Timer")
+
+[node name="Damage_liear_bar" type="TextureProgressBar" parent="."]
+z_index = -1
+layout_mode = 0
+offset_right = 373.66
+offset_bottom = 40.0
+value = 90.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_6l6qv")
+texture_progress = ExtResource("4_4b08p")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

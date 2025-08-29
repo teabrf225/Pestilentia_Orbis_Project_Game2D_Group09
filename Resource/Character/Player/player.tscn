@@ -1,21 +1,21 @@
-[gd_scene load_steps=76 format=3 uid="uid://ptcb6lyi73id"]
+[gd_scene load_steps=77 format=3 uid="uid://ptcb6lyi73id"]
 
-[ext_resource type="Texture2D" uid="uid://b1jm5a44j22ri" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Idle.png" id="1_g1iqq"]
+[ext_resource type="Texture2D" uid="uid://cfw880siuswf6" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Idle.png" id="1_g1iqq"]
 [ext_resource type="Script" uid="uid://bt54mruv1y78m" path="res://Resource/Character/Player/player.gd" id="1_se16j"]
 [ext_resource type="Texture2D" uid="uid://i61o1x1ip185" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Attack 1.png" id="2_bj4lk"]
-[ext_resource type="Resource" uid="uid://unqfhhyqot7s" path="res://Interface/Inventory/player_inv.tres" id="2_pcn8h"]
-[ext_resource type="Texture2D" uid="uid://dx0lcsxbxk1jq" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Jump.png" id="2_se16j"]
-[ext_resource type="Texture2D" uid="uid://bguehhi4wam2f" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Run.png" id="3_pcn8h"]
+[ext_resource type="Texture2D" uid="uid://bprhs1rkh0uen" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Jump.png" id="2_se16j"]
+[ext_resource type="Texture2D" uid="uid://7p1xyii6wkxf" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Run.png" id="3_pcn8h"]
 [ext_resource type="Texture2D" uid="uid://524ar4dc7tau" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Attack 2.png" id="3_xb124"]
-[ext_resource type="Texture2D" uid="uid://bu5vrd1tldy6d" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Walk.png" id="4_b4ivt"]
+[ext_resource type="Texture2D" uid="uid://ca5m1vf4fvm4r" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Walk.png" id="4_b4ivt"]
 [ext_resource type="Texture2D" uid="uid://cdwp1gyemeppc" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Attack 3.png" id="4_jyudf"]
 [ext_resource type="Texture2D" uid="uid://d3bgk4chynjrn" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Dead.png" id="5_bq3od"]
-[ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/health_component.tscn" id="6_b4ivt"]
+[ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="6_b4ivt"]
 [ext_resource type="Texture2D" uid="uid://dop6ml3npunie" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Defend.png" id="6_n0jxm"]
-[ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/hit_component.tscn" id="7_b4ivt"]
+[ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="7_b4ivt"]
 [ext_resource type="Texture2D" uid="uid://p8qia6noh16x" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Hurt.png" id="7_xxdgw"]
-[ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/attack_componet.tscn" id="8_4l7td"]
+[ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="8_4l7td"]
 [ext_resource type="Texture2D" uid="uid://c7miwdo5yggr8" path="res://Asset/Character/knight-character-sprites-pixel-art/Knight_1/Run+Attack.png" id="11_xxdgw"]
+[ext_resource type="PackedScene" uid="uid://dl4017qkb7b8n" path="res://Interface/GUI_Ingame/Player_Hp_Bar/gui_health_bar_player.tscn" id="17_6h6yy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eyaih"]
 atlas = ExtResource("2_bj4lk")
@@ -116,7 +116,6 @@ region = Rect2(7, 0, 47, 86)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xuyea"]
 atlas = ExtResource("7_xxdgw")
 region = Rect2(85, 0, 47, 86)
-[ext_resource type="PackedScene" uid="uid://15an63hko4s0" path="res://Interface/Inventory/inv_ui.tscn" id="7_b4ivt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4l7td"]
 atlas = ExtResource("1_g1iqq")
@@ -436,7 +435,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Run+Attack",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -476,20 +475,23 @@ height = 62.0
 size = Vector2(44, 71)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bj4lk"]
-size = Vector2(71, 30.5)
+size = Vector2(71, 36.5)
 
-[node name="Knight" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision")]
+[node name="Knight" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "health_bar", "attack_component", "attack_collision") groups=["player"]]
 script = ExtResource("1_se16j")
 health_component = NodePath("HealthComponent")
 hit_component = NodePath("HitComponent")
-attack_component = NodePath("AttackComponet")
-attack_collision = NodePath("AttackComponet/CollisionShape2D")
-combo_time = 0.75
-inv = ExtResource("2_pcn8h")
+health_bar = NodePath("Player_Hp_bar_GUI")
+attack_component = NodePath("AttackComponent")
+attack_collision = NodePath("AttackComponent/CollisionShape2D")
+hp = 100.0
+dmg = 15.0
+use_crit = true
+crit_rate = 15.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eyaih")
-animation = &"Attack1"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 16)
@@ -506,15 +508,10 @@ position = Vector2(0, 12.5)
 shape = SubResource("RectangleShape2D_4l7td")
 debug_color = Color(0.275072, 0.632076, 5.77569e-07, 0.42)
 
-[node name="AttackComponet" parent="." instance=ExtResource("8_4l7td")]
-damage = 30.0
-knockback = 100
-type_entity = "player"
-use_crit = true
-crit_rate = 5.0
+[node name="AttackComponent" parent="." instance=ExtResource("8_4l7td")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponet"]
-position = Vector2(25.75, 12.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
+position = Vector2(28.75, 12.5)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_bj4lk")
 one_way_collision_margin = 0.0
@@ -523,10 +520,10 @@ debug_color = Color(0.957204, 0, 0.533834, 0.42)
 [node name="Combo_Timer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="hit_knockback" from="HitComponent" to="." method="_on_hit_component_hit_knockback"]
+[node name="Player_Hp_bar_GUI" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("17_6h6yy")]
+scale = Vector2(0.96, 0.96)
+transform = Transform2D(0.96, 0, 0, 0.96, 0, 0)
+follow_viewport_scale = 0.001
+health_component = NodePath("../HealthComponent")
 
-[node name="Inv_UI" parent="." instance=ExtResource("7_b4ivt")]
-offset_left = -37.0
-offset_top = 63.0
-offset_right = 38.0
-offset_bottom = 141.0
+[connection signal="hit_knockback" from="HitComponent" to="." method="_on_hit_component_hit_knockback"]

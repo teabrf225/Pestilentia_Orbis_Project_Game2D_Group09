@@ -1,15 +1,15 @@
-[gd_scene load_steps=23 format=4 uid="uid://cqvp6siwv82"]
+[gd_scene load_steps=24 format=4 uid="uid://cqvp6siwv82"]
 
-[ext_resource type="Texture2D" uid="uid://bpqo7clss1a1b" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_6uywx"]
-[ext_resource type="Texture2D" uid="uid://bcrkdnn381ibs" path="res://Asset/Map/Jungle/1.Backround.png" id="1_q1b8r"]
-[ext_resource type="Texture2D" uid="uid://cbhuvm62dbhqd" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_biglw"]
+[ext_resource type="Texture2D" uid="uid://csr386k7018n1" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_6uywx"]
+[ext_resource type="Texture2D" uid="uid://b54and4cyarb2" path="res://Asset/Map/Jungle/1.Backround.png" id="1_q1b8r"]
+[ext_resource type="Texture2D" uid="uid://dsi5h5a2iu2t8" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_biglw"]
 [ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="3_5b50y"]
-[ext_resource type="Texture2D" uid="uid://dqyk6h75blhho" path="res://Asset/Map/Jungle/3.Trees_front.png" id="3_unruh"]
-[ext_resource type="Texture2D" uid="uid://dif0xwrye3hpl" path="res://Asset/Map/Jungle/4.Ground.png" id="4_r2ywe"]
-[ext_resource type="Texture2D" uid="uid://drxi4den42x36" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="6_kn21a"]
-[ext_resource type="Texture2D" uid="uid://chjd1baptsl2u" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="6_unruh"]
-[ext_resource type="Texture2D" uid="uid://ctrl2d60pawk1" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="7_r2ywe"]
-[ext_resource type="PackedScene" uid="uid://dl4017qkb7b8n" path="res://Interface/GUI_Ingame/gui_healthBar.tscn" id="10_r2ywe"]
+[ext_resource type="Texture2D" uid="uid://dgw552e7slgc4" path="res://Asset/Map/Jungle/3.Trees_front.png" id="3_unruh"]
+[ext_resource type="Texture2D" uid="uid://dm5bqr5il247w" path="res://Asset/Map/Jungle/4.Ground.png" id="4_r2ywe"]
+[ext_resource type="Texture2D" uid="uid://l3v65ix684gu" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="6_kn21a"]
+[ext_resource type="Texture2D" uid="uid://bd5b4qx0g2n1g" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="6_unruh"]
+[ext_resource type="Texture2D" uid="uid://d1bi2pw8qngwt" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="7_r2ywe"]
+[ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="11_kn21a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0p7ir"]
 texture = ExtResource("7_r2ywe")
@@ -5157,6 +5157,9 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_q1b8r")
 sources/0 = SubResource("TileSetAtlasSource_biglw")
 sources/2 = SubResource("TileSetAtlasSource_unruh")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ku6dd"]
+size = Vector2(8648, 41)
+
 [node name="Forest_day" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -5226,12 +5229,30 @@ tile_set = SubResource("TileSet_jrng8")
 
 [node name="Knight" parent="." instance=ExtResource("3_5b50y")]
 position = Vector2(384, 687)
+use_knockback = true
+knockback_force = 150.0
 
-[node name="Camera2D2" type="Camera2D" parent="Knight"]
-zoom = Vector2(1.75, 1.75)
+[node name="Camera2D" type="Camera2D" parent="Knight"]
+position = Vector2(-16, 33)
+zoom = Vector2(1.5, 1.5)
+limit_left = 0
+limit_bottom = 928
+limit_smoothed = true
+position_smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
-[node name="GUI" parent="Knight/Camera2D2" instance=ExtResource("10_r2ywe")]
-scale = Vector2(0.565, 0.565)
-transform = Transform2D(0.565, 0, 0, 0.565, 0, 0)
-follow_viewport_enabled = true
-follow_viewport_scale = 0.001
+[node name="DeadLine" type="ColorRect" parent="."]
+offset_top = 928.0
+offset_right = 8648.0
+offset_bottom = 968.0
+color = Color(1, 0, 0, 1)
+
+[node name="AttackComponet" parent="DeadLine" instance=ExtResource("11_kn21a")]
+active = true
+damage = 1e+06
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadLine/AttackComponet"]
+position = Vector2(4324, 19.5)
+shape = SubResource("RectangleShape2D_ku6dd")
+debug_color = Color(0.964151, 0, 0.494479, 0.42)

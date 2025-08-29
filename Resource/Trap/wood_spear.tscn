@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://covbbokpd6afb" path="res://Asset/Trap/wood_trap_1.png" id="1_ydh6m"]
 [ext_resource type="Texture2D" uid="uid://bi137tq1b1o1v" path="res://Asset/Trap/wood_trap_2.png" id="2_ovqm1"]
-[ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/attack_componet.tscn" id="4_hsfed"]
+[ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="4_hsfed"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r7gw8"]
 size = Vector2(42, 34)

@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://dl4017qkb7b8n"]
+
+[ext_resource type="Script" uid="uid://c3e46moyvd6xe" path="res://Interface/GUI_Ingame/Player_Hp_Bar/gui_health_bar_main.gd" id="1_3pjyd"]
+[ext_resource type="Texture2D" uid="uid://bktgivsd1ormk" path="res://Interface/GUI_Ingame/Player_Hp_Bar/health_bar_inline.png" id="1_c4rle"]
+[ext_resource type="Texture2D" uid="uid://bu2uoixumrlsm" path="res://Interface/GUI_Ingame/Player_Hp_Bar/health_bar_outling.png" id="2_3pjyd"]
+[ext_resource type="Texture2D" uid="uid://wibg6ivcovm7" path="res://Interface/GUI_Ingame/Player_Hp_Bar/health_bar_progress.png" id="3_keyx3"]
+[ext_resource type="Texture2D" uid="uid://14efkmf6ctfr" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/health_liear_bar_over.png" id="4_pbvyj"]
+[ext_resource type="Texture2D" uid="uid://b7ha6hg6salhv" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/health_liear_bar.png" id="5_62yk5"]
+[ext_resource type="Texture2D" uid="uid://ditrmyu5eahuq" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/health_linear_bar_under.png" id="6_wibmi"]
+[ext_resource type="Script" uid="uid://cxhk51mabpyrp" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/health_liear_bar.gd" id="7_keyx3"]
+[ext_resource type="Texture2D" uid="uid://bhkeo58vsfftc" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/haelth_liear_damage_bar.png" id="7_oulh7"]
+
+[node name="Player_Hp_bar_GUI" type="CanvasLayer" node_paths=PackedStringArray("health_bar", "health_linear_bar")]
+script = ExtResource("1_3pjyd")
+health_bar = NodePath("Health_bar")
+health_linear_bar = NodePath("Health_liear_bar")
+
+[node name="Health_bar" type="TextureProgressBar" parent="."]
+z_index = 1
+offset_right = 2560.0
+offset_bottom = 2560.0
+scale = Vector2(0.036, 0.029)
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("1_c4rle")
+texture_over = ExtResource("2_3pjyd")
+texture_progress = ExtResource("3_keyx3")
+
+[node name="Health_liear_bar" type="TextureProgressBar" parent="." node_paths=PackedStringArray("damage_bar", "timer")]
+offset_left = 64.0
+offset_top = 17.0
+offset_right = 437.66
+offset_bottom = 57.0
+value = 75.0
+nine_patch_stretch = true
+texture_over = ExtResource("4_pbvyj")
+texture_progress = ExtResource("5_62yk5")
+script = ExtResource("7_keyx3")
+damage_bar = NodePath("Damage_liear_bar")
+timer = NodePath("Timer")
+
+[node name="Damage_liear_bar" type="TextureProgressBar" parent="Health_liear_bar"]
+z_index = -1
+layout_mode = 0
+offset_right = 373.66
+offset_bottom = 40.0
+value = 90.0
+nine_patch_stretch = true
+texture_under = ExtResource("6_wibmi")
+texture_progress = ExtResource("7_oulh7")
+
+[node name="Timer" type="Timer" parent="Health_liear_bar"]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="Health_liear_bar/Timer" to="Health_liear_bar" method="_on_timer_timeout"]

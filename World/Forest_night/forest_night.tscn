@@ -1,23 +1,23 @@
-[gd_scene load_steps=31 format=4 uid="uid://cow2gjoks02t3"]
+[gd_scene load_steps=32 format=4 uid="uid://cow2gjoks02t3"]
 
-[ext_resource type="Texture2D" uid="uid://b501rxc317wt6" path="res://Asset/Map/forest_night_layers/Layer_0011_0.png" id="1_35oa0"]
-[ext_resource type="Texture2D" uid="uid://bsog6l32xxcyt" path="res://Asset/Map/forest_night_layers/Layer_0010_1.png" id="2_263js"]
-[ext_resource type="Texture2D" uid="uid://cke87ab5rsubc" path="res://Asset/Map/forest_night_layers/Layer_0009_2.png" id="3_ebbgy"]
-[ext_resource type="Texture2D" uid="uid://bm4bm1oggc1c6" path="res://Asset/Map/forest_night_layers/Layer_0008_3.png" id="4_pkcsb"]
-[ext_resource type="Texture2D" uid="uid://cr04bon1n41gw" path="res://Asset/Map/forest_night_layers/Layer_0007_Lights.png" id="5_cqug0"]
-[ext_resource type="Texture2D" uid="uid://h60ij1tlfmo2" path="res://Asset/Map/forest_night_layers/Layer_0006_4.png" id="6_jnm1t"]
-[ext_resource type="Texture2D" uid="uid://cfh781o3wprvf" path="res://Asset/Map/forest_night_layers/Layer_0005_5.png" id="7_wvlmc"]
-[ext_resource type="Texture2D" uid="uid://bm4im7wq2a1ca" path="res://Asset/Map/forest_night_layers/Layer_0004_Lights.png" id="8_hnfc2"]
-[ext_resource type="Texture2D" uid="uid://baejpm63778wa" path="res://Asset/Map/forest_night_layers/Layer_0003_6.png" id="9_8pukk"]
-[ext_resource type="Texture2D" uid="uid://d0ksyeavnibet" path="res://Asset/Map/forest_night_layers/Layer_0002_7.png" id="10_hwxkb"]
-[ext_resource type="Texture2D" uid="uid://llv5xoq3jhuy" path="res://Asset/Map/forest_night_layers/Layer_0001_8.png" id="11_dxoe6"]
-[ext_resource type="Texture2D" uid="uid://cyimaonfaq6qg" path="res://Asset/Map/forest_night_layers/Layer_0000_9.png" id="12_0ixls"]
-[ext_resource type="Texture2D" uid="uid://ctrl2d60pawk1" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="13_yrcl6"]
-[ext_resource type="Texture2D" uid="uid://bpqo7clss1a1b" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="14_v5nps"]
-[ext_resource type="Texture2D" uid="uid://chjd1baptsl2u" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="15_laoyc"]
-[ext_resource type="Texture2D" uid="uid://drxi4den42x36" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="16_7vjmw"]
+[ext_resource type="Texture2D" uid="uid://bpjs2moj6v4no" path="res://Asset/Map/forest_night_layers/Layer_0011_0.png" id="1_35oa0"]
+[ext_resource type="Texture2D" uid="uid://d2yuecpsjpjuq" path="res://Asset/Map/forest_night_layers/Layer_0010_1.png" id="2_263js"]
+[ext_resource type="Texture2D" uid="uid://dy8x0w0kpp64l" path="res://Asset/Map/forest_night_layers/Layer_0009_2.png" id="3_ebbgy"]
+[ext_resource type="Texture2D" uid="uid://dc7iunygtn326" path="res://Asset/Map/forest_night_layers/Layer_0008_3.png" id="4_pkcsb"]
+[ext_resource type="Texture2D" uid="uid://b1sk4qj3kcuvo" path="res://Asset/Map/forest_night_layers/Layer_0007_Lights.png" id="5_cqug0"]
+[ext_resource type="Texture2D" uid="uid://dw8w7tvt7micc" path="res://Asset/Map/forest_night_layers/Layer_0006_4.png" id="6_jnm1t"]
+[ext_resource type="Texture2D" uid="uid://dwocrbeoarwgu" path="res://Asset/Map/forest_night_layers/Layer_0005_5.png" id="7_wvlmc"]
+[ext_resource type="Texture2D" uid="uid://cff3b564rhmlf" path="res://Asset/Map/forest_night_layers/Layer_0004_Lights.png" id="8_hnfc2"]
+[ext_resource type="Texture2D" uid="uid://bl7dpimumyamd" path="res://Asset/Map/forest_night_layers/Layer_0003_6.png" id="9_8pukk"]
+[ext_resource type="Texture2D" uid="uid://wr6crf4i57y0" path="res://Asset/Map/forest_night_layers/Layer_0002_7.png" id="10_hwxkb"]
+[ext_resource type="Texture2D" uid="uid://cakp7sd41klmw" path="res://Asset/Map/forest_night_layers/Layer_0001_8.png" id="11_dxoe6"]
+[ext_resource type="Texture2D" uid="uid://dp7e386fij6bb" path="res://Asset/Map/forest_night_layers/Layer_0000_9.png" id="12_0ixls"]
+[ext_resource type="Texture2D" uid="uid://d1bi2pw8qngwt" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="13_yrcl6"]
+[ext_resource type="Texture2D" uid="uid://csr386k7018n1" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="14_v5nps"]
+[ext_resource type="Texture2D" uid="uid://bd5b4qx0g2n1g" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="15_laoyc"]
+[ext_resource type="Texture2D" uid="uid://l3v65ix684gu" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="16_7vjmw"]
 [ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="17_1ocnr"]
-[ext_resource type="PackedScene" uid="uid://dl4017qkb7b8n" path="res://Interface/GUI_Ingame/gui_healthBar.tscn" id="18_e52jd"]
+[ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="19_263js"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0p7ir"]
 texture = ExtResource("13_yrcl6")
@@ -5165,6 +5165,9 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_q1b8r")
 sources/0 = SubResource("TileSetAtlasSource_biglw")
 sources/2 = SubResource("TileSetAtlasSource_unruh")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebbgy"]
+size = Vector2(8648, 41)
+
 [node name="Forest_night" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -5303,11 +5306,27 @@ tile_set = SubResource("TileSet_jrng8")
 [node name="Knight" parent="." instance=ExtResource("17_1ocnr")]
 position = Vector2(377, 688)
 
-[node name="Camera2D2" type="Camera2D" parent="Knight"]
-zoom = Vector2(1.75, 1.75)
+[node name="Camera2D" type="Camera2D" parent="Knight"]
+position = Vector2(5, 12)
+zoom = Vector2(1.5, 1.5)
+limit_left = 0
+limit_bottom = 928
+limit_smoothed = true
+position_smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
-[node name="GUI" parent="Knight/Camera2D2" instance=ExtResource("18_e52jd")]
-scale = Vector2(0.565, 0.565)
-transform = Transform2D(0.565, 0, 0, 0.565, 0, 0)
-follow_viewport_enabled = true
-follow_viewport_scale = 0.001
+[node name="DeadLine" type="ColorRect" parent="."]
+offset_top = 928.0
+offset_right = 8648.0
+offset_bottom = 968.0
+color = Color(1, 0, 0, 1)
+
+[node name="AttackComponet" parent="DeadLine" instance=ExtResource("19_263js")]
+active = true
+damage = 1e+06
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadLine/AttackComponet"]
+position = Vector2(4324, 19.5)
+shape = SubResource("RectangleShape2D_ebbgy")
+debug_color = Color(0.964151, 0, 0.494479, 0.42)

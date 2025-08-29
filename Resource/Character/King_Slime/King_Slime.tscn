@@ -1,10 +1,10 @@
 [gd_scene load_steps=22 format=3 uid="uid://bym7jmphv7rcx"]
 
-[ext_resource type="Texture2D" uid="uid://1o75hbfjkl2s" path="res://Asset/Character/King_Slime_attack.png" id="1_uqtad"]
-[ext_resource type="Texture2D" uid="uid://c8r2jjnyokp78" path="res://Asset/Character/King_Slime_Death.png" id="2_1du1x"]
-[ext_resource type="Texture2D" uid="uid://gfv1ecplxpqf" path="res://Asset/Character/KIng_Slime_Idle.png" id="2_rnh8y"]
-[ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/health_component.tscn" id="3_1du1x"]
-[ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/hit_component.tscn" id="4_pfi6w"]
+[ext_resource type="Texture2D" uid="uid://ve41qvwjbd1w" path="res://Asset/Character/King_Slime_attack.png" id="1_uqtad"]
+[ext_resource type="Texture2D" uid="uid://i7h6ekbe8xbx" path="res://Asset/Character/King_Slime_Death.png" id="2_1du1x"]
+[ext_resource type="Texture2D" uid="uid://dtsgtpglgxq7w" path="res://Asset/Character/KIng_Slime_Idle.png" id="2_rnh8y"]
+[ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="3_1du1x"]
+[ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="4_pfi6w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rh86y"]
 atlas = ExtResource("1_uqtad")

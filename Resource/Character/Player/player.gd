@@ -4,11 +4,23 @@ class_name Player
 @export_category("Player Component")
 @export var health_component: HealthComponent
 @export var hit_component: HitComponent
+@export var health_bar: CanvasLayer
 @export_group("Attack")
 @export var attack_component: AttackComponent
 @export var attack_collision: CollisionShape2D
 
 @export_category("Player Properties") # You can tweak these changes according to your likings
+@export_group("Player Value")
+@export_range(0,1000000,0.1,"hide_slider") var hp: float = 1
+@export_subgroup("attack")
+@export_range(0,1000000,0.1,"hide_slider") var dmg: float = 1
+@export var use_knockback: bool = false
+@export var knockback_force: float = 0
+@export_subgroup("crit")
+@export var use_crit: bool = false
+@export_range(0,1000000,0.1,"hide_slider") var crit_rate: float = 1
+@export_range(0,1000000,0.1,"hide_slider") var crit_dmg: float = 50
+@export_group("Other setting")
 @export var move_speed : float = 350
 @export var jump_force : float = 600
 @export var gravity : float = 25
@@ -30,13 +42,23 @@ var buttons_pressed: String = ""
 #@onready var spawn_point = %SpawnPoint
 # --------- BUILT-IN FUNCTIONS ---------- #
 func _ready() -> void:
-	health_component.died.connect(death_tween)
-	#health_component.health_changed.connect(hp_now)
+	if health_component:
+		health_component.setup(hp,"use_max_health")
+		health_component.died.connect(death_tween)
+	if attack_collision:
+		attack_collision.disabled = true
 	if attack_component:
-		attack_collision.visible = false
+		attack_component.setup(dmg)
+		if use_crit:
+			attack_component.setup(null,null,use_crit,crit_rate,crit_dmg)
+		if use_knockback:
+			if hit_component:
+				hit_component.setup(use_knockback)
+			attack_component.setup(null,knockback_force)
 	combo_timer.wait_time = combo_time
 	combo_timer.one_shot = true
 	combo_timer.timeout.connect(_on_combo_timer_timeout)
+	$AnimatedSprite2D.connect("animation_finished", Callable(self, "_on_attack_finished"))
 
 func _process(_delta):
 	# Calling functions
@@ -121,6 +143,7 @@ func death_tween():
 	await get_tree().create_timer(0.3).timeout
 	#AudioManager.respawn_sfx.play()
 	respawn_tween()
+	health_bar.reset_health()
 
 func respawn_tween():
 	var tween = create_tween()
@@ -147,9 +170,9 @@ func start_attack():
 		if abs(velocity.x) > 0:
 			is_attacking = true
 			$AnimatedSprite2D.play("Run+Attack")
-			attack_collision.visible = true
 			attack_component.active = true
-			$AnimatedSprite2D.connect("animation_finished", Callable(self, "_on_attack_finished"))
+			attack_collision.disabled = false
+			#$AnimatedSprite2D.connect("animation_finished", Callable(self, "_on_attack_finished"))
 		else:
 			#print(buttons_pressed)
 			#print(buttons_pressed.split("attack"))
@@ -159,17 +182,19 @@ func start_attack():
 			var mame_combo = "Attack"+ str((len(buttons_pressed.split('attack')) % 3 if buttons_pressed != 'attack' else 0)+1)
 			#print(mame_combo)
 			$AnimatedSprite2D.play(mame_combo,1)
-			attack_collision.visible = true
 			attack_component.active = true
-			$AnimatedSprite2D.connect("animation_finished", Callable(self, "_on_attack_finished"))
+			attack_collision.disabled = false
+			#$AnimatedSprite2D.connect("animation_finished", Callable(self, "_on_attack_finished"))
 			
 			
 func _on_attack_finished():
-	attack_collision.visible = false
-	attack_component.active = false
-	is_attacking = false
-	combo_timer.start()
-	print("stop atk")
+	if is_attacking:
+		attack_component.active = false
+		attack_collision.disabled = true
+		is_attacking = false
+		combo_timer.start()
+		print("stop atk")
+	#$AnimatedSprite2D.disconnect("animation_finished",Callable(self,"_on_attack_finished"))
 
 
 func _on_hit_component_hit_knockback(attack:Attack) -> void:
