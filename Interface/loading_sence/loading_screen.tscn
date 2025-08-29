@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://c28munmjmv7ti"]
+
+[ext_resource type="VideoStream" uid="uid://hlck13t1irvn" path="res://Resource/Video/Forest_Day_Scene_Loading_crop.ogv" id="1_4dlg8"]
+
+[node name="loadingScreen" type="CanvasLayer"]
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="AspectRatioContainer"]
+layout_mode = 2
+stream = ExtResource("1_4dlg8")
+volume_db = -80.0
+autoplay = true
+expand = true
+loop = true
