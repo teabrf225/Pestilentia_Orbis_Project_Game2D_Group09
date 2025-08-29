@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cqvp6siwv82"]
+[gd_scene load_steps=25 format=4 uid="uid://cqvp6siwv82"]
 
 [ext_resource type="Texture2D" uid="uid://csr386k7018n1" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_6uywx"]
 [ext_resource type="Texture2D" uid="uid://b54and4cyarb2" path="res://Asset/Map/Jungle/1.Backround.png" id="1_q1b8r"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bd5b4qx0g2n1g" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="6_unruh"]
 [ext_resource type="Texture2D" uid="uid://d1bi2pw8qngwt" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="7_r2ywe"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="11_kn21a"]
+[ext_resource type="PackedScene" uid="uid://cp31gdtdrtrd1" path="res://Resource/Character/RedSlime/RedSlime.tscn" id="11_ku6dd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0p7ir"]
 texture = ExtResource("7_r2ywe")
@@ -5256,3 +5257,6 @@ damage = 1e+06
 position = Vector2(4324, 19.5)
 shape = SubResource("RectangleShape2D_ku6dd")
 debug_color = Color(0.964151, 0, 0.494479, 0.42)
+
+[node name="RedSlime" parent="." instance=ExtResource("11_ku6dd")]
+position = Vector2(1872, 624)
