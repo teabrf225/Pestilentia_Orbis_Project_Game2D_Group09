@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dlhjieromwo4r"]
+[gd_scene load_steps=17 format=4 uid="uid://dlhjieromwo4r"]
 
 [ext_resource type="Texture2D" uid="uid://b54and4cyarb2" path="res://Asset/Map/Jungle/1.Backround.png" id="1_88t1m"]
 [ext_resource type="Texture2D" uid="uid://dsi5h5a2iu2t8" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_ioul8"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="8_88t1m"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="9_ioul8"]
 [ext_resource type="PackedScene" uid="uid://cp31gdtdrtrd1" path="res://Resource/Character/RedSlime/RedSlime.tscn" id="10_8ujth"]
+[ext_resource type="PackedScene" uid="uid://bky0sqoap6ank" path="res://Interface/Pause_menu/pause_menu.tscn" id="11_lfcpg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6uywx"]
 
@@ -1105,3 +1106,7 @@ debug_color = Color(0.964151, 0, 0.494479, 0.42)
 [node name="RedSlime" parent="." instance=ExtResource("10_8ujth")]
 position = Vector2(1832, 736)
 hp = 600.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_lfcpg")]
