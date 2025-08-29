@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwtvdbrcjbq03"]
+[gd_scene load_steps=6 format=3 uid="uid://bwtvdbrcjbq03"]
 
-[ext_resource type="Texture2D" uid="uid://bhvlmcl5fx3hg" path="res://Asset/Trap/wood_trap_1.png" id="1_ydh6m"]
-[ext_resource type="Texture2D" uid="uid://5l04xxwtmktf" path="res://Asset/Trap/wood_trap_2.png" id="2_ovqm1"]
+[ext_resource type="Texture2D" uid="uid://covbbokpd6afb" path="res://Asset/Trap/wood_trap_1.png" id="1_ydh6m"]
+[ext_resource type="Texture2D" uid="uid://bi137tq1b1o1v" path="res://Asset/Trap/wood_trap_2.png" id="2_ovqm1"]
+[ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="4_hsfed"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r7gw8"]
 size = Vector2(42, 34)
 
-[node name="Wood_Spear" type="StaticBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ga7vc"]
+size = Vector2(42, 38)
+
+[node name="Wood_Spear" type="StaticBody2D" groups=["Trap_Ground"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
@@ -18,3 +22,14 @@ texture = ExtResource("1_ydh6m")
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(0, 18)
 texture = ExtResource("2_ovqm1")
+
+[node name="AttackComponet" parent="." instance=ExtResource("4_hsfed")]
+active = true
+damage = 30.0
+knockback = 400
+type_entity = "trap_ground"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponet"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_ga7vc")
+debug_color = Color(0.957082, 7.70092e-07, 0.534486, 0.42)
