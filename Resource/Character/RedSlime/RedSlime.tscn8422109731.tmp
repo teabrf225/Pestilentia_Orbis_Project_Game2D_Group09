@@ -332,7 +332,6 @@ crit_rate = 5.0
 crit_dmg = 20.0
 move_speed = 30.0
 jump_force = 40.0
-max_vision = 500.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dv7fu")
@@ -362,20 +361,11 @@ position = Vector2(-24.75, 3.75)
 shape = SubResource("RectangleShape2D_1gmhd")
 debug_color = Color(0.989781, 0, 0.286363, 0.42)
 
-[node name="detection_component" parent="." node_paths=PackedStringArray("forward", "forward_up", "forward_down") instance=ExtResource("9_5m8lb")]
-forward = NodePath("forward")
-forward_up = NodePath("up")
-forward_down = NodePath("down")
-max_range = 300.0
+[node name="detection_component" parent="." node_paths=PackedStringArray("forward_vision") instance=ExtResource("9_5m8lb")]
+forward_vision = NodePath("RayCast2D")
 
-[node name="forward" type="RayCast2D" parent="detection_component"]
+[node name="RayCast2D" type="RayCast2D" parent="detection_component"]
 target_position = Vector2(-200, 0)
-
-[node name="up" type="RayCast2D" parent="detection_component"]
-target_position = Vector2(-194, -37)
-
-[node name="down" type="RayCast2D" parent="detection_component"]
-target_position = Vector2(-195, 34)
 
 [node name="HealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_fss0e")]
 offset_left = -21.0

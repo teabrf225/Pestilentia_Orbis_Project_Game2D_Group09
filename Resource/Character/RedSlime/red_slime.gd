@@ -6,6 +6,7 @@ class_name Enemy
 @export var hit_component: HitComponent
 @export var attack_component: AttackComponent
 @export var attack_collision: CollisionShape2D
+@export var detection_component: DetectionComponent
 
 @export_category("Properties")
 @export_group("Value setting")
@@ -22,6 +23,7 @@ class_name Enemy
 @export var move_speed : float = 350
 @export var jump_force : float = 600
 @export var gravity : float = 25
+@export var max_vision: float
 
 var direction : String = "left"
 
@@ -38,6 +40,8 @@ func _ready() -> void:
 			if hit_component:
 				hit_component.setup(use_knockback)
 			attack_component.setup(null,knockback_force)
+	if detection_component:
+		detection_component.setup(max_vision)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -52,11 +56,13 @@ func _update_flip():
 		if direction != "right":
 			direction = "right"
 			if attack_collision:
-				attack_collision.position *= -1
+				attack_component.scale.x *= -1
+				detection_component.scale.x *= -1
 	elif velocity.x < 0:
 		# หันซ้าย
 		$AnimatedSprite2D.flip_h = false
 		if direction != "left":
 			direction = "left"
 			if attack_collision:
-				attack_collision.position *= -1
+				attack_component.scale.x *= -1
+				detection_component.scale.x *= -1

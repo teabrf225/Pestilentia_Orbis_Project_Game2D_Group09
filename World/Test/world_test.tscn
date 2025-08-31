@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=4 uid="uid://dlhjieromwo4r"]
 
-[ext_resource type="Texture2D" uid="uid://h5emvth40ojm" path="res://Asset/Map/Jungle/1.Backround.png" id="1_88t1m"]
-[ext_resource type="Texture2D" uid="uid://dd3rvwjdkoaka" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_ioul8"]
-[ext_resource type="Texture2D" uid="uid://clbgdsv1wbw4o" path="res://Asset/Map/Jungle/3.Trees_front.png" id="3_8ujth"]
-[ext_resource type="Texture2D" uid="uid://c0xbxcb3xwpfi" path="res://Asset/Map/Jungle/4.Ground.png" id="4_lfcpg"]
-[ext_resource type="Texture2D" uid="uid://byihd8rh5cc7t" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="5_oaxnm"]
-[ext_resource type="Texture2D" uid="uid://d1ios3i7gywm1" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="6_s8a55"]
+[ext_resource type="Texture2D" uid="uid://b0gqivkyfinit" path="res://Asset/Map/Jungle/1.Backround.png" id="1_88t1m"]
+[ext_resource type="Texture2D" uid="uid://cfpss8lrrph1p" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_ioul8"]
+[ext_resource type="Texture2D" uid="uid://cssxac3fevx58" path="res://Asset/Map/Jungle/3.Trees_front.png" id="3_8ujth"]
+[ext_resource type="Texture2D" uid="uid://dyergmlc17ohc" path="res://Asset/Map/Jungle/4.Ground.png" id="4_lfcpg"]
+[ext_resource type="Texture2D" uid="uid://b4357itxyvejt" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="5_oaxnm"]
+[ext_resource type="Texture2D" uid="uid://c7brkyqjua2po" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="6_s8a55"]
 [ext_resource type="PackedScene" uid="uid://bwtvdbrcjbq03" path="res://Resource/Trap/wood_spear.tscn" id="7_6oi5g"]
 [ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="8_88t1m"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="9_ioul8"]
@@ -1108,8 +1108,3 @@ position = Vector2(1832, 736)
 hp = 600.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("11_lfcpg")]
-
-[node name="PauseMenu" parent="PauseMenu" index="0"]
-visible = false
-
-[editable path="PauseMenu"]

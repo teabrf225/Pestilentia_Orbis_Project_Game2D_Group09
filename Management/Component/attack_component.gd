@@ -3,7 +3,6 @@ extends Area2D
 class_name AttackComponent
 
 @export var active: bool = false
-
 @export_range(0,1000000,0.1,"hide_slider") var damage: float
 @export var knockback: float
 @export_enum("player", "monster", "Boss1", "Boss2", "Boss3", "trap_ground") var type_entity: String
@@ -28,7 +27,7 @@ func setup(_damage=null,_knockback=null,_use_crit=null,_crit_rate=null,_crit_mul
 		crit_multiplier = _crit_multiplier
 
 func _on_area_entered(body: Area2D) -> void:
-	print("some thing enter to zore: ",body.get_parent(),body.has_method("damege"))
+	#print("some thing enter to zore: ",body.get_parent(),body.has_method("damege"))
 	if not active:
 		return
 	if body.has_method("damage") and  body.get_parent() != get_parent():

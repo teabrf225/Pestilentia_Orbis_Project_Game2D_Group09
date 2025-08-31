@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://bky0sqoap6ank"]
 
 [ext_resource type="Script" uid="uid://d4aayno647ol0" path="res://Interface/Pause_menu/pause_menu.gd" id="1_bfytw"]
-[ext_resource type="FontFile" uid="uid://ct06fh3d1nc0b" path="res://Resource/Font/Silver.ttf" id="1_bml2b"]
+[ext_resource type="FontFile" uid="uid://bxanbpdsln55f" path="res://Resource/Font/Silver.ttf" id="1_bml2b"]
 [ext_resource type="Script" uid="uid://bh4v8brf8wdg2" path="res://Management/audio_control.gd" id="3_uf2fk"]
 [ext_resource type="Script" uid="uid://c5sf27scwlt6h" path="res://Interface/Menu_Game/fullscreen_control.gd" id="4_qwo8x"]
-[ext_resource type="Texture2D" uid="uid://c3cw5qpmjv8tf" path="res://Interface/Pause_menu/optionButton.png" id="5_qwo8x"]
+[ext_resource type="Texture2D" uid="uid://bfqmnb4lcuy1c" path="res://Interface/Pause_menu/optionButton.png" id="5_qwo8x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bfytw"]
 bg_color = Color(0.180392, 0, 0.0235294, 1)
