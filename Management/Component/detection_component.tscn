@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdmcyiuh12wg4"]
-
-[ext_resource type="Script" uid="uid://oj54qekjt020" path="res://Management/Component/detection_component.gd" id="1_rd7p5"]
-
-[node name="player_detection_component" type="Node"]
-script = ExtResource("1_rd7p5")
