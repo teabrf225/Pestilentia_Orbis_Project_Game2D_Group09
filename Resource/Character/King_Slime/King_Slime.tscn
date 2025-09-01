@@ -126,16 +126,19 @@ size = Vector2(79, 107.75)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cil35")
-animation = &"Idle"
-frame_progress = 0.486513
+animation = &"Attack"
+frame_progress = 0.037088
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(4, 0)
 shape = SubResource("CapsuleShape2D_x6bi8")
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_1du1x")]
+visible = false
 
 [node name="HitComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_pfi6w")]
+visible = false
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
