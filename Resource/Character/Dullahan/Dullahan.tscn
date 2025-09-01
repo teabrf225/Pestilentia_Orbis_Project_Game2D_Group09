@@ -170,7 +170,8 @@ shape = SubResource("CapsuleShape2D_4jhgf")
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_pqjfa")]
 
-[node name="HitComponent" parent="." instance=ExtResource("6_f15lc")]
+[node name="HitComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_f15lc")]
+health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
 position = Vector2(9, 0)

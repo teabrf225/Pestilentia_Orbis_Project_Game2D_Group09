@@ -1,0 +1,155 @@
+[gd_scene load_steps=23 format=3 uid="uid://d0eq6j6ds4c7u"]
+
+[ext_resource type="Texture2D" uid="uid://bx5djo06qk6jl" path="res://Asset/Character/burning-ghoul.png" id="1_mdchp"]
+[ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="2_cb3d2"]
+[ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="3_1j3n3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmyly"]
+atlas = ExtResource("1_mdchp")
+region = Rect2(0, 0, 57, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qb5xa"]
+atlas = ExtResource("1_mdchp")
+region = Rect2(57, 0, 57, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tq01o"]
+atlas = ExtResource("1_mdchp")
+region = Rect2(114, 0, 57, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iibj8"]
+atlas = ExtResource("1_mdchp")
+region = Rect2(171, 0, 57, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df55b"]
+atlas = ExtResource("1_mdchp")
+region = Rect2(228, 0, 57, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30jid"]
+atlas = ExtResource("1_mdchp")
+region = Rect2(285, 0, 57, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2nn1"]
+atlas = ExtResource("1_mdchp")
+region = Rect2(342, 0, 57, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r34ij"]
+atlas = ExtResource("1_mdchp")
+region = Rect2(399, 0, 57, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lstku"]
+atlas = ExtResource("1_mdchp")
+region = Rect2(456, 0, 57, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h88nx"]
+atlas = ExtResource("1_mdchp")
+region = Rect2(513, 0, 57, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8et5"]
+atlas = ExtResource("1_mdchp")
+region = Rect2(570, 0, 57, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31qd0"]
+atlas = ExtResource("1_mdchp")
+region = Rect2(627, 0, 57, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8eyn"]
+atlas = ExtResource("1_mdchp")
+region = Rect2(684, 0, 57, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtrck"]
+atlas = ExtResource("1_mdchp")
+region = Rect2(741, 0, 57, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0mbk"]
+atlas = ExtResource("1_mdchp")
+region = Rect2(798, 0, 57, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snv0e"]
+atlas = ExtResource("1_mdchp")
+region = Rect2(855, 0, 57, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pu05x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmyly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qb5xa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tq01o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iibj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df55b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30jid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2nn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r34ij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lstku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h88nx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8et5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31qd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8eyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtrck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0mbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snv0e")
+}],
+"loop": true,
+"name": &"Run+Attack",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yxoqc"]
+radius = 52.0
+height = 182.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tudue"]
+radius = 70.0
+height = 216.0
+
+[node name="BurningGoul" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_pu05x")
+animation = &"Run+Attack"
+frame_progress = 0.338078
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 38)
+shape = SubResource("CapsuleShape2D_yxoqc")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_cb3d2")]
+
+[node name="HitComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_1j3n3")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
+position = Vector2(-4, 36)
+shape = SubResource("CapsuleShape2D_tudue")
+debug_color = Color(2.74345e-06, 0.644415, 0.281346, 0.42)
