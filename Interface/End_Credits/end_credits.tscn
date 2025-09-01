@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxwirmhk5t6kr"]
+
+[ext_resource type="VideoStream" uid="uid://ctor3mhyfp6hd" path="res://Interface/End_Credits/endCreditsGodot.ogv" id="1_bigcg"]
+
+[node name="endCredits" type="CanvasLayer"]
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+offset_right = 1155.0
+offset_bottom = 654.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="AspectRatioContainer"]
+layout_mode = 2
+stream = ExtResource("1_bigcg")
+autoplay = true
