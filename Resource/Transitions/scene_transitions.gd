@@ -26,5 +26,4 @@ func transition():
 func load_scene(next_scene):
 	SceneTransitions.transition()
 	await SceneTransitions.on_animation_finished
-	var loading_scene = load(next_scene)
-	get_tree().change_scene_to_packed(loading_scene)
+	get_tree().change_scene_to_packed(next_scene)

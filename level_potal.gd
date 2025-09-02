@@ -1,7 +1,7 @@
 extends Area2D
-
+class_name potal
 # Define the next scene to load in the inspector
-@export var next_scene : String
+@export var next_scene : PackedScene
 
 # Load next level scene when player collide with level finish door.
 func _on_body_entered(body):

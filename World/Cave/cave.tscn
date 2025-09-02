@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://duntasaydgctd"]
+[gd_scene load_steps=18 format=4 uid="uid://duntasaydgctd"]
 
 [ext_resource type="Texture2D" uid="uid://b2ixsrnw8xs5n" path="res://Asset/Map/PixelFantasy_Caves_1.0/background1.png" id="1_77aa6"]
 [ext_resource type="Texture2D" uid="uid://praxwc8xkevc" path="res://Asset/Map/PixelFantasy_Caves_1.0/background2.png" id="2_7842v"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cyy3wkdhddyk5" path="res://Asset/Map/PixelFantasy_Caves_1.0/props1.png" id="6_7842v"]
 [ext_resource type="Texture2D" uid="uid://byr380i16ndu7" path="res://Asset/Map/PixelFantasy_Caves_1.0/props2.png" id="7_6qitl"]
 [ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="7_vj6e3"]
+[ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="9_6qitl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v1bm3"]
 texture = ExtResource("6_77aa6")
@@ -6381,6 +6382,9 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_q1b8r")
 sources/2 = SubResource("TileSetAtlasSource_7842v")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1bm3"]
+size = Vector2(8648, 41)
+
 [node name="Cave" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -6435,7 +6439,7 @@ tile_set = SubResource("TileSet_vj6e3")
 
 [node name="SpawnPoint" type="Marker2D" parent="Level"]
 unique_name_in_owner = true
-position = Vector2(384, 689)
+position = Vector2(85, 483)
 
 [node name="Ground" type="TileMapLayer" parent="Level"]
 position = Vector2(22, 19)
@@ -6463,3 +6467,19 @@ limit_smoothed = true
 position_smoothing_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="DeadLine" type="ColorRect" parent="."]
+offset_left = 41.0
+offset_top = 1044.0
+offset_right = 8689.0
+offset_bottom = 1084.0
+color = Color(1, 0, 0, 1)
+
+[node name="AttackComponet" parent="DeadLine" instance=ExtResource("9_6qitl")]
+active = true
+damage = 1e+06
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadLine/AttackComponet"]
+position = Vector2(4324, 19.5)
+shape = SubResource("RectangleShape2D_v1bm3")
+debug_color = Color(0.964151, 0, 0.494479, 0.42)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://cqvp6siwv82"]
+[gd_scene load_steps=31 format=4 uid="uid://cqvp6siwv82"]
 
 [ext_resource type="Texture2D" uid="uid://ct5ibxg5qw0b8" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_6uywx"]
 [ext_resource type="Texture2D" uid="uid://dapi4ri7lvuit" path="res://Asset/Map/Jungle/1.Backround.png" id="1_q1b8r"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cp31gdtdrtrd1" path="res://Resource/Character/RedSlime/RedSlime.tscn" id="11_ku6dd"]
 [ext_resource type="PackedScene" uid="uid://bwtvdbrcjbq03" path="res://Resource/Trap/wood_spear.tscn" id="13_q8t2n"]
 [ext_resource type="PackedScene" uid="uid://cb0mkvfgesj8p" path="res://Resource/Potal/level_potal.tscn" id="14_nekhh"]
+[ext_resource type="PackedScene" uid="uid://cow2gjoks02t3" path="res://World/Forest_night/forest_night.tscn" id="15_0p7ir"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0p7ir"]
 texture = ExtResource("7_r2ywe")
@@ -6420,5 +6421,6 @@ position = Vector2(1403, 747)
 position = Vector2(1452, 748)
 
 [node name="LevelPotal" parent="." instance=ExtResource("14_nekhh")]
-position = Vector2(101, 729)
-scale = Vector2(2, 2)
+position = Vector2(7397, 520)
+scale = Vector2(2.5, 2.5)
+next_scene = ExtResource("15_0p7ir")
