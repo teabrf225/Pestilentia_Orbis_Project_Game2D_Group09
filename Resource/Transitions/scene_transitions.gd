@@ -5,6 +5,7 @@ signal on_animation_finished
 @onready var color_rect = $ColorRect
 @onready var animation_player = $AnimationPlayer
 
+
 func _ready():
 	color_rect.visible = false
 	animation_player.animation_finished.connect(_on_animation_finished)
@@ -21,3 +22,9 @@ func _on_animation_finished(anim_name):
 func transition():
 	color_rect.visible = true
 	animation_player.play("Fade_Normal_to_Black")
+
+func load_scene(next_scene):
+	SceneTransitions.transition()
+	await SceneTransitions.on_animation_finished
+	var loading_scene = load(next_scene)
+	get_tree().change_scene_to_packed(loading_scene)
