@@ -1,18 +1,25 @@
-[gd_scene load_steps=29 format=4 uid="uid://cqvp6siwv82"]
+[gd_scene load_steps=36 format=4 uid="uid://cqvp6siwv82"]
 
-[ext_resource type="Texture2D" uid="uid://ct5ibxg5qw0b8" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_6uywx"]
-[ext_resource type="Texture2D" uid="uid://dapi4ri7lvuit" path="res://Asset/Map/Jungle/1.Backround.png" id="1_q1b8r"]
-[ext_resource type="Texture2D" uid="uid://2rphqbk3x83m" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_biglw"]
+[ext_resource type="Texture2D" uid="uid://byihd8rh5cc7t" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_6uywx"]
+[ext_resource type="Texture2D" uid="uid://h5emvth40ojm" path="res://Asset/Map/Jungle/1.Backround.png" id="1_q1b8r"]
+[ext_resource type="Texture2D" uid="uid://dd3rvwjdkoaka" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_biglw"]
 [ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="3_5b50y"]
-[ext_resource type="Texture2D" uid="uid://td5645fvfpxr" path="res://Asset/Map/Jungle/3.Trees_front.png" id="3_unruh"]
-[ext_resource type="Texture2D" uid="uid://y1gfmual4sgx" path="res://Asset/Map/Jungle/4.Ground.png" id="4_r2ywe"]
-[ext_resource type="Texture2D" uid="uid://b4qr82obwstdf" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="6_kn21a"]
-[ext_resource type="Texture2D" uid="uid://cmomvtd1q8iid" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="6_unruh"]
-[ext_resource type="Texture2D" uid="uid://cyonuvq3x8jbt" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="7_r2ywe"]
-[ext_resource type="Texture2D" uid="uid://plbhaakelsaf" path="res://Asset/Map/DarkForest1.2/env_mon.png" id="8_ku6dd"]
+[ext_resource type="Texture2D" uid="uid://clbgdsv1wbw4o" path="res://Asset/Map/Jungle/3.Trees_front.png" id="3_unruh"]
+[ext_resource type="Texture2D" uid="uid://c0xbxcb3xwpfi" path="res://Asset/Map/Jungle/4.Ground.png" id="4_r2ywe"]
+[ext_resource type="Texture2D" uid="uid://d1ios3i7gywm1" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="6_kn21a"]
+[ext_resource type="Texture2D" uid="uid://b8h7t77v3wcni" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="6_unruh"]
+[ext_resource type="Texture2D" uid="uid://c8nig531ghd1q" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="7_r2ywe"]
+[ext_resource type="Texture2D" uid="uid://o1cp5pnrlrdx" path="res://Asset/Map/DarkForest1.2/env_mon.png" id="8_ku6dd"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="11_kn21a"]
 [ext_resource type="PackedScene" uid="uid://cp31gdtdrtrd1" path="res://Resource/Character/RedSlime/RedSlime.tscn" id="11_ku6dd"]
 [ext_resource type="PackedScene" uid="uid://bwtvdbrcjbq03" path="res://Resource/Trap/wood_spear.tscn" id="13_q8t2n"]
+[ext_resource type="Texture2D" uid="uid://w4ch4uowhg8k" path="res://Asset/Retro/T_A_Key_Retro.png" id="14_jrng8"]
+[ext_resource type="Texture2D" uid="uid://bacjpwjub0jca" path="res://Asset/Retro/T_D_Key_Retro.png" id="15_eri4k"]
+[ext_resource type="FontFile" uid="uid://ct06fh3d1nc0b" path="res://Resource/Font/Silver.ttf" id="16_nftlo"]
+[ext_resource type="Texture2D" uid="uid://x55dioc7l66g" path="res://Asset/Retro/T_W_Key_Retro.png" id="17_eri4k"]
+[ext_resource type="Texture2D" uid="uid://dkqtxge7v7wy3" path="res://Asset/Retro/T_Mouse_Left_Key_Retro.png" id="18_nftlo"]
+[ext_resource type="Texture2D" uid="uid://dgvsn7ieq2kg1" path="res://Asset/Retro/warning_sign.png" id="19_1fb1v"]
+[ext_resource type="PackedScene" uid="uid://bky0sqoap6ank" path="res://Interface/Pause_menu/pause_menu.tscn" id="20_x7xwr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0p7ir"]
 texture = ExtResource("7_r2ywe")
@@ -6413,3 +6420,102 @@ position = Vector2(1403, 747)
 
 [node name="Wood_Spear5" parent="Trap" instance=ExtResource("13_q8t2n")]
 position = Vector2(1452, 748)
+
+[node name="Tutorial" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TAKeyRetro" type="Sprite2D" parent="Tutorial"]
+position = Vector2(456.5, 817)
+scale = Vector2(0.554688, 0.5)
+texture = ExtResource("14_jrng8")
+
+[node name="TDKeyRetro" type="Sprite2D" parent="Tutorial"]
+position = Vector2(516, 817)
+scale = Vector2(0.555, 0.5)
+texture = ExtResource("15_eri4k")
+
+[node name="Label" type="Label" parent="Tutorial"]
+offset_left = 312.0
+offset_top = 790.0
+offset_right = 441.0
+offset_bottom = 869.0
+theme_override_fonts/font = ExtResource("16_nftlo")
+theme_override_font_sizes/font_size = 70
+text = "Press "
+
+[node name="Label2" type="Label" parent="Tutorial"]
+offset_left = 555.0
+offset_top = 789.0
+offset_right = 698.0
+offset_bottom = 868.0
+theme_override_fonts/font = ExtResource("16_nftlo")
+theme_override_font_sizes/font_size = 70
+text = "to walk"
+
+[node name="Label3" type="Label" parent="Tutorial"]
+offset_left = 819.0
+offset_top = 788.0
+offset_right = 948.0
+offset_bottom = 867.0
+theme_override_fonts/font = ExtResource("16_nftlo")
+theme_override_font_sizes/font_size = 70
+text = "Press "
+
+[node name="TWKeyRetro" type="Sprite2D" parent="Tutorial"]
+position = Vector2(971, 814)
+scale = Vector2(0.55, 0.5)
+texture = ExtResource("17_eri4k")
+
+[node name="Label4" type="Label" parent="Tutorial"]
+offset_left = 1014.0
+offset_top = 785.0
+offset_right = 1157.0
+offset_bottom = 864.0
+theme_override_fonts/font = ExtResource("16_nftlo")
+theme_override_font_sizes/font_size = 70
+text = "to jump"
+
+[node name="TMouseLeftKeyRetro" type="Sprite2D" parent="Tutorial"]
+position = Vector2(1655, 711)
+scale = Vector2(0.55, 0.5)
+texture = ExtResource("18_nftlo")
+
+[node name="Label5" type="Label" parent="Tutorial"]
+offset_left = 1513.0
+offset_top = 685.0
+offset_right = 1642.0
+offset_bottom = 764.0
+theme_override_fonts/font = ExtResource("16_nftlo")
+theme_override_font_sizes/font_size = 70
+text = "Press "
+
+[node name="Label6" type="Label" parent="Tutorial"]
+offset_left = 1686.0
+offset_top = 687.0
+offset_right = 1881.0
+offset_bottom = 766.0
+theme_override_fonts/font = ExtResource("16_nftlo")
+theme_override_font_sizes/font_size = 70
+text = "to attack"
+
+[node name="WarningSign" type="Sprite2D" parent="Tutorial"]
+position = Vector2(1353, 598)
+scale = Vector2(0.06155, 0.0512158)
+texture = ExtResource("19_1fb1v")
+
+[node name="Label7" type="Label" parent="Tutorial"]
+offset_left = 1246.0
+offset_top = 613.0
+offset_right = 1485.0
+offset_bottom = 692.0
+theme_override_fonts/font = ExtResource("16_nftlo")
+theme_override_font_sizes/font_size = 70
+text = "Trap damage"
+
+[node name="CanvasLayer(PauseMenu)" parent="." instance=ExtResource("20_x7xwr")]
+
+[node name="PauseMenu" parent="CanvasLayer(PauseMenu)" index="0"]
+visible = false
+
+[editable path="CanvasLayer(PauseMenu)"]
