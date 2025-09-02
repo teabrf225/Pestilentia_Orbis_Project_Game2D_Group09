@@ -1,20 +1,22 @@
-[gd_scene load_steps=31 format=4 uid="uid://cqvp6siwv82"]
+[gd_scene load_steps=33 format=4 uid="uid://cqvp6siwv82"]
 
-[ext_resource type="Texture2D" uid="uid://ct5ibxg5qw0b8" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_6uywx"]
-[ext_resource type="Texture2D" uid="uid://dapi4ri7lvuit" path="res://Asset/Map/Jungle/1.Backround.png" id="1_q1b8r"]
-[ext_resource type="Texture2D" uid="uid://2rphqbk3x83m" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_biglw"]
+[ext_resource type="Texture2D" uid="uid://byihd8rh5cc7t" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_6uywx"]
+[ext_resource type="Texture2D" uid="uid://h5emvth40ojm" path="res://Asset/Map/Jungle/1.Backround.png" id="1_q1b8r"]
+[ext_resource type="Texture2D" uid="uid://dd3rvwjdkoaka" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_biglw"]
 [ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="3_5b50y"]
-[ext_resource type="Texture2D" uid="uid://td5645fvfpxr" path="res://Asset/Map/Jungle/3.Trees_front.png" id="3_unruh"]
-[ext_resource type="Texture2D" uid="uid://y1gfmual4sgx" path="res://Asset/Map/Jungle/4.Ground.png" id="4_r2ywe"]
-[ext_resource type="Texture2D" uid="uid://b4qr82obwstdf" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="6_kn21a"]
-[ext_resource type="Texture2D" uid="uid://cmomvtd1q8iid" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="6_unruh"]
-[ext_resource type="Texture2D" uid="uid://cyonuvq3x8jbt" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="7_r2ywe"]
-[ext_resource type="Texture2D" uid="uid://plbhaakelsaf" path="res://Asset/Map/DarkForest1.2/env_mon.png" id="8_ku6dd"]
+[ext_resource type="Texture2D" uid="uid://clbgdsv1wbw4o" path="res://Asset/Map/Jungle/3.Trees_front.png" id="3_unruh"]
+[ext_resource type="Texture2D" uid="uid://c0xbxcb3xwpfi" path="res://Asset/Map/Jungle/4.Ground.png" id="4_r2ywe"]
+[ext_resource type="Texture2D" uid="uid://d1ios3i7gywm1" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="6_kn21a"]
+[ext_resource type="Texture2D" uid="uid://b8h7t77v3wcni" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="6_unruh"]
+[ext_resource type="Texture2D" uid="uid://c8nig531ghd1q" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="7_r2ywe"]
+[ext_resource type="Texture2D" uid="uid://o1cp5pnrlrdx" path="res://Asset/Map/DarkForest1.2/env_mon.png" id="8_ku6dd"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="11_kn21a"]
 [ext_resource type="PackedScene" uid="uid://cp31gdtdrtrd1" path="res://Resource/Character/RedSlime/RedSlime.tscn" id="11_ku6dd"]
 [ext_resource type="PackedScene" uid="uid://bwtvdbrcjbq03" path="res://Resource/Trap/wood_spear.tscn" id="13_q8t2n"]
 [ext_resource type="PackedScene" uid="uid://cb0mkvfgesj8p" path="res://Resource/Potal/level_potal.tscn" id="14_nekhh"]
 [ext_resource type="PackedScene" uid="uid://cow2gjoks02t3" path="res://World/Forest_night/forest_night.tscn" id="15_0p7ir"]
+[ext_resource type="PackedScene" uid="uid://nh110a1yv3qb" path="res://Interface/Tutorial/tutorial.tscn" id="16_eri4k"]
+[ext_resource type="PackedScene" uid="uid://bky0sqoap6ank" path="res://Interface/Pause_menu/pause_menu.tscn" id="17_nftlo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0p7ir"]
 texture = ExtResource("7_r2ywe")
@@ -6424,3 +6426,12 @@ position = Vector2(1452, 748)
 position = Vector2(7397, 520)
 scale = Vector2(2.5, 2.5)
 next_scene = ExtResource("15_0p7ir")
+
+[node name="Tutorial" parent="." instance=ExtResource("16_eri4k")]
+
+[node name="CanvasLayer(PauseMenu)" parent="." instance=ExtResource("17_nftlo")]
+
+[node name="PauseMenu" parent="CanvasLayer(PauseMenu)" index="0"]
+visible = false
+
+[editable path="CanvasLayer(PauseMenu)"]
