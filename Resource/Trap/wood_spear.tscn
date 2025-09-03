@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bwtvdbrcjbq03"]
 
-[ext_resource type="Texture2D" uid="uid://covbbokpd6afb" path="res://Asset/Trap/wood_trap_1.png" id="1_ydh6m"]
-[ext_resource type="Texture2D" uid="uid://bi137tq1b1o1v" path="res://Asset/Trap/wood_trap_2.png" id="2_ovqm1"]
+[ext_resource type="Texture2D" uid="uid://b6ei1bt2css37" path="res://Asset/Trap/wood_trap_1.png" id="1_ydh6m"]
+[ext_resource type="Texture2D" uid="uid://b5e1d38ikpf42" path="res://Asset/Trap/wood_trap_2.png" id="2_ovqm1"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="4_hsfed"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r7gw8"]
@@ -26,7 +26,7 @@ texture = ExtResource("2_ovqm1")
 [node name="AttackComponet" parent="." instance=ExtResource("4_hsfed")]
 active = true
 damage = 30.0
-knockback = 400
+knockback = 600.0
 type_entity = "trap_ground"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponet"]
