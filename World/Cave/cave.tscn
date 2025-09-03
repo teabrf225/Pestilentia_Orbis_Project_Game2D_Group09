@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://duntasaydgctd"]
+[gd_scene load_steps=21 format=4 uid="uid://duntasaydgctd"]
 
 [ext_resource type="Texture2D" uid="uid://b2ixsrnw8xs5n" path="res://Asset/Map/PixelFantasy_Caves_1.0/background1.png" id="1_77aa6"]
 [ext_resource type="Texture2D" uid="uid://praxwc8xkevc" path="res://Asset/Map/PixelFantasy_Caves_1.0/background2.png" id="2_7842v"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://byr380i16ndu7" path="res://Asset/Map/PixelFantasy_Caves_1.0/props2.png" id="7_6qitl"]
 [ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="7_vj6e3"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="9_6qitl"]
+[ext_resource type="PackedScene" uid="uid://bvfpjcre8gug7" path="res://Resource/Trap/Fire_Trap.tscn" id="10_v1bm3"]
+[ext_resource type="PackedScene" uid="uid://d24vl26w0wm2a" path="res://Resource/Trap/Lightning_Trap.tscn" id="11_xeda1"]
+[ext_resource type="PackedScene" uid="uid://cgc0uecse1pph" path="res://Resource/Trap/SandWorm_Trap.tscn" id="12_gwn3q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v1bm3"]
 texture = ExtResource("6_77aa6")
@@ -6483,3 +6486,14 @@ damage = 1e+06
 position = Vector2(4324, 19.5)
 shape = SubResource("RectangleShape2D_v1bm3")
 debug_color = Color(0.964151, 0, 0.494479, 0.42)
+
+[node name="Trap" type="Node2D" parent="."]
+position = Vector2(358, 568)
+
+[node name="FireTrap" parent="Trap" instance=ExtResource("10_v1bm3")]
+
+[node name="LightningTrap" parent="Trap" instance=ExtResource("11_xeda1")]
+position = Vector2(405, 136)
+
+[node name="SandWermTrap" parent="Trap" instance=ExtResource("12_gwn3q")]
+position = Vector2(207, 180)
