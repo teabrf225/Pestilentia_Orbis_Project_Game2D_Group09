@@ -1,10 +1,10 @@
 [gd_scene load_steps=40 format=3 uid="uid://ckisicctkp4mg"]
 
-[ext_resource type="Texture2D" uid="uid://buditqwymxsjd" path="res://Asset/Character/Zombie/Zombie_3/Attack.png" id="1_te56g"]
-[ext_resource type="Texture2D" uid="uid://0nfkf16qkpsh" path="res://Asset/Character/Zombie/Zombie_3/Dead.png" id="2_83wrn"]
-[ext_resource type="Texture2D" uid="uid://c4ac7kntk4dhu" path="res://Asset/Character/Zombie/Zombie_3/Hurt.png" id="3_ybu6d"]
-[ext_resource type="Texture2D" uid="uid://dk77luo47qqe7" path="res://Asset/Character/Zombie/Zombie_3/Idle.png" id="4_dqxwf"]
-[ext_resource type="Texture2D" uid="uid://c4gi026q40r27" path="res://Asset/Character/Zombie/Zombie_3/Walk.png" id="5_b05ew"]
+[ext_resource type="Texture2D" uid="uid://iujyse663o0h" path="res://Asset/Character/Zombie/Zombie_3/Attack.png" id="1_te56g"]
+[ext_resource type="Texture2D" uid="uid://bwkbo46b8rau1" path="res://Asset/Character/Zombie/Zombie_3/Dead.png" id="2_83wrn"]
+[ext_resource type="Texture2D" uid="uid://cl6eo8camjwcu" path="res://Asset/Character/Zombie/Zombie_3/Hurt.png" id="3_ybu6d"]
+[ext_resource type="Texture2D" uid="uid://8fr40n8ajynr" path="res://Asset/Character/Zombie/Zombie_3/Idle.png" id="4_dqxwf"]
+[ext_resource type="Texture2D" uid="uid://du64bsiv65ccc" path="res://Asset/Character/Zombie/Zombie_3/Walk.png" id="5_b05ew"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="6_ysfr8"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="7_huds2"]
 

@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://bcmvkkx6ovlfh"]
 
-[ext_resource type="Texture2D" uid="uid://d1u03ryicebem" path="res://Interface/Menu_Game/Backgound_main_menu.png" id="1_6hw7b"]
+[ext_resource type="Texture2D" uid="uid://di31lp6masmea" path="res://Interface/Menu_Game/Backgound_main_menu.png" id="1_6hw7b"]
 [ext_resource type="Script" uid="uid://sah41kihxeif" path="res://Interface/Menu_Game/menu_game.gd" id="1_yl80j"]
-[ext_resource type="FontFile" uid="uid://cty2cnsddqs1x" path="res://Resource/Font/Silver.ttf" id="3_q67qq"]
+[ext_resource type="FontFile" uid="uid://ct06fh3d1nc0b" path="res://Resource/Font/Silver.ttf" id="3_q67qq"]
 [ext_resource type="Script" uid="uid://bh4v8brf8wdg2" path="res://Management/audio_control.gd" id="4_cnc36"]
-[ext_resource type="AudioStream" uid="uid://d3iulyqooe6ng" path="res://Resource/Music_BackGround/Horror Ambience (Free Background Music).mp3" id="4_f0oqs"]
+[ext_resource type="AudioStream" uid="uid://bkbaxlaqle3k7" path="res://Resource/Music_BackGround/Horror Ambience (Free Background Music).mp3" id="4_f0oqs"]
 [ext_resource type="Script" uid="uid://c5sf27scwlt6h" path="res://Interface/Menu_Game/fullscreen_control.gd" id="5_7trak"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1vqnn"]

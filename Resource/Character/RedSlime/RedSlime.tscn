@@ -1,18 +1,20 @@
-[gd_scene load_steps=57 format=3 uid="uid://cp31gdtdrtrd1"]
+[gd_scene load_steps=56 format=3 uid="uid://cp31gdtdrtrd1"]
 
-[ext_resource type="Script" uid="uid://deusdv8mp6grj" path="res://Resource/Character/RedSlime/red_slime.gd" id="2_1gmhd"]
-[ext_resource type="Texture2D" uid="uid://bgqmubmas8422" path="res://Asset/Character/Slime Enemy/Death/Sprite Sheet - Red Death.png" id="2_evsk8"]
-[ext_resource type="Texture2D" uid="uid://byb1kyxlvjx5r" path="res://Asset/Character/Slime Enemy/Hurt/Sprite Sheet - Red Hurt.png" id="3_57ixl"]
-[ext_resource type="Texture2D" uid="uid://davj0dompl3lt" path="res://Asset/Character/Slime Enemy/Idle/Sprite Sheet - Red Idle.png" id="4_k0hoq"]
-[ext_resource type="Texture2D" uid="uid://cmrdhn7p53txb" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Red Jump to Fall.png" id="5_5t1d0"]
+[ext_resource type="Texture2D" uid="uid://dub32alwswaul" path="res://Asset/Character/Slime Enemy/Death/Sprite Sheet - Red Death.png" id="2_evsk8"]
+[ext_resource type="Texture2D" uid="uid://kw47hx67foks" path="res://Asset/Character/Slime Enemy/Hurt/Sprite Sheet - Red Hurt.png" id="3_57ixl"]
+[ext_resource type="Texture2D" uid="uid://decdbbelgaovb" path="res://Asset/Character/Slime Enemy/Idle/Sprite Sheet - Red Idle.png" id="4_k0hoq"]
+[ext_resource type="Texture2D" uid="uid://c63bkfha7vkqo" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Red Jump to Fall.png" id="5_5t1d0"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="6_7b4kb"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="7_van83"]
 [ext_resource type="PackedScene" uid="uid://k0yvq00y0uwx" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/Health_bar.tscn" id="8_fss0e"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="8_x35nn"]
-[ext_resource type="FontFile" uid="uid://cq3w2jtu2quwu" path="res://Resource/Font/Silver.ttf" id="10_gpp2q"]
+[ext_resource type="PackedScene" uid="uid://p6gt5mvfnbkc" path="res://Management/Component/detection_component.tscn" id="9_5m8lb"]
+[ext_resource type="FontFile" uid="uid://bxanbpdsln55f" path="res://Resource/Font/Silver.ttf" id="10_gpp2q"]
 [ext_resource type="Script" uid="uid://edrauioceubp" path="res://Management/States/state_machine.gd" id="12_x35nn"]
-[ext_resource type="Script" uid="uid://c5w12p1ifghci" path="res://Management/States/Enemy/enemy_idle.gd" id="13_5m8lb"]
-[ext_resource type="Script" uid="uid://bsf1s73tuef2v" path="res://Management/States/Enemy/enemy_jump.gd" id="13_x35nn"]
+
+[sub_resource type="GDScript" id="GDScript_1gmhd"]
+script/source = "extends Enemy
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4hx4g"]
 atlas = ExtResource("2_evsk8")
@@ -315,21 +317,8 @@ shadow_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_gpp2q"]
 font_size = 96
 
-[node name="RedSlime" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision")]
-script = ExtResource("2_1gmhd")
-health_component = NodePath("HealthComponent")
-hit_component = NodePath("HitComponent")
-attack_component = NodePath("AttackComponent")
-attack_collision = NodePath("AttackComponent/CollisionShape2D")
-hp = 60.0
-dmg = 7.5
-use_knockback = true
-knockback_force = 100.0
-use_crit = true
-crit_rate = 5.0
-crit_dmg = 20.0
-move_speed = 30.0
-jump_force = 40.0
+[node name="RedSlime" type="CharacterBody2D"]
+script = SubResource("GDScript_1gmhd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dv7fu")
@@ -341,11 +330,11 @@ shape = SubResource("RectangleShape2D_panau")
 
 [node name="HealthComponent" parent="." instance=ExtResource("6_7b4kb")]
 max_health = 1.0
-die_and_hied = true
 
 [node name="HitComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_van83")]
 position = Vector2(41, 41)
 health_component = NodePath("../HealthComponent")
+knockback = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
 position = Vector2(-41, -36.5)
@@ -353,11 +342,32 @@ shape = SubResource("RectangleShape2D_rlitp")
 debug_color = Color(0.0833307, 0.643704, 0.245194, 0.42)
 
 [node name="AttackComponent" parent="." instance=ExtResource("8_x35nn")]
+active = true
+damage = 10.0
+knockback = 100.0
+use_crit = true
+crit_rate = 3.0
+crit_multiplier = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
 position = Vector2(-24.75, 3.75)
 shape = SubResource("RectangleShape2D_1gmhd")
 debug_color = Color(0.989781, 0, 0.286363, 0.42)
+
+[node name="detection_component" parent="." node_paths=PackedStringArray("forward", "forward_up", "forward_down") instance=ExtResource("9_5m8lb")]
+forward = NodePath("forward")
+forward_up = NodePath("up")
+forward_down = NodePath("down")
+max_range = 300.0
+
+[node name="forward" type="RayCast2D" parent="detection_component"]
+target_position = Vector2(-200, 0)
+
+[node name="up" type="RayCast2D" parent="detection_component"]
+target_position = Vector2(-194, -37)
+
+[node name="down" type="RayCast2D" parent="detection_component"]
+target_position = Vector2(-195, 34)
 
 [node name="HealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_fss0e")]
 offset_left = -21.0
@@ -392,20 +402,5 @@ scale = Vector2(0.165, 0.165)
 text = "Debug"
 label_settings = SubResource("LabelSettings_gpp2q")
 
-[node name="EnemyStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("12_x35nn")
-initial_state = NodePath("EnemyIdle")
-
-[node name="EnemyIdle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("enemy", "animation_sprite", "action_next_state")]
-script = ExtResource("13_5m8lb")
-enemy = NodePath("../..")
-animation_sprite = NodePath("../../AnimatedSprite2D")
-name_animation = "Idle"
-action_next_state = [NodePath("."), NodePath("../EnemyJump")]
-
-[node name="EnemyJump" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("enemy", "animation_sprite", "action_next_state")]
-script = ExtResource("13_x35nn")
-enemy = NodePath("../..")
-animation_sprite = NodePath("../../AnimatedSprite2D")
-name_animation = "Jump"
-action_next_state = [NodePath("../EnemyIdle")]

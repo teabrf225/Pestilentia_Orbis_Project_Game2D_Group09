@@ -1,12 +1,19 @@
-[gd_scene load_steps=33 format=3 uid="uid://bixktqhyg7if2"]
+[gd_scene load_steps=43 format=3 uid="uid://bixktqhyg7if2"]
 
-[ext_resource type="Texture2D" uid="uid://cet4jijfe5chq" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_attack.png" id="1_l7ua8"]
-[ext_resource type="Texture2D" uid="uid://hdq2h0crqhvw" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_death.png" id="2_0nc4j"]
+[ext_resource type="Script" uid="uid://buc6eso8xe56o" path="res://Resource/Character/Hobgblin/hobgoblin.gd" id="1_igrfi"]
+[ext_resource type="Texture2D" uid="uid://pe01wveibggv" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_attack.png" id="1_l7ua8"]
+[ext_resource type="Texture2D" uid="uid://dmbatbcmpr4fg" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_death.png" id="2_0nc4j"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="2_xht2v"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="3_0nc4j"]
-[ext_resource type="Texture2D" uid="uid://c808he1yjvw7s" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_hurt.png" id="3_sag24"]
-[ext_resource type="Texture2D" uid="uid://wvyxgj4i6t41" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_idle.png" id="4_k0ose"]
-[ext_resource type="Texture2D" uid="uid://bqly3c4ysg1qj" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_run.png" id="5_k0ose"]
+[ext_resource type="Texture2D" uid="uid://b3qdg24tcsgq" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_hurt.png" id="3_sag24"]
+[ext_resource type="Texture2D" uid="uid://ccn6wxa7tdnmx" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_idle.png" id="4_k0ose"]
+[ext_resource type="Texture2D" uid="uid://bvp2j8g160da" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_run.png" id="5_k0ose"]
+[ext_resource type="PackedScene" uid="uid://k0yvq00y0uwx" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/Health_bar.tscn" id="8_cwfel"]
+[ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="9_2wi33"]
+[ext_resource type="PackedScene" uid="uid://p6gt5mvfnbkc" path="res://Management/Component/detection_component.tscn" id="10_cwfel"]
+[ext_resource type="Script" uid="uid://edrauioceubp" path="res://Management/States/state_machine.gd" id="11_o23p2"]
+[ext_resource type="Script" uid="uid://b14ovl76gvbk7" path="res://Management/States/Enemy/idle.gd" id="13_kj2lf"]
+[ext_resource type="FontFile" uid="uid://bxanbpdsln55f" path="res://Resource/Font/Silver.ttf" id="16_o23p2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sag24"]
 atlas = ExtResource("1_l7ua8")
@@ -198,22 +205,119 @@ height = 144.0
 radius = 78.0
 height = 174.0
 
-[node name="Hobgoblin" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jl2t"]
+size = Vector2(109.5, 155)
+
+[sub_resource type="LabelSettings" id="LabelSettings_68g0d"]
+font = ExtResource("16_o23p2")
+font_size = 96
+outline_size = 1
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fjagk"]
+font_size = 96
+
+[node name="Hobgoblin" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine", "animation_control")]
+scale = Vector2(0.315, 0.315)
+script = ExtResource("1_igrfi")
+health_component = NodePath("HealthComponent")
+hit_component = NodePath("HitComponent")
+attack_component = NodePath("AttackComponet")
+attack_collision = NodePath("AttackComponet/CollisionShape2D")
+detection_component = NodePath("detection_component")
+state_machine = NodePath("fsm")
+animation_control = NodePath("AnimatedSprite2D")
+hp = 85.0
+dmg = 14.5
+use_knockback = true
+knockback_force = 150.0
+use_crit = true
+crit_rate = 5.0
+crit_dmg = 20.0
+move_speed = 100.0
+jump_force = 100.0
+max_vision = 800.0
+direction = "Right"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(9.375, 9.375)
 sprite_frames = SubResource("SpriteFrames_t3cqs")
 animation = &"Run"
-frame_progress = 0.416651
+frame_progress = 0.437461
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_kj2lf")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_xht2v")]
 
+[node name="HealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_cwfel")]
+offset_left = -95.0
+offset_top = -117.0
+offset_right = 102.0
+offset_bottom = -100.0
+health_component = NodePath("../HealthComponent")
+
 [node name="HitComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_0nc4j")]
 health_component = NodePath("../HealthComponent")
+knockback = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
 shape = SubResource("CapsuleShape2D_2wi33")
 debug_color = Color(0, 0.742132, 0.257289, 0.42)
+
+[node name="AttackComponet" parent="." instance=ExtResource("9_2wi33")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponet"]
+position = Vector2(82.75, 0)
+shape = SubResource("RectangleShape2D_8jl2t")
+debug_color = Color(0.994548, 0, 0.220285, 0.42)
+
+[node name="detection_component" parent="." node_paths=PackedStringArray("forward", "forward_up", "forward_down") instance=ExtResource("10_cwfel")]
+forward = NodePath("RayCast2D")
+forward_up = NodePath("RayCast2D2")
+forward_down = NodePath("RayCast2D3")
+
+[node name="RayCast2D" type="RayCast2D" parent="detection_component"]
+target_position = Vector2(500, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="detection_component"]
+target_position = Vector2(500, -100)
+
+[node name="RayCast2D3" type="RayCast2D" parent="detection_component"]
+target_position = Vector2(500, 100)
+
+[node name="fsm" type="Node" parent="." node_paths=PackedStringArray("initial_state", "debug_label")]
+script = ExtResource("11_o23p2")
+initial_state = NodePath("Idle")
+debug_label = NodePath("../debug_action")
+
+[node name="Idle" type="Node" parent="fsm" node_paths=PackedStringArray("animation_sprite")]
+script = ExtResource("13_kj2lf")
+name_animation = "Idle"
+animation_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="Name" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -63.4921
+offset_top = -158.73
+offset_right = 189.508
+offset_bottom = -51.7302
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.515, 0.515)
+text = "HobgoBiln"
+label_settings = SubResource("LabelSettings_68g0d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="debug_action" type="Label" parent="."]
+offset_left = -79.3651
+offset_top = 76.1905
+offset_right = 220.635
+offset_bottom = 208.19
+scale = Vector2(0.525, 0.525)
+text = "Debug"
+label_settings = SubResource("LabelSettings_fjagk")

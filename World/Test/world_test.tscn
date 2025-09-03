@@ -1,15 +1,16 @@
-[gd_scene load_steps=16 format=4 uid="uid://dlhjieromwo4r"]
+[gd_scene load_steps=17 format=4 uid="uid://dlhjieromwo4r"]
 
-[ext_resource type="Texture2D" uid="uid://bu82h2ytdqmto" path="res://Asset/Map/Jungle/1.Backround.png" id="1_88t1m"]
-[ext_resource type="Texture2D" uid="uid://248cox6q7bdf" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_ioul8"]
-[ext_resource type="Texture2D" uid="uid://mkgwrf4aom7g" path="res://Asset/Map/Jungle/3.Trees_front.png" id="3_8ujth"]
-[ext_resource type="Texture2D" uid="uid://hxrd027h7vpn" path="res://Asset/Map/Jungle/4.Ground.png" id="4_lfcpg"]
-[ext_resource type="Texture2D" uid="uid://dffk1y1foyn0m" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="5_oaxnm"]
-[ext_resource type="Texture2D" uid="uid://db0oltua68g2c" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="6_s8a55"]
+[ext_resource type="Texture2D" uid="uid://b0gqivkyfinit" path="res://Asset/Map/Jungle/1.Backround.png" id="1_88t1m"]
+[ext_resource type="Texture2D" uid="uid://cfpss8lrrph1p" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_ioul8"]
+[ext_resource type="Texture2D" uid="uid://cssxac3fevx58" path="res://Asset/Map/Jungle/3.Trees_front.png" id="3_8ujth"]
+[ext_resource type="Texture2D" uid="uid://dyergmlc17ohc" path="res://Asset/Map/Jungle/4.Ground.png" id="4_lfcpg"]
+[ext_resource type="Texture2D" uid="uid://b4357itxyvejt" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="5_oaxnm"]
+[ext_resource type="Texture2D" uid="uid://c7brkyqjua2po" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="6_s8a55"]
 [ext_resource type="PackedScene" uid="uid://bwtvdbrcjbq03" path="res://Resource/Trap/wood_spear.tscn" id="7_6oi5g"]
 [ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="8_88t1m"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="9_ioul8"]
-[ext_resource type="PackedScene" uid="uid://cp31gdtdrtrd1" path="res://Resource/Character/RedSlime/RedSlime.tscn" id="10_8ujth"]
+[ext_resource type="PackedScene" uid="uid://bky0sqoap6ank" path="res://Interface/Pause_menu/pause_menu.tscn" id="11_lfcpg"]
+[ext_resource type="PackedScene" uid="uid://bixktqhyg7if2" path="res://Resource/Character/Hobgblin/Hobgoblin.tscn" id="12_oaxnm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6uywx"]
 
@@ -1102,6 +1103,7 @@ position = Vector2(4324, 19.5)
 shape = SubResource("RectangleShape2D_88t1m")
 debug_color = Color(0.964151, 0, 0.494479, 0.42)
 
-[node name="RedSlime" parent="." instance=ExtResource("10_8ujth")]
-position = Vector2(1832, 736)
-hp = 600.0
+[node name="PauseMenu" parent="." instance=ExtResource("11_lfcpg")]
+
+[node name="Hobgoblin" parent="." instance=ExtResource("12_oaxnm")]
+position = Vector2(1976, 724)
