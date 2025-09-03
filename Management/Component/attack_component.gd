@@ -35,8 +35,7 @@ func _on_area_entered(body: Area2D) -> void:
 		var attack = Attack.new()
 		var crit_dmg = randf() < (crit_rate/100) if use_crit else false
 		if crit_dmg:
-			var crit_mutiplier_array = [1,2]
-			attack.crit_damage = damage * ((crit_multiplier/100) + crit_mutiplier_array.pick_random())
+			attack.crit_damage = damage * (((50+crit_multiplier)/100) + 1)
 		attack.attack_damage = attack.crit_damage if crit_dmg else damage
 		attack.knockback_force = knockback if knockback > 0 else attack.knockback_force
 		attack.attack_position = global_position if knockback else attack.attack_position

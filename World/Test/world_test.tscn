@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bwtvdbrcjbq03" path="res://Resource/Trap/wood_spear.tscn" id="7_6oi5g"]
 [ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="8_88t1m"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="9_ioul8"]
-[ext_resource type="PackedScene" uid="uid://cp31gdtdrtrd1" path="res://Resource/Character/RedSlime/RedSlime.tscn" id="10_8ujth"]
 [ext_resource type="PackedScene" uid="uid://bky0sqoap6ank" path="res://Interface/Pause_menu/pause_menu.tscn" id="11_lfcpg"]
+[ext_resource type="PackedScene" uid="uid://bixktqhyg7if2" path="res://Resource/Character/Hobgblin/Hobgoblin.tscn" id="12_oaxnm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6uywx"]
 
@@ -1103,8 +1103,7 @@ position = Vector2(4324, 19.5)
 shape = SubResource("RectangleShape2D_88t1m")
 debug_color = Color(0.964151, 0, 0.494479, 0.42)
 
-[node name="RedSlime" parent="." instance=ExtResource("10_8ujth")]
-position = Vector2(1832, 736)
-hp = 600.0
-
 [node name="PauseMenu" parent="." instance=ExtResource("11_lfcpg")]
+
+[node name="Hobgoblin" parent="." instance=ExtResource("12_oaxnm")]
+position = Vector2(1976, 724)

@@ -1,11 +1,11 @@
 [gd_scene load_steps=30 format=3 uid="uid://b6nyd7gjew1ty"]
 
-[ext_resource type="Texture2D" uid="uid://duq3isyun2g8y" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Hit-Vanish/Hit-Sheet-Black.png" id="1_2y3ii"]
+[ext_resource type="Texture2D" uid="uid://75vnh0v3lc2n" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Hit-Vanish/Hit-Sheet-Black.png" id="1_2y3ii"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="1_m2qvm"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="2_hmax1"]
-[ext_resource type="Texture2D" uid="uid://chv3w73kbmyju" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Idle/Idle-Sheet-export-Back.png" id="2_sx7no"]
-[ext_resource type="Texture2D" uid="uid://cas3tkc7rl4sm" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Run/Run-Sheet-Black.png" id="3_e55tx"]
-[ext_resource type="Texture2D" uid="uid://dd50l5ofrcnkn" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Walk/Walk-Base-SheetBlack.png" id="4_f5tei"]
+[ext_resource type="Texture2D" uid="uid://4fkkm2tlrpat" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Idle/Idle-Sheet-export-Back.png" id="2_sx7no"]
+[ext_resource type="Texture2D" uid="uid://dwgdiusjeuuvi" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Run/Run-Sheet-Black.png" id="3_e55tx"]
+[ext_resource type="Texture2D" uid="uid://c3sswadxvuh76" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Walk/Walk-Base-SheetBlack.png" id="4_f5tei"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4qyw8"]
 atlas = ExtResource("1_2y3ii")
