@@ -1,9 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://d3fhiak32cr5m"]
+[gd_scene load_steps=31 format=3 uid="uid://d3fhiak32cr5m"]
 
-[ext_resource type="Texture2D" uid="uid://bssrwc1vj1h5k" path="res://Asset/Character/Lich_Attack.png" id="1_cw3yx"]
-[ext_resource type="Texture2D" uid="uid://dubek7j62c1ye" path="res://Asset/Character/Lich_Dead.png" id="2_eaq62"]
-[ext_resource type="Texture2D" uid="uid://d2svc23gep6ul" path="res://Asset/Character/Lich_Idle.png" id="3_owiur"]
-[ext_resource type="Texture2D" uid="uid://drrwb7l3vi18v" path="res://Asset/Character/Lich_Laser.png" id="4_eaq62"]
+[ext_resource type="Texture2D" uid="uid://ca0fi6n5vnwo8" path="res://Asset/Character/Lich_Attack.png" id="1_cw3yx"]
+[ext_resource type="Script" uid="uid://dan4jmyolj720" path="res://Resource/Character/Lich/lich.gd" id="1_u4geh"]
+[ext_resource type="Texture2D" uid="uid://bm1eld2vrq0l2" path="res://Asset/Character/Lich_Dead.png" id="2_eaq62"]
+[ext_resource type="Texture2D" uid="uid://c134syydrkrq8" path="res://Asset/Character/Lich_Idle.png" id="3_owiur"]
+[ext_resource type="Texture2D" uid="uid://cwauxaqkrjdlj" path="res://Asset/Character/Lich_Laser.png" id="4_eaq62"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="4_u4geh"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="5_ycojp"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="7_owiur"]
@@ -253,7 +254,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4geh"]
 size = Vector2(23.5418, 33.8)
 
-[node name="Lich" type="CharacterBody2D"]
+[node name="Lich" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component")]
+script = ExtResource("1_u4geh")
+health_component = NodePath("HealthComponent")
+hit_component = NodePath("HitComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
@@ -266,6 +270,8 @@ position = Vector2(-4, 17)
 shape = SubResource("CapsuleShape2D_52nhe")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_u4geh")]
+max_health = 1.0
+die_and_hied = true
 
 [node name="HitComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_ycojp")]
 health_component = NodePath("../HealthComponent")

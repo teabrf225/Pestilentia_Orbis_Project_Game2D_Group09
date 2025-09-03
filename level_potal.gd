@@ -1,12 +1,30 @@
 extends Area2D
-class_name potal
-# Define the next scene to load in the inspector
-@export var next_scene : PackedScene
+class_name Potal
 
-# Load next level scene when player collide with level finish door.
+@export var next_scene: PackedScene
+var locked: bool = true   # เริ่มต้นปิดไว้
+
+# เรียกตอน Boss ตาย
+func unlock():
+	locked = false
+	print("Door unlocked!")
+
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		get_tree().call_group("player", "death_tween") # death_tween is called here just to give the feeling of player entering the door.
+		if locked:
+			print("The door is locked. Defeat the Boss first!")
+			return
+
+		# เอฟเฟกต์เหมือนเข้าไปในประตู
+		get_tree().call_group("player", "death_tween")
 		# AudioManager.level_complete_sfx.play()
 		SceneTransitions.load_scene(next_scene)
 		print("already in")
+
+
+func _on_king_slime_boss_defeated() -> void:
+	unlock() # Replace with function body.
+
+
+func _on_dullahan_boss_defeated() -> void:
+	unlock() # Replace with function body.

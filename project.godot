@@ -26,6 +26,7 @@ buses/default_bus_layout="res://Management/default_bus_layout.tres"
 
 Global="*res://Management/Global.gd"
 SceneTransitions="*res://Resource/Transitions/scene_transitions.tscn"
+GameManager="*res://Management/Main_Moniter.gd"
 
 [display]
 

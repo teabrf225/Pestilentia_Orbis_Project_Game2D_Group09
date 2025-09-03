@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://bym7jmphv7rcx"]
+[gd_scene load_steps=23 format=3 uid="uid://bym7jmphv7rcx"]
 
-[ext_resource type="Texture2D" uid="uid://ve41qvwjbd1w" path="res://Asset/Character/King_Slime_attack.png" id="1_uqtad"]
-[ext_resource type="Texture2D" uid="uid://i7h6ekbe8xbx" path="res://Asset/Character/King_Slime_Death.png" id="2_1du1x"]
-[ext_resource type="Texture2D" uid="uid://dtsgtpglgxq7w" path="res://Asset/Character/KIng_Slime_Idle.png" id="2_rnh8y"]
+[ext_resource type="Script" uid="uid://iaja3r8op1k1" path="res://Resource/Character/King_Slime/king_slime.gd" id="1_1du1x"]
+[ext_resource type="Texture2D" uid="uid://rje43dffnp58" path="res://Asset/Character/King_Slime_attack.png" id="1_uqtad"]
+[ext_resource type="Texture2D" uid="uid://br0vyihkir4ug" path="res://Asset/Character/King_Slime_Death.png" id="2_1du1x"]
+[ext_resource type="Texture2D" uid="uid://cu8b55hb0nooy" path="res://Asset/Character/KIng_Slime_Idle.png" id="2_rnh8y"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="3_1du1x"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="4_pfi6w"]
 
@@ -122,7 +123,10 @@ height = 102.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1d1sv"]
 size = Vector2(79, 107.75)
 
-[node name="KingSlime" type="CharacterBody2D"]
+[node name="KingSlime" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component")]
+script = ExtResource("1_1du1x")
+health_component = NodePath("HealthComponent")
+hit_component = NodePath("HitComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cil35")
@@ -136,6 +140,7 @@ shape = SubResource("CapsuleShape2D_x6bi8")
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_1du1x")]
 visible = false
+die_and_hied = true
 
 [node name="HitComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_pfi6w")]
 visible = false
