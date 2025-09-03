@@ -17,7 +17,7 @@ func _ready() -> void:
 		health_component.health_changed.connect(init_health_with_health_component)
 
 func _init_health(_health):
-	print(get_parent()," Set up def Hp: ",_health)
+	#print(get_parent()," Set up def Hp: ",_health)
 	health = _health
 	max_value = health
 	value = health

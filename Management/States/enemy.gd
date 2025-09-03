@@ -34,6 +34,8 @@ class_name Enemy
 @export var max_vision: float
 @export_enum("Left","Right") var direction: String
 
+var is_player_detected: bool = false
+
 func _ready() -> void:
 	# Set up components
 	if health_component:
@@ -67,20 +69,21 @@ func _on_died():
 func update_facing_direction(new_direction: String):
 	if new_direction.to_lower() == "right":
 		# พลิกตัวไปทางขวาโดยใช้ scale
-		if animation_control:
-			animation_control.scale.x = 1
 		if direction != "Right":
 			direction = "Right"
+			if animation_control:
+				animation_control.scale.x *= -1
 			if attack_component:
 				attack_component.scale.x = 1
 			if detection_component:
 				detection_component.scale.x = 1
 	elif new_direction.to_lower() == "left":
 		# พลิกตัวไปทางซ้ายโดยใช้ scale
-		if animation_control:
-			animation_control.scale.x = -1
+		
 		if direction != "Left":
 			direction = "Left"
+			if animation_control:
+				animation_control.scale.x *= -1
 			if attack_component:
 				attack_component.scale.x = -1
 			if detection_component:
