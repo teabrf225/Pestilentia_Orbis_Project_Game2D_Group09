@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://p6gt5mvfnbkc"]
+
+[ext_resource type="Script" uid="uid://oj54qekjt020" path="res://Management/Component/detection_component.gd" id="1_bt608"]
+
+[node name="detection_component" type="Node2D"]
+script = ExtResource("1_bt608")

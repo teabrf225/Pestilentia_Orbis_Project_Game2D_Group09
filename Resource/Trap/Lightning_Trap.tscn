@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://d24vl26w0wm2a"]
+
+[ext_resource type="Texture2D" uid="uid://bxo8ptdaifu7q" path="res://Asset/Trap/Lightning Trap/PNGs/Lightning Trap - Level 1.png" id="1_es7js"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sb2fl"]
+atlas = ExtResource("1_es7js")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fltj"]
+atlas = ExtResource("1_es7js")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t70gv"]
+atlas = ExtResource("1_es7js")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88qkf"]
+atlas = ExtResource("1_es7js")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abkx8"]
+atlas = ExtResource("1_es7js")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu4ui"]
+atlas = ExtResource("1_es7js")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu02y"]
+atlas = ExtResource("1_es7js")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaqx7"]
+atlas = ExtResource("1_es7js")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7y3v"]
+atlas = ExtResource("1_es7js")
+region = Rect2(768, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt7mh"]
+atlas = ExtResource("1_es7js")
+region = Rect2(864, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r1tnk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb2fl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fltj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t70gv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88qkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abkx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uu4ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qu02y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oaqx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7y3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt7mh")
+}],
+"loop": true,
+"name": &"Lightning",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kre8f"]
+size = Vector2(27, 147)
+
+[node name="LightningTrap" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_r1tnk")
+animation = &"Lightning"
+frame_progress = 0.286073
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kre8f")

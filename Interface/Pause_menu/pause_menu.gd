@@ -2,6 +2,10 @@ extends Control
 @onready var Options: Panel = $Options
 @onready var Pause: Panel = $Panel
 
+func _ready() -> void:
+	visible = false
+	Options.visible = false
+
 func resume():
 	get_tree().paused = false
 	hide()
