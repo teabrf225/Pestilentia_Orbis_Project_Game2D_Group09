@@ -1,12 +1,12 @@
 [gd_scene load_steps=33 format=3 uid="uid://bixktqhyg7if2"]
 
-[ext_resource type="Texture2D" uid="uid://cugesa77u47dv" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_attack.png" id="1_l7ua8"]
-[ext_resource type="Texture2D" uid="uid://3id2mkbqyj45" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_death.png" id="2_0nc4j"]
+[ext_resource type="Texture2D" uid="uid://cet4jijfe5chq" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_attack.png" id="1_l7ua8"]
+[ext_resource type="Texture2D" uid="uid://hdq2h0crqhvw" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_death.png" id="2_0nc4j"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="2_xht2v"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="3_0nc4j"]
-[ext_resource type="Texture2D" uid="uid://oihu5lg1qra6" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_hurt.png" id="3_sag24"]
-[ext_resource type="Texture2D" uid="uid://clu8adhc1eiyj" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_idle.png" id="4_k0ose"]
-[ext_resource type="Texture2D" uid="uid://bjjnvf8k4r1hi" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_run.png" id="5_k0ose"]
+[ext_resource type="Texture2D" uid="uid://c808he1yjvw7s" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_hurt.png" id="3_sag24"]
+[ext_resource type="Texture2D" uid="uid://wvyxgj4i6t41" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_idle.png" id="4_k0ose"]
+[ext_resource type="Texture2D" uid="uid://bqly3c4ysg1qj" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_run.png" id="5_k0ose"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sag24"]
 atlas = ExtResource("1_l7ua8")

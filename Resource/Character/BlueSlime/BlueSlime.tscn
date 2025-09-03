@@ -1,11 +1,11 @@
 [gd_scene load_steps=47 format=3 uid="uid://bqa42rdwapxhu"]
 
-[ext_resource type="Texture2D" uid="uid://bs824r0b0yqux" path="res://Asset/Character/Slime Enemy/Idle/Sprite Sheet - Blue Idle.png" id="1_8lkex"]
-[ext_resource type="Texture2D" uid="uid://dy07ldm7kjl3l" path="res://Asset/Character/Slime Enemy/Death/Sprite Sheet - Blue Death.png" id="1_wiu4f"]
-[ext_resource type="Texture2D" uid="uid://cu5eed25v060e" path="res://Asset/Character/Slime Enemy/Hurt/Sprite Sheet - Blue Hurt.png" id="2_307ki"]
+[ext_resource type="Texture2D" uid="uid://dk7ylxwekq7qm" path="res://Asset/Character/Slime Enemy/Idle/Sprite Sheet - Blue Idle.png" id="1_8lkex"]
+[ext_resource type="Texture2D" uid="uid://bxkucv0wggxa4" path="res://Asset/Character/Slime Enemy/Death/Sprite Sheet - Blue Death.png" id="1_wiu4f"]
+[ext_resource type="Texture2D" uid="uid://52msxw08aici" path="res://Asset/Character/Slime Enemy/Hurt/Sprite Sheet - Blue Hurt.png" id="2_307ki"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="2_572j4"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="3_cut2e"]
-[ext_resource type="Texture2D" uid="uid://dxn7hfuufgx28" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Blue Jump to Fall.png" id="4_k5akx"]
+[ext_resource type="Texture2D" uid="uid://h5ffy6nsiw86" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Blue Jump to Fall.png" id="4_k5akx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yt8o1"]
 atlas = ExtResource("1_wiu4f")

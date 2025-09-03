@@ -1,8 +1,8 @@
 [gd_scene load_steps=21 format=3 uid="uid://bqk5ot8usv1hw"]
 
-[ext_resource type="Texture2D" uid="uid://pwn7i52f3ad3" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Attack/Attack-Sheet.png" id="1_ofxg2"]
-[ext_resource type="Texture2D" uid="uid://b32vc0y5ssj8e" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Fly/Fly-Sheet.png" id="2_vckj8"]
-[ext_resource type="Texture2D" uid="uid://cs2squiv6ypjo" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Hit/Hit-Sheet.png" id="3_v77tc"]
+[ext_resource type="Texture2D" uid="uid://b6ylfdoicy41q" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Attack/Attack-Sheet.png" id="1_ofxg2"]
+[ext_resource type="Texture2D" uid="uid://bol3jd45h0rev" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Fly/Fly-Sheet.png" id="2_vckj8"]
+[ext_resource type="Texture2D" uid="uid://cgqy3nh6lypdc" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Hit/Hit-Sheet.png" id="3_v77tc"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="4_bf1v7"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="5_dmnft"]
 
