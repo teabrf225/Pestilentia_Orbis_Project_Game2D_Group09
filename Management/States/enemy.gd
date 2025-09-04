@@ -14,6 +14,8 @@ class_name Enemy
 @export var state_machine: StateMachine
 @export var dead_state: State
 @export var chase_state: State
+@export var hurt_state: State
+@export var idle_state: State
 # เพิ่มตัวแปรสำหรับ Node ที่เก็บ Sprite/AnimationPlayer
 @export var animation_control: Node2D
 
@@ -54,6 +56,10 @@ func _ready() -> void:
 			attack_component.setup(null,knockback_force)
 	if detection_component:
 		detection_component.setup(max_vision)
+		
+	if hit_component:
+		hit_component.on_hurt.connect(on_hit)
+
 
 func _physics_process(delta: float) -> void:
 	# Basic physics for the enemy
@@ -66,6 +72,23 @@ func _on_died():
 	if state_machine and dead_state:
 		state_machine.change_state(dead_state)
 
+#func on_hit():
+#	if state_machine:
+#		state_machine.change_state(hurt_state)
+#		
+func on_hit():
+	state_machine.change_state(hurt_state)
+	var anima_sprite = $AnimatedSprite2D
+	if anima_sprite:
+		anima_sprite.play("Hurt")
+		anima_sprite.connect("animation_finished",Callable(self,"_on_hurt_anim_finished"),CONNECT_ONE_SHOT)
+	
+func _on_hurt_anim_finished():
+	if state_machine:
+		state_machine.change_state(idle_state)
+		var anim_sprite : AnimatedSprite2D = $AnimatedSprite2D
+		if anim_sprite:
+			anim_sprite.play("Idle")
 # ฟังก์ชันนี้จะถูกเรียกใช้โดยแต่ละ State เพื่อควบคุมทิศทางการหันหน้า
 func update_facing_direction(new_direction: String):
 	if new_direction.to_lower() == "right":
