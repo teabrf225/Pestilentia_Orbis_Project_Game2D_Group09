@@ -4,19 +4,21 @@ extends State
 @export var detection_component: DetectionComponent
 @export var min_range_atk:float = 50
 @export var attack_component: AttackComponent
+@export var attack_collision: CollisionShape2D
 @export var chase_state: State
 @export var atk_state: State
 var distance = null
 var is_attacking: bool = false
 
 func enter():
-	super.enter()
-	is_attacking = true
-	attack_component.active = true
 	if animation_sprite:
 		animation_sprite.connect("animation_finished", Callable(self, "_on_attack_finished"))
 	if animation_player:
 		animation_player.connect("animation_finished", Callable(self, "_on_attack_finished"))
+	super.enter()
+	is_attacking = true
+	attack_component.active = true
+	attack_collision.disabled = false
 
 func exit():
 	super.exit()
@@ -32,6 +34,7 @@ func update_state(_delta: float) -> void:
 				is_attacking = true
 				_play_animation()
 				attack_component.active = true
+				attack_collision.disabled = false
 	else:
 		request_change_to(chase_state)
 
@@ -40,5 +43,7 @@ func transition() -> void:
 
 func _on_attack_finished():
 	if is_attacking:
+		print(is_attacking)
 		attack_component.active = false
 		is_attacking = false
+		attack_collision.disabled = true
