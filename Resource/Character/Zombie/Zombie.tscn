@@ -1,17 +1,12 @@
-[gd_scene load_steps=48 format=3 uid="uid://ckisicctkp4mg"]
+[gd_scene load_steps=40 format=3 uid="uid://ckisicctkp4mg"]
 
-[ext_resource type="Script" uid="uid://c1kn7h3b4f70b" path="res://Management/States/enemy.gd" id="1_b05ew"]
-[ext_resource type="Texture2D" uid="uid://buditqwymxsjd" path="res://Asset/Character/Zombie/Zombie_3/Attack.png" id="1_te56g"]
-[ext_resource type="Texture2D" uid="uid://0nfkf16qkpsh" path="res://Asset/Character/Zombie/Zombie_3/Dead.png" id="2_83wrn"]
-[ext_resource type="Texture2D" uid="uid://c4ac7kntk4dhu" path="res://Asset/Character/Zombie/Zombie_3/Hurt.png" id="3_ybu6d"]
-[ext_resource type="Texture2D" uid="uid://dk77luo47qqe7" path="res://Asset/Character/Zombie/Zombie_3/Idle.png" id="4_dqxwf"]
-[ext_resource type="Texture2D" uid="uid://c4gi026q40r27" path="res://Asset/Character/Zombie/Zombie_3/Walk.png" id="5_b05ew"]
+[ext_resource type="Texture2D" uid="uid://br0v0oxirpyiu" path="res://Asset/Character/Zombie/Zombie_3/Attack.png" id="1_te56g"]
+[ext_resource type="Texture2D" uid="uid://b7q8whibngbb0" path="res://Asset/Character/Zombie/Zombie_3/Dead.png" id="2_83wrn"]
+[ext_resource type="Texture2D" uid="uid://c4jr0mcktyp6o" path="res://Asset/Character/Zombie/Zombie_3/Hurt.png" id="3_ybu6d"]
+[ext_resource type="Texture2D" uid="uid://b7nlqqm8gkyni" path="res://Asset/Character/Zombie/Zombie_3/Idle.png" id="4_dqxwf"]
+[ext_resource type="Texture2D" uid="uid://caka8uapsg0t5" path="res://Asset/Character/Zombie/Zombie_3/Walk.png" id="5_b05ew"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="6_ysfr8"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="7_huds2"]
-[ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="8_ybu6d"]
-[ext_resource type="PackedScene" uid="uid://p6gt5mvfnbkc" path="res://Management/Component/detection_component.tscn" id="9_dqxwf"]
-[ext_resource type="PackedScene" uid="uid://1km386n64ium" path="res://Management/States/state_machine.tscn" id="11_ysfr8"]
-[ext_resource type="PackedScene" uid="uid://k0yvq00y0uwx" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/Health_bar.tscn" id="12_ysfr8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mky1i"]
 atlas = ExtResource("1_te56g")
@@ -252,23 +247,8 @@ height = 204.0
 radius = 65.0
 height = 244.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b05ew"]
-radius = 93.0
-height = 262.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_huds2"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_mky1i"]
-
-[node name="Zombie" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine")]
-script = ExtResource("1_b05ew")
-health_component = NodePath("HealthComponent")
-hit_component = NodePath("HitComponent")
-attack_component = NodePath("AttackComponet")
-attack_collision = NodePath("AttackComponet/CollisionShape2D")
-detection_component = NodePath("detection_component")
-state_machine = NodePath("state_machine")
-metadata/_custom_type_script = "uid://c1kn7h3b4f70b"
+[node name="Zombie" type="CharacterBody2D"]
+scale = Vector2(0.3, 0.3)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
@@ -289,40 +269,3 @@ health_component = NodePath("../HealthComponent")
 position = Vector2(-14, 97)
 shape = SubResource("CapsuleShape2D_83wrn")
 debug_color = Color(0, 0.644597, 0.277713, 0.42)
-
-[node name="AttackComponet" parent="." instance=ExtResource("8_ybu6d")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponet"]
-position = Vector2(-16, 100)
-shape = SubResource("CapsuleShape2D_b05ew")
-debug_color = Color(0.968304, 0, 0.46873, 0.42)
-
-[node name="detection_component" parent="." instance=ExtResource("9_dqxwf")]
-
-[node name="RayCast2D" type="RayCast2D" parent="detection_component"]
-target_position = Vector2(500, 0)
-
-[node name="state_machine" parent="." instance=ExtResource("11_ysfr8")]
-
-[node name="HealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("12_ysfr8")]
-offset_left = -126.0
-offset_top = -42.0
-offset_right = 114.0
-offset_bottom = -38.0
-health_component = NodePath("../HealthComponent")
-
-[node name="Name" type="Label" parent="."]
-offset_left = -27.0
-offset_top = -69.0
-offset_right = 13.0
-offset_bottom = -46.0
-text = "Zombie"
-label_settings = SubResource("LabelSettings_huds2")
-
-[node name="Debug" type="Label" parent="."]
-offset_left = -37.0
-offset_top = 234.0
-offset_right = 3.0
-offset_bottom = 257.0
-text = "Debug"
-label_settings = SubResource("LabelSettings_mky1i")

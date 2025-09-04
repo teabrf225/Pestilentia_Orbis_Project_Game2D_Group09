@@ -1,7 +1,6 @@
-[gd_scene load_steps=75 format=3 uid="uid://d1gcxwge6bsvk"]
+[gd_scene load_steps=67 format=3 uid="uid://d1gcxwge6bsvk"]
 
 [ext_resource type="Texture2D" uid="uid://6uy0sn3ywpcf" path="res://Asset/Character/Skeletons_Free_Pack/Skeletons_Free_Pack/Skeleton_Sword/Skeleton_White/Skeleton_With_VFX/Skeleton_01_White_Attack1.png" id="1_jd186"]
-[ext_resource type="Script" uid="uid://u78cg2xglhpg" path="res://Resource/Character/Skeleton_White/skeleton_white.gd" id="1_pd3k5"]
 [ext_resource type="Texture2D" uid="uid://byx2bdjob03ej" path="res://Asset/Character/Skeletons_Free_Pack/Skeletons_Free_Pack/Skeleton_Sword/Skeleton_White/Skeleton_With_VFX/Skeleton_01_White_Attack2.png" id="2_3v22m"]
 [ext_resource type="Texture2D" uid="uid://dl5wtlk4wwmhg" path="res://Asset/Character/Skeletons_Free_Pack/Skeletons_Free_Pack/Skeleton_Sword/Skeleton_White/Skeleton_With_VFX/Skeleton_01_White_Die.png" id="3_eva3f"]
 [ext_resource type="Texture2D" uid="uid://dydfomfllbffx" path="res://Asset/Character/Skeletons_Free_Pack/Skeletons_Free_Pack/Skeleton_Sword/Skeleton_White/Skeleton_With_VFX/Skeleton_01_White_Hurt.png" id="4_hssmo"]
@@ -9,10 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://cyam66my2qjco" path="res://Asset/Character/Skeletons_Free_Pack/Skeletons_Free_Pack/Skeleton_Sword/Skeleton_White/Skeleton_With_VFX/Skeleton_01_White_Walk.png" id="6_b31sv"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="7_rigl2"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="8_vpr6r"]
-[ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="10_b31sv"]
-[ext_resource type="PackedScene" uid="uid://p6gt5mvfnbkc" path="res://Management/Component/detection_component.tscn" id="11_rigl2"]
-[ext_resource type="PackedScene" uid="uid://1km386n64ium" path="res://Management/States/state_machine.tscn" id="12_vpr6r"]
-[ext_resource type="PackedScene" uid="uid://k0yvq00y0uwx" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/Health_bar.tscn" id="13_b31sv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_we3kf"]
 atlas = ExtResource("1_jd186")
@@ -439,23 +434,8 @@ height = 48.0
 radius = 16.0
 height = 60.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_we3kf"]
-radius = 23.0
-height = 80.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_rigl2"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_vpr6r"]
-
-[node name="SkeletonWhite" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine")]
-script = ExtResource("1_pd3k5")
-health_component = NodePath("HealthComponent")
-hit_component = NodePath("HitComponent")
-attack_component = NodePath("AttackComponet")
-attack_collision = NodePath("AttackComponet/CollisionShape2D")
-detection_component = NodePath("detection_component")
-state_machine = NodePath("state_machine")
-metadata/_custom_type_script = "uid://c1kn7h3b4f70b"
+[node name="SkeletonWhite" type="CharacterBody2D"]
+scale = Vector2(1.3, 1.3)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cf4dy")
@@ -475,40 +455,3 @@ health_component = NodePath("../HealthComponent")
 position = Vector2(-2, 10)
 shape = SubResource("CapsuleShape2D_p4bcl")
 debug_color = Color(0.0848156, 0.643135, 0.256684, 0.42)
-
-[node name="AttackComponet" parent="." instance=ExtResource("10_b31sv")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponet"]
-position = Vector2(-2, 9)
-shape = SubResource("CapsuleShape2D_we3kf")
-debug_color = Color(0.980015, 0, 0.383243, 0.42)
-
-[node name="detection_component" parent="." instance=ExtResource("11_rigl2")]
-
-[node name="RayCast2D" type="RayCast2D" parent="detection_component"]
-target_position = Vector2(500, 0)
-
-[node name="state_machine" parent="." instance=ExtResource("12_vpr6r")]
-
-[node name="HealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("13_b31sv")]
-offset_left = -120.0
-offset_top = -38.0
-offset_right = 120.0
-offset_bottom = -34.0
-health_component = NodePath("../HealthComponent")
-
-[node name="Debug" type="Label" parent="."]
-offset_left = -21.0
-offset_top = 51.0
-offset_right = 19.0
-offset_bottom = 74.0
-text = "Debug"
-label_settings = SubResource("LabelSettings_rigl2")
-
-[node name="Name" type="Label" parent="."]
-offset_left = -59.0
-offset_top = -65.0
-offset_right = 58.0
-offset_bottom = -42.0
-text = "Skeleton White"
-label_settings = SubResource("LabelSettings_vpr6r")
