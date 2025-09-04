@@ -483,10 +483,7 @@ position = Vector2(-24.75, 3.75)
 shape = SubResource("RectangleShape2D_1gmhd")
 debug_color = Color(0.989781, 0, 0.286363, 0.42)
 
-[node name="detection_component" parent="." node_paths=PackedStringArray("forward", "forward_up", "forward_down") instance=ExtResource("9_5m8lb")]
-forward = NodePath("forward")
-forward_up = NodePath("up")
-forward_down = NodePath("down")
+[node name="detection_component" parent="." instance=ExtResource("9_5m8lb")]
 max_range = 300.0
 
 [node name="forward" type="RayCast2D" parent="detection_component"]

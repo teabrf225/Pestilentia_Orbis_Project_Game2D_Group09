@@ -1,9 +1,9 @@
 [gd_scene load_steps=23 format=3 uid="uid://bym7jmphv7rcx"]
 
 [ext_resource type="Script" uid="uid://iaja3r8op1k1" path="res://Resource/Character/King_Slime/king_slime.gd" id="1_1du1x"]
-[ext_resource type="Texture2D" uid="uid://rje43dffnp58" path="res://Asset/Character/King_Slime_attack.png" id="1_uqtad"]
-[ext_resource type="Texture2D" uid="uid://br0vyihkir4ug" path="res://Asset/Character/King_Slime_Death.png" id="2_1du1x"]
-[ext_resource type="Texture2D" uid="uid://cu8b55hb0nooy" path="res://Asset/Character/KIng_Slime_Idle.png" id="2_rnh8y"]
+[ext_resource type="Texture2D" uid="uid://drdf3tqyei4ty" path="res://Asset/Character/King_Slime_attack.png" id="1_uqtad"]
+[ext_resource type="Texture2D" uid="uid://xe5r84c0dbuq" path="res://Asset/Character/King_Slime_Death.png" id="2_1du1x"]
+[ext_resource type="Texture2D" uid="uid://da0l51q1l6dv7" path="res://Asset/Character/KIng_Slime_Idle.png" id="2_rnh8y"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="3_1du1x"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="4_pfi6w"]
 
