@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://d24vl26w0wm2a"]
 
 [ext_resource type="Script" uid="uid://cjkhakt8qfjp4" path="res://Resource/Trap/lightning_trap.gd" id="1_5fltj"]
-[ext_resource type="Texture2D" uid="uid://b1r6uc8qr04sn" path="res://Asset/Trap/Lightning Trap/PNGs/Lightning Trap - Level 1.png" id="1_es7js"]
+[ext_resource type="Texture2D" uid="uid://bmiueqoi0wbto" path="res://Asset/Trap/Lightning Trap/PNGs/Lightning Trap - Level 1.png" id="1_es7js"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="3_t70gv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sb2fl"]
@@ -270,7 +270,7 @@ _data = {
 &"lightning": SubResource("Animation_abkx8")
 }
 
-[node name="LightningTrap" type="CharacterBody2D" groups=["Trap_Ground"]]
+[node name="LightningTrap" type="CharacterBody2D" groups=["trap_ground"]]
 script = ExtResource("1_5fltj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

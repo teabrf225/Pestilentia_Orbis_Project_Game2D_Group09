@@ -1,13 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://cu7jwkso25y1"]
+[gd_scene load_steps=22 format=3 uid="uid://cu7jwkso25y1"]
 
-[ext_resource type="Script" uid="uid://c1uoi5j1fglip" path="res://Resource/Character/wizard/wizard.gd" id="1_2k4ic"]
-[ext_resource type="Texture2D" uid="uid://c0ul6rv6uvr0j" path="res://Asset/Character/wizard.png" id="1_42osk"]
+[ext_resource type="Texture2D" uid="uid://b4f2lle5fxf0p" path="res://Asset/Character/wizard.png" id="1_42osk"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="2_2k4ic"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="3_vdjdu"]
-[ext_resource type="PackedScene" uid="uid://1km386n64ium" path="res://Management/States/state_machine.tscn" id="5_4p82a"]
-[ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="6_2mysj"]
-[ext_resource type="PackedScene" uid="uid://p6gt5mvfnbkc" path="res://Management/Component/detection_component.tscn" id="7_xj8t5"]
-[ext_resource type="PackedScene" uid="uid://k0yvq00y0uwx" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/Health_bar.tscn" id="8_2mysj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1ejx"]
 atlas = ExtResource("1_42osk")
@@ -135,23 +130,8 @@ height = 142.0
 radius = 66.0
 height = 198.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tncgl"]
-radius = 87.0
-height = 234.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_xj8t5"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_tncgl"]
-
-[node name="Wizard" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine")]
-script = ExtResource("1_2k4ic")
-health_component = NodePath("HealthComponent")
-hit_component = NodePath("HitComponent")
-attack_component = NodePath("AttackComponet")
-attack_collision = NodePath("AttackComponet/CollisionShape2D")
-detection_component = NodePath("detection_component")
-state_machine = NodePath("state_machine")
-metadata/_custom_type_script = "uid://c1kn7h3b4f70b"
+[node name="Wizard" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
@@ -172,40 +152,3 @@ health_component = NodePath("../HealthComponent")
 position = Vector2(9, 42)
 shape = SubResource("CapsuleShape2D_80lv6")
 debug_color = Color(3.85046e-07, 0.643448, 0.299819, 0.42)
-
-[node name="state_machine" parent="." instance=ExtResource("5_4p82a")]
-
-[node name="AttackComponet" parent="." instance=ExtResource("6_2mysj")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponet"]
-position = Vector2(7, 44)
-shape = SubResource("CapsuleShape2D_tncgl")
-debug_color = Color(0.974344, 0, 0.427458, 0.42)
-
-[node name="detection_component" parent="." instance=ExtResource("7_xj8t5")]
-
-[node name="RayCast2D" type="RayCast2D" parent="detection_component"]
-target_position = Vector2(-500, 0)
-
-[node name="HealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_2mysj")]
-offset_left = -111.0
-offset_top = -82.0
-offset_right = 129.0
-offset_bottom = -78.0
-health_component = NodePath("../HealthComponent")
-
-[node name="Name" type="Label" parent="."]
-offset_left = -24.0
-offset_top = -113.0
-offset_right = 30.0
-offset_bottom = -90.0
-text = "Wizard"
-label_settings = SubResource("LabelSettings_xj8t5")
-
-[node name="Label2" type="Label" parent="."]
-offset_left = -20.0
-offset_top = 166.0
-offset_right = 20.0
-offset_bottom = 189.0
-text = "Debug"
-label_settings = SubResource("LabelSettings_tncgl")

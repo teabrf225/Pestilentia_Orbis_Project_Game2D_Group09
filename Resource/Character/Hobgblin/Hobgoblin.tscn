@@ -322,12 +322,13 @@ normal_state = NodePath("../Wander")
 name_animation = "Run"
 animation_sprite = NodePath("../../AnimatedSprite2D")
 
-[node name="Attack" type="Node" parent="fsm" node_paths=PackedStringArray("enemy", "detection_component", "attack_component", "chase_state", "atk_state", "animation_sprite")]
+[node name="Attack" type="Node" parent="fsm" node_paths=PackedStringArray("enemy", "detection_component", "attack_component", "attack_collision", "chase_state", "atk_state", "animation_sprite")]
 script = ExtResource("17_68g0d")
 enemy = NodePath("../..")
 detection_component = NodePath("../../detection_component")
 min_range_atk = 40.0
 attack_component = NodePath("../../AttackComponet")
+attack_collision = NodePath("../../AttackComponet/CollisionShape2D")
 chase_state = NodePath("../Chase")
 atk_state = NodePath(".")
 name_animation = "Attack"

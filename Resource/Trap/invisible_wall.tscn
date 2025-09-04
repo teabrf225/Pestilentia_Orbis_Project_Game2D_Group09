@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmjr4l5epu22q"]
+
+[ext_resource type="Script" uid="uid://f15a4sq2mdrl" path="res://invisible_wall.gd" id="1_i1yfj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mn7dt"]
+size = Vector2(18, 114)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1yfj"]
+size = Vector2(8, 114)
+
+[node name="Invisible wall" type="Area2D" node_paths=PackedStringArray("wall")]
+script = ExtResource("1_i1yfj")
+wall = NodePath("StaticBody2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mn7dt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_i1yfj")
+debug_color = Color(0.86902, 0.000517694, 0.852658, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
