@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://cu7jwkso25y1"]
 
-[ext_resource type="Texture2D" uid="uid://c0ul6rv6uvr0j" path="res://Asset/Character/wizard.png" id="1_42osk"]
+[ext_resource type="Texture2D" uid="uid://b4f2lle5fxf0p" path="res://Asset/Character/wizard.png" id="1_42osk"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="2_2k4ic"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="3_vdjdu"]
 
@@ -131,6 +131,7 @@ radius = 66.0
 height = 198.0
 
 [node name="Wizard" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
