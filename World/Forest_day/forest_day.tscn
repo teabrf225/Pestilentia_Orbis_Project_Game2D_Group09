@@ -11,12 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://cyonuvq3x8jbt" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="7_r2ywe"]
 [ext_resource type="Texture2D" uid="uid://plbhaakelsaf" path="res://Asset/Map/DarkForest1.2/env_mon.png" id="8_ku6dd"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="11_kn21a"]
-[ext_resource type="PackedScene" uid="uid://cp31gdtdrtrd1" path="res://Resource/Character/RedSlime/RedSlime.tscn" id="11_ku6dd"]
+[ext_resource type="PackedScene" uid="uid://b6nyd7gjew1ty" path="res://Resource/Character/Boar/Boar.tscn" id="13_ahlgf"]
 [ext_resource type="PackedScene" uid="uid://bym7jmphv7rcx" path="res://Resource/Character/King_Slime/King_Slime.tscn" id="13_nftlo"]
 [ext_resource type="PackedScene" uid="uid://bwtvdbrcjbq03" path="res://Resource/Trap/wood_spear.tscn" id="13_q8t2n"]
 [ext_resource type="PackedScene" uid="uid://cb0mkvfgesj8p" path="res://Resource/Potal/level_potal.tscn" id="14_nekhh"]
 [ext_resource type="PackedScene" uid="uid://cow2gjoks02t3" path="res://World/Forest_night/forest_night.tscn" id="15_0p7ir"]
-[ext_resource type="PackedScene" uid="uid://bqa42rdwapxhu" path="res://Resource/Character/BlueSlime/BlueSlime.tscn" id="15_lyp6n"]
+[ext_resource type="PackedScene" uid="uid://bqk5ot8usv1hw" path="res://Resource/Character/Small Bee/Small Bee.tscn" id="16_2uwg3"]
 [ext_resource type="PackedScene" uid="uid://bixktqhyg7if2" path="res://Resource/Character/Hobgblin/Hobgoblin.tscn" id="16_ahlgf"]
 [ext_resource type="PackedScene" uid="uid://nh110a1yv3qb" path="res://Interface/Tutorial/tutorial.tscn" id="16_eri4k"]
 [ext_resource type="PackedScene" uid="uid://bmjr4l5epu22q" path="res://Resource/Trap/invisible_wall.tscn" id="17_ahlgf"]
@@ -6411,30 +6411,12 @@ debug_color = Color(0.964151, 0, 0.494479, 0.42)
 
 [node name="Mob" type="Node2D" parent="."]
 
-[node name="RedSlime" parent="Mob" instance=ExtResource("11_ku6dd")]
-position = Vector2(1872, 624)
-
-[node name="RedSlime2" parent="Mob" instance=ExtResource("11_ku6dd")]
-position = Vector2(6599, 528)
-
-[node name="RedSlime3" parent="Mob" instance=ExtResource("11_ku6dd")]
-position = Vector2(5733, 738)
+[node name="Boar" parent="Mob" instance=ExtResource("13_ahlgf")]
+position = Vector2(1954, 588)
 
 [node name="KingSlime" parent="Mob" instance=ExtResource("13_nftlo")]
 position = Vector2(7060, 448)
 scale = Vector2(2, 2)
-
-[node name="BlueSlime" parent="Mob" instance=ExtResource("15_lyp6n")]
-position = Vector2(2838, 732)
-scale = Vector2(0.3, 0.3)
-
-[node name="BlueSlime2" parent="Mob" instance=ExtResource("15_lyp6n")]
-position = Vector2(3020, 730)
-scale = Vector2(0.3, 0.3)
-
-[node name="BlueSlime3" parent="Mob" instance=ExtResource("15_lyp6n")]
-position = Vector2(3220, 729)
-scale = Vector2(0.3, 0.3)
 
 [node name="Hobgoblin" parent="Mob" instance=ExtResource("16_ahlgf")]
 position = Vector2(4036, 333)
@@ -6445,14 +6427,20 @@ position = Vector2(4290, 336)
 [node name="Hobgoblin3" parent="Mob" instance=ExtResource("16_ahlgf")]
 position = Vector2(4549, 337)
 
-[node name="RedSlime4" parent="Mob" instance=ExtResource("11_ku6dd")]
-position = Vector2(6076, 631)
+[node name="SmallBee" parent="Mob" instance=ExtResource("16_2uwg3")]
+position = Vector2(2822, 695)
 
-[node name="Invisible wall" parent="Mob" instance=ExtResource("17_ahlgf")]
-position = Vector2(3936, 310)
+[node name="SmallBee2" parent="Mob" instance=ExtResource("16_2uwg3")]
+position = Vector2(3260, 699)
 
-[node name="Invisible wall2" parent="Mob" instance=ExtResource("17_ahlgf")]
-position = Vector2(4783, 313)
+[node name="Boar2" parent="Mob" instance=ExtResource("13_ahlgf")]
+position = Vector2(6794, 493)
+
+[node name="Hobgoblin4" parent="Mob" instance=ExtResource("16_ahlgf")]
+position = Vector2(5376, 730)
+
+[node name="Hobgoblin5" parent="Mob" instance=ExtResource("16_ahlgf")]
+position = Vector2(5669, 728)
 
 [node name="Trap" type="Node2D" parent="."]
 
@@ -6470,6 +6458,24 @@ position = Vector2(1403, 747)
 
 [node name="Wood_Spear5" parent="Trap" instance=ExtResource("13_q8t2n")]
 position = Vector2(1452, 748)
+
+[node name="Invisible wall" parent="Trap" instance=ExtResource("17_ahlgf")]
+position = Vector2(3936, 310)
+
+[node name="Invisible wall2" parent="Trap" instance=ExtResource("17_ahlgf")]
+position = Vector2(4783, 313)
+
+[node name="Invisible wall3" parent="Trap" instance=ExtResource("17_ahlgf")]
+position = Vector2(1497, 596)
+
+[node name="Invisible wall4" parent="Trap" instance=ExtResource("17_ahlgf")]
+position = Vector2(2549, 452)
+
+[node name="Invisible wall5" parent="Trap" instance=ExtResource("17_ahlgf")]
+position = Vector2(5222, 712)
+
+[node name="Invisible wall6" parent="Trap" instance=ExtResource("17_ahlgf")]
+position = Vector2(6351, 502)
 
 [node name="LevelPotal" parent="." instance=ExtResource("14_nekhh")]
 position = Vector2(7397, 520)

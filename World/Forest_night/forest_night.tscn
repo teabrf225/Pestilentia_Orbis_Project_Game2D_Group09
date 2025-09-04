@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cow2gjoks02t3"]
+[gd_scene load_steps=39 format=4 uid="uid://cow2gjoks02t3"]
 
 [ext_resource type="Texture2D" uid="uid://08ii01p1adil" path="res://Asset/Map/forest_night_layers/Layer_0011_0.png" id="1_35oa0"]
 [ext_resource type="PackedScene" uid="uid://cb0mkvfgesj8p" path="res://Resource/Potal/level_potal.tscn" id="1_ebbgy"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://d1gcxwge6bsvk" path="res://Resource/Character/Skeleton_White/Skeleton_white.tscn" id="23_hnfc2"]
 [ext_resource type="PackedScene" uid="uid://bp5ups24coj03" path="res://Resource/Character/Skeleton_Yellow/Skeleton_Yellow.tscn" id="24_8pukk"]
 [ext_resource type="PackedScene" uid="uid://cgc0uecse1pph" path="res://Resource/Trap/SandWorm_Trap.tscn" id="25_hnfc2"]
+[ext_resource type="PackedScene" uid="uid://bmjr4l5epu22q" path="res://Resource/Trap/invisible_wall.tscn" id="26_8pukk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_263js"]
 texture = ExtResource("13_2k4r6")
@@ -4917,5 +4918,20 @@ position = Vector2(3260, 492)
 
 [node name="SandWermTrap3" parent="Trap" instance=ExtResource("25_hnfc2")]
 position = Vector2(3634, 492)
+
+[node name="Invisible wall" parent="Trap" instance=ExtResource("26_8pukk")]
+position = Vector2(974, 470)
+
+[node name="Invisible wall2" parent="Trap" instance=ExtResource("26_8pukk")]
+position = Vector2(1289, 469)
+
+[node name="Invisible wall3" parent="Trap" instance=ExtResource("26_8pukk")]
+position = Vector2(4037, 408)
+
+[node name="Invisible wall4" parent="Trap" instance=ExtResource("26_8pukk")]
+position = Vector2(4496, 407)
+
+[node name="Invisible wall5" parent="Trap" instance=ExtResource("26_8pukk")]
+position = Vector2(4745, 472)
 
 [connection signal="boss_defeated" from="Mob/Dullahan" to="LevelPotal" method="_on_dullahan_boss_defeated"]

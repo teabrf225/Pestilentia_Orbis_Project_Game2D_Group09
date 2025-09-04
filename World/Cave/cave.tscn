@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://duntasaydgctd"]
+[gd_scene load_steps=25 format=4 uid="uid://duntasaydgctd"]
 
 [ext_resource type="Texture2D" uid="uid://b2ixsrnw8xs5n" path="res://Asset/Map/PixelFantasy_Caves_1.0/background1.png" id="1_77aa6"]
 [ext_resource type="Texture2D" uid="uid://praxwc8xkevc" path="res://Asset/Map/PixelFantasy_Caves_1.0/background2.png" id="2_7842v"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://d0eq6j6ds4c7u" path="res://Resource/Character/Burning_ghoul/Burning_goul.tscn" id="14_o62oa"]
 [ext_resource type="PackedScene" uid="uid://d24vl26w0wm2a" path="res://Resource/Trap/Lightning_Trap.tscn" id="14_ss1ho"]
 [ext_resource type="PackedScene" uid="uid://bvfpjcre8gug7" path="res://Resource/Trap/Fire_Trap.tscn" id="15_d5ybk"]
+[ext_resource type="PackedScene" uid="uid://bmjr4l5epu22q" path="res://Resource/Trap/invisible_wall.tscn" id="16_d5ybk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v1bm3"]
 texture = ExtResource("6_77aa6")
@@ -6561,3 +6562,24 @@ position = Vector2(5084, 137)
 
 [node name="FireTrap5" parent="Trap" instance=ExtResource("15_d5ybk")]
 position = Vector2(6079, 711)
+
+[node name="Invisible wall" parent="Trap" instance=ExtResource("16_d5ybk")]
+position = Vector2(1468, 218)
+
+[node name="Invisible wall2" parent="Trap" instance=ExtResource("16_d5ybk")]
+position = Vector2(2501, 216)
+
+[node name="Invisible wall3" parent="Trap" instance=ExtResource("16_d5ybk")]
+position = Vector2(3842, 681)
+
+[node name="Invisible wall4" parent="Trap" instance=ExtResource("16_d5ybk")]
+position = Vector2(4614, 392)
+
+[node name="Invisible wall5" parent="Trap" instance=ExtResource("16_d5ybk")]
+position = Vector2(4034, 120)
+
+[node name="Invisible wall6" parent="Trap" instance=ExtResource("16_d5ybk")]
+position = Vector2(5039, 122)
+
+[node name="Invisible wall7" parent="Trap" instance=ExtResource("16_d5ybk")]
+position = Vector2(6179, 695)
