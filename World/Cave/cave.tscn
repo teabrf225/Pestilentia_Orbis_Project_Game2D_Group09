@@ -6498,23 +6498,17 @@ position = Vector2(7281, 627)
 scale = Vector2(0.7, 0.7)
 is_final_boss = true
 
-[node name="BurningGoul" parent="Mob" instance=ExtResource("14_o62oa")]
-position = Vector2(692, 717)
-
-[node name="BurningGoul2" parent="Mob" instance=ExtResource("14_o62oa")]
-position = Vector2(995, 717)
-
 [node name="Wizard" parent="Mob" instance=ExtResource("13_d5ybk")]
 position = Vector2(4082, 669)
 
 [node name="Wizard2" parent="Mob" instance=ExtResource("13_d5ybk")]
-position = Vector2(4504, 669)
+position = Vector2(4785, 669)
 
 [node name="Wizard3" parent="Mob" instance=ExtResource("13_d5ybk")]
-position = Vector2(4724, 105)
+position = Vector2(4729, 118)
 
 [node name="Wizard4" parent="Mob" instance=ExtResource("13_d5ybk")]
-position = Vector2(4180, 105)
+position = Vector2(4205, 120)
 
 [node name="Wizard5" parent="Mob" instance=ExtResource("13_d5ybk")]
 position = Vector2(1653, 199)
@@ -6523,10 +6517,10 @@ position = Vector2(1653, 199)
 position = Vector2(2127, 199)
 
 [node name="BurningGoul3" parent="Mob" instance=ExtResource("14_o62oa")]
-position = Vector2(3985, 390)
+position = Vector2(4080, 391)
 
 [node name="BurningGoul4" parent="Mob" instance=ExtResource("14_o62oa")]
-position = Vector2(4408, 389)
+position = Vector2(4343, 392)
 
 [node name="SkeletonWhite" parent="Mob" instance=ExtResource("12_ss1ho")]
 position = Vector2(7024, 690)
@@ -6540,10 +6534,13 @@ position = Vector2(6575, 690)
 [node name="SkeletonWhite4" parent="Mob" instance=ExtResource("12_ss1ho")]
 position = Vector2(6372, 690)
 
-[node name="Trap" type="Node2D" parent="."]
+[node name="Wizard7" parent="Mob" instance=ExtResource("13_d5ybk")]
+position = Vector2(639, 706)
 
-[node name="LightningTrap" parent="Trap" instance=ExtResource("14_ss1ho")]
-position = Vector2(816, 704)
+[node name="Wizard8" parent="Mob" instance=ExtResource("13_d5ybk")]
+position = Vector2(1113, 696)
+
+[node name="Trap" type="Node2D" parent="."]
 
 [node name="LightningTrap2" parent="Trap" instance=ExtResource("14_ss1ho")]
 position = Vector2(2608, 249)
