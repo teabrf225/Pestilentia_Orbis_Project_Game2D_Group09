@@ -1,8 +1,15 @@
-[gd_scene load_steps=23 format=3 uid="uid://d0eq6j6ds4c7u"]
+[gd_scene load_steps=33 format=3 uid="uid://d0eq6j6ds4c7u"]
 
+[ext_resource type="Script" path="res://Resource/Character/Burning_ghoul/burning_goul.gd" id="1_df55b"]
 [ext_resource type="Texture2D" uid="uid://ctcxylivohpn7" path="res://Asset/Character/burning-ghoul.png" id="1_mdchp"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="2_cb3d2"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="3_1j3n3"]
+[ext_resource type="PackedScene" uid="uid://k0yvq00y0uwx" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/Health_bar.tscn" id="3_30jid"]
+[ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="6_u2nn1"]
+[ext_resource type="PackedScene" uid="uid://p6gt5mvfnbkc" path="res://Management/Component/detection_component.tscn" id="7_r34ij"]
+[ext_resource type="PackedScene" uid="uid://1km386n64ium" path="res://Management/States/state_machine.tscn" id="8_lstku"]
+[ext_resource type="Script" uid="uid://xqqhkh47biey" path="res://Management/States/Enemy/wander.gd" id="10_30jid"]
+[ext_resource type="FontFile" uid="uid://cemcybwygini8" path="res://Resource/Font/Silver.ttf" id="10_i8et5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nmyly"]
 atlas = ExtResource("1_mdchp")
@@ -132,8 +139,33 @@ height = 182.0
 radius = 70.0
 height = 216.0
 
-[node name="BurningGoul" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31qd0"]
+size = Vector2(40, 55)
+
+[sub_resource type="LabelSettings" id="LabelSettings_d8eyn"]
+font = ExtResource("10_i8et5")
+font_size = 96
+outline_size = 1
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qtrck"]
+font_size = 96
+
+[node name="BurningGoul" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine", "chase_state", "animation_control")]
 scale = Vector2(0.4, 0.4)
+script = ExtResource("1_df55b")
+health_component = NodePath("HealthComponent")
+hit_component = NodePath("HitComponent")
+attack_component = NodePath("AttackComponet")
+attack_collision = NodePath("AttackComponet/CollisionShape2D")
+detection_component = NodePath("detection_component")
+state_machine = NodePath("state_machine")
+chase_state = NodePath("")
+animation_control = NodePath("AnimatedSprite2D")
+hp = 50.0
+dmg = 10.0
+move_speed = 50.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
@@ -145,7 +177,16 @@ frame_progress = 0.338078
 position = Vector2(-5, 38)
 shape = SubResource("CapsuleShape2D_yxoqc")
 
+[node name="HealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_30jid")]
+offset_left = -92.5
+offset_top = -92.5
+offset_right = 91.5
+offset_bottom = -75.5
+health_component = NodePath("../HealthComponent")
+
 [node name="HealthComponent" parent="." instance=ExtResource("2_cb3d2")]
+max_health = 1.0
+die_and_hied = true
 
 [node name="HitComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_1j3n3")]
 health_component = NodePath("../HealthComponent")
@@ -154,3 +195,53 @@ health_component = NodePath("../HealthComponent")
 position = Vector2(-4, 36)
 shape = SubResource("CapsuleShape2D_tudue")
 debug_color = Color(2.74345e-06, 0.644415, 0.281346, 0.42)
+
+[node name="AttackComponet" parent="." instance=ExtResource("6_u2nn1")]
+active = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponet"]
+position = Vector2(-77.5, 10)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_31qd0")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="detection_component" parent="." node_paths=PackedStringArray("raycast_forward") instance=ExtResource("7_r34ij")]
+raycast_forward = NodePath("RayCast2D")
+
+[node name="RayCast2D" type="RayCast2D" parent="detection_component"]
+target_position = Vector2(-500, 0)
+
+[node name="state_machine" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("8_lstku")]
+initial_state = NodePath("wander")
+
+[node name="wander" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "detection_component", "animation_sprite")]
+script = ExtResource("10_30jid")
+enemy = NodePath("../..")
+detection_component = NodePath("../../detection_component")
+name_animation = "Run+Attack"
+animation_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="Name" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -65.0
+offset_top = -137.5
+offset_right = 188.0
+offset_bottom = -30.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.515, 0.515)
+text = "Ghoul"
+label_settings = SubResource("LabelSettings_d8eyn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="debug_action" type="Label" parent="."]
+offset_left = -77.5
+offset_top = 130.0
+offset_right = 222.5
+offset_bottom = 262.0
+scale = Vector2(0.525, 0.525)
+text = "Debug"
+label_settings = SubResource("LabelSettings_qtrck")
