@@ -1,14 +1,14 @@
 [gd_scene load_steps=43 format=3 uid="uid://b6nyd7gjew1ty"]
 
-[ext_resource type="Texture2D" uid="uid://cs6el24echdul" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Hit-Vanish/Hit-Sheet-Black.png" id="1_2y3ii"]
+[ext_resource type="Texture2D" uid="uid://di1h2pkl5hjou" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Hit-Vanish/Hit-Sheet-Black.png" id="1_2y3ii"]
 [ext_resource type="Script" uid="uid://cgq7n5hn3ybn4" path="res://Resource/Character/Boar/boar.gd" id="1_f5tei"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="1_m2qvm"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="2_hmax1"]
-[ext_resource type="Texture2D" uid="uid://8stw67cy0vkn" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Idle/Idle-Sheet-export-Back.png" id="2_sx7no"]
-[ext_resource type="Texture2D" uid="uid://ytmh8r2sw4nn" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Run/Run-Sheet-Black.png" id="3_e55tx"]
-[ext_resource type="Texture2D" uid="uid://ckfatehqmyaeq" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Walk/Walk-Base-SheetBlack.png" id="4_f5tei"]
+[ext_resource type="Texture2D" uid="uid://n1cvotpmrav2" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Idle/Idle-Sheet-export-Back.png" id="2_sx7no"]
+[ext_resource type="Texture2D" uid="uid://rcqtbd3rtnj8" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Run/Run-Sheet-Black.png" id="3_e55tx"]
+[ext_resource type="Texture2D" uid="uid://c47ch158didfo" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Walk/Walk-Base-SheetBlack.png" id="4_f5tei"]
 [ext_resource type="PackedScene" uid="uid://k0yvq00y0uwx" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/Health_bar.tscn" id="7_e55tx"]
-[ext_resource type="FontFile" uid="uid://ct06fh3d1nc0b" path="res://Resource/Font/Silver.ttf" id="8_f5tei"]
+[ext_resource type="FontFile" uid="uid://jnydouepgepj" path="res://Resource/Font/Silver.ttf" id="8_f5tei"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="10_j1qoi"]
 [ext_resource type="PackedScene" uid="uid://p6gt5mvfnbkc" path="res://Management/Component/detection_component.tscn" id="11_egdpa"]
 [ext_resource type="PackedScene" uid="uid://1km386n64ium" path="res://Management/States/state_machine.tscn" id="12_4yg17"]
@@ -197,7 +197,7 @@ shadow_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_j1qoi"]
 font_size = 96
 
-[node name="Boar" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine", "dead_state", "chase_state", "hurt_state", "idle_state", "animation_control")]
+[node name="Boar" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine", "chase_state", "hurt_state", "idle_state", "animation_control")]
 script = ExtResource("1_f5tei")
 health_component = NodePath("HealthComponent")
 hit_component = NodePath("HitComponent")
@@ -205,7 +205,6 @@ attack_component = NodePath("AttackComponet")
 attack_collision = NodePath("AttackComponet/CollisionShape2D")
 detection_component = NodePath("detection_component")
 state_machine = NodePath("state_machine")
-dead_state = NodePath("")
 chase_state = NodePath("state_machine/chase")
 hurt_state = NodePath("state_machine/Hit-Vanish")
 idle_state = NodePath("state_machine/idle")

@@ -1,15 +1,15 @@
 [gd_scene load_steps=38 format=4 uid="uid://cqvp6siwv82"]
 
-[ext_resource type="Texture2D" uid="uid://byihd8rh5cc7t" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_6uywx"]
-[ext_resource type="Texture2D" uid="uid://h5emvth40ojm" path="res://Asset/Map/Jungle/1.Backround.png" id="1_q1b8r"]
-[ext_resource type="Texture2D" uid="uid://dd3rvwjdkoaka" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_biglw"]
+[ext_resource type="Texture2D" uid="uid://crv2mv82edorg" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_6uywx"]
+[ext_resource type="Texture2D" uid="uid://8nkwwxo7hhey" path="res://Asset/Map/Jungle/1.Backround.png" id="1_q1b8r"]
+[ext_resource type="Texture2D" uid="uid://cm1hht1tl14kf" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_biglw"]
 [ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="3_5b50y"]
-[ext_resource type="Texture2D" uid="uid://clbgdsv1wbw4o" path="res://Asset/Map/Jungle/3.Trees_front.png" id="3_unruh"]
-[ext_resource type="Texture2D" uid="uid://c0xbxcb3xwpfi" path="res://Asset/Map/Jungle/4.Ground.png" id="4_r2ywe"]
-[ext_resource type="Texture2D" uid="uid://d1ios3i7gywm1" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="6_kn21a"]
-[ext_resource type="Texture2D" uid="uid://b8h7t77v3wcni" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="6_unruh"]
-[ext_resource type="Texture2D" uid="uid://c8nig531ghd1q" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="7_r2ywe"]
-[ext_resource type="Texture2D" uid="uid://o1cp5pnrlrdx" path="res://Asset/Map/DarkForest1.2/env_mon.png" id="8_ku6dd"]
+[ext_resource type="Texture2D" uid="uid://dx755uygb8lwf" path="res://Asset/Map/Jungle/3.Trees_front.png" id="3_unruh"]
+[ext_resource type="Texture2D" uid="uid://ctyp02ab5j1ra" path="res://Asset/Map/Jungle/4.Ground.png" id="4_r2ywe"]
+[ext_resource type="Texture2D" uid="uid://cbebwig2bxdj4" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="6_kn21a"]
+[ext_resource type="Texture2D" uid="uid://bstkx1fr3uv60" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="6_unruh"]
+[ext_resource type="Texture2D" uid="uid://bdkpjofliark0" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="7_r2ywe"]
+[ext_resource type="Texture2D" uid="uid://dhqs70bemb8j1" path="res://Asset/Map/DarkForest1.2/env_mon.png" id="8_ku6dd"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="11_kn21a"]
 [ext_resource type="PackedScene" uid="uid://bym7jmphv7rcx" path="res://Resource/Character/King_Slime/King_Slime.tscn" id="13_nftlo"]
 [ext_resource type="PackedScene" uid="uid://bwtvdbrcjbq03" path="res://Resource/Trap/wood_spear.tscn" id="13_q8t2n"]
@@ -6297,7 +6297,7 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_q1b8r")
 sources/0 = SubResource("TileSetAtlasSource_biglw")
 sources/2 = SubResource("TileSetAtlasSource_unruh")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ku6dd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahlgf"]
 size = Vector2(8648, 41)
 
 [node name="Forest_day" type="Node2D"]
@@ -6393,30 +6393,11 @@ position_smoothing_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="DeadLine" type="ColorRect" parent="."]
-offset_left = 1.0
-offset_top = 1106.0
-offset_right = 8649.0
-offset_bottom = 1146.0
-color = Color(1, 0, 0, 1)
-
-[node name="AttackComponet" parent="DeadLine" instance=ExtResource("11_kn21a")]
-active = true
-damage = 1e+06
-type_entity = "trap_ground"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadLine/AttackComponet"]
-position = Vector2(4324, 19.5)
-shape = SubResource("RectangleShape2D_ku6dd")
-debug_color = Color(0.964151, 0, 0.494479, 0.42)
-
 [node name="Mob" type="Node2D" parent="."]
 
-[node name="KingSlime" parent="Mob" node_paths=PackedStringArray("attack_component", "attack_collision") instance=ExtResource("13_nftlo")]
+[node name="KingSlime" parent="Mob" instance=ExtResource("13_nftlo")]
 position = Vector2(6821, 447)
 scale = Vector2(2, 2)
-attack_component = NodePath("../../DeadLine/AttackComponet")
-attack_collision = NodePath("../../DeadLine/AttackComponet/CollisionShape2D")
 
 [node name="Boar" parent="Mob" instance=ExtResource("14_1fb1v")]
 position = Vector2(1608, 610)
@@ -6475,6 +6456,22 @@ next_scene = ExtResource("15_0p7ir")
 
 [node name="PauseMenu" parent="CanvasLayer(PauseMenu)" index="0"]
 visible = false
+
+[node name="DeadLine" type="ColorRect" parent="."]
+offset_left = 41.0
+offset_top = 1113.53
+offset_right = 8689.0
+offset_bottom = 1153.53
+color = Color(1, 0, 0, 1)
+
+[node name="AttackComponet" parent="DeadLine" instance=ExtResource("11_kn21a")]
+active = true
+damage = 1e+06
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadLine/AttackComponet"]
+position = Vector2(4324, 19.5)
+shape = SubResource("RectangleShape2D_ahlgf")
+debug_color = Color(0.964151, 0, 0.494479, 0.42)
 
 [connection signal="boss_defeated" from="Mob/KingSlime" to="LevelPotal" method="_on_king_slime_boss_defeated"]
 

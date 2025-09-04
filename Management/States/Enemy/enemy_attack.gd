@@ -22,6 +22,10 @@ func enter():
 
 func exit():
 	super.exit()
+	if animation_player:
+		animation_player.disconnect("animation_finished", Callable(self, "_on_attack_finished"))
+	if animation_sprite:
+		animation_sprite.disconnect("animation_finished", Callable(self, "_on_attack_finished"))
 	
 func update_state(_delta: float) -> void:
 	if detection_component.raycast_forward.is_colliding():

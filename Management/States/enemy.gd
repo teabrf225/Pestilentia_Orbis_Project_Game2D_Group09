@@ -72,16 +72,16 @@ func _on_died():
 	if state_machine and dead_state:
 		state_machine.change_state(dead_state)
 
-func on_hit():
-	if state_machine:
-		state_machine.change_state(hurt_state)
-#		
 #func on_hit():
-	#state_machine.change_state(hurt_state)
-	#var anima_sprite = $AnimatedSprite2D
-	#if anima_sprite:
-		#anima_sprite.play("Hurt")
-		#anima_sprite.connect("animation_finished",Callable(self,"_on_hurt_anim_finished"),CONNECT_ONE_SHOT)
+	#if state_machine:
+		#state_machine.change_state(hurt_state)
+#		
+func on_hit():
+	state_machine.change_state(hurt_state)
+	var anima_sprite = $AnimatedSprite2D
+	if anima_sprite:
+		anima_sprite.play("Hurt")
+		anima_sprite.connect("animation_finished",Callable(self,"_on_hurt_anim_finished"),CONNECT_ONE_SHOT)
 	
 func _on_hurt_anim_finished():
 	if state_machine:

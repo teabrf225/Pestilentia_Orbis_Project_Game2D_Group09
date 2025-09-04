@@ -21,7 +21,8 @@ var current_state: State = null
 func _ready() -> void:
 	# เก็บอ้างอิงของเจ้าของ (ตัวละครหลัก)
 	owner_node = owner
-	
+	if not OS.is_debug_build():
+		debug_label.visible = false
 	# เริ่มต้นด้วยสถานะเริ่มต้นที่กำหนดไว้
 	if initial_state:
 		change_state(initial_state)
@@ -53,5 +54,5 @@ func _physics_process(_delta: float) -> void:
 		current_state.transition()
 		
 		# อัปเดต debug text หากมี
-		#if debug_label:
+		#if debug_label and change_state != null:
 			#debug_label.text = current_state.name
