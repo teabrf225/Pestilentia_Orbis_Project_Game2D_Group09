@@ -1,8 +1,13 @@
-[gd_scene load_steps=23 format=3 uid="uid://d0eq6j6ds4c7u"]
+[gd_scene load_steps=29 format=3 uid="uid://d0eq6j6ds4c7u"]
 
 [ext_resource type="Texture2D" uid="uid://bx5djo06qk6jl" path="res://Asset/Character/burning-ghoul.png" id="1_mdchp"]
+[ext_resource type="Script" uid="uid://diagwk58m0rk7" path="res://Resource/Character/Burning_ghoul/burning_goul.gd" id="1_qb5xa"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="2_cb3d2"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="3_1j3n3"]
+[ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="4_nmyly"]
+[ext_resource type="PackedScene" uid="uid://p6gt5mvfnbkc" path="res://Management/Component/detection_component.tscn" id="5_qb5xa"]
+[ext_resource type="PackedScene" uid="uid://1km386n64ium" path="res://Management/States/state_machine.tscn" id="6_tq01o"]
+[ext_resource type="PackedScene" uid="uid://k0yvq00y0uwx" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/Health_bar.tscn" id="8_tq01o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nmyly"]
 atlas = ExtResource("1_mdchp")
@@ -132,7 +137,19 @@ height = 182.0
 radius = 70.0
 height = 216.0
 
-[node name="BurningGoul" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iibj8"]
+radius = 83.0
+height = 240.0
+
+[node name="BurningGoul" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine")]
+script = ExtResource("1_qb5xa")
+health_component = NodePath("HealthComponent")
+hit_component = NodePath("HitComponent")
+attack_component = NodePath("AttackComponet")
+attack_collision = NodePath("AttackComponet/CollisionShape2D")
+detection_component = NodePath("detection_component")
+state_machine = NodePath("state_machine")
+metadata/_custom_type_script = "uid://c1kn7h3b4f70b"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
@@ -153,3 +170,37 @@ health_component = NodePath("../HealthComponent")
 position = Vector2(-4, 36)
 shape = SubResource("CapsuleShape2D_tudue")
 debug_color = Color(2.74345e-06, 0.644415, 0.281346, 0.42)
+
+[node name="AttackComponet" parent="." instance=ExtResource("4_nmyly")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponet"]
+position = Vector2(-4, 37)
+shape = SubResource("CapsuleShape2D_iibj8")
+debug_color = Color(0.974042, 0, 0.42965, 0.42)
+
+[node name="detection_component" parent="." instance=ExtResource("5_qb5xa")]
+
+[node name="RayCast2D" type="RayCast2D" parent="detection_component"]
+target_position = Vector2(-500, 0)
+
+[node name="state_machine" parent="." instance=ExtResource("6_tq01o")]
+
+[node name="HealthBar" parent="." instance=ExtResource("8_tq01o")]
+offset_left = -120.0
+offset_top = -97.0
+offset_right = 120.0
+offset_bottom = -93.0
+
+[node name="Name" type="Label" parent="."]
+offset_left = -51.0
+offset_top = -124.0
+offset_right = 48.0
+offset_bottom = -101.0
+text = "Burning goul"
+
+[node name="Debug" type="Label" parent="."]
+offset_left = -21.0
+offset_top = 163.0
+offset_right = 19.0
+offset_bottom = 186.0
+text = "Debug"
