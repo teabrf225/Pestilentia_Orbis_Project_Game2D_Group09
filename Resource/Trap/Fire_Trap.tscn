@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://bvfpjcre8gug7"]
 
-[ext_resource type="Texture2D" uid="uid://ddsf7irgihfcn" path="res://Asset/Trap/Fire Trap/PNGs/Fire Trap - Level 3.png" id="1_p03m2"]
+[ext_resource type="Texture2D" uid="uid://chftir4vr1qll" path="res://Asset/Trap/Fire Trap/PNGs/Fire Trap - Level 3.png" id="1_p03m2"]
 [ext_resource type="Script" uid="uid://b0xhw6gl2o8db" path="res://Resource/Trap/fire_trap.gd" id="1_rx6kf"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="3_ubc0i"]
 
@@ -260,7 +260,7 @@ _data = {
 &"RESET": SubResource("Animation_f2lbq")
 }
 
-[node name="FireTrap" type="CharacterBody2D"]
+[node name="FireTrap" type="CharacterBody2D" groups=["Trap_Ground"]]
 script = ExtResource("1_rx6kf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -277,6 +277,7 @@ disabled = true
 [node name="AttackComponet" parent="." instance=ExtResource("3_ubc0i")]
 damage = 30.0
 knockback = 400.0
+type_entity = "trap_ground"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponet"]
 position = Vector2(0.5, 48)

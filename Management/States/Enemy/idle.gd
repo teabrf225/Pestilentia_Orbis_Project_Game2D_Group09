@@ -1,12 +1,15 @@
 extends State
 
 @export var enemy: Enemy
-@export var next_state: State
+@export var next_state: State   # อันนี้คือ state หลัง idle timer หมด
+@export var chase_state: State  # เพิ่มตัวแปร ChaseState
 var idle_timer: Timer
 
 func enter():
 	super.enter()
 	enemy.velocity = Vector2.ZERO
+
+	# ตั้ง timer
 	idle_timer = Timer.new()
 	idle_timer.wait_time = randi_range(3,10)
 	idle_timer.timeout.connect(on_timeout)
@@ -20,18 +23,12 @@ func exit():
 	idle_timer.queue_free()
 	idle_timer = null
 
-# ฟังก์ชันที่ให้ Inherit เพื่อกำหนดพฤติกรรมของสถานะ
-# เช่น การเคลื่อนที่, การรับ input, การโจมตี
-# ทุกสถานะย่อยต้อง Override (เขียนโค้ดทับ) ฟังก์ชันนี้เพื่อทำงานของตัวเอง
 func update_state(_delta: float) -> void:
 	pass
 
-# ฟังก์ชันที่ให้ Inherit เพื่อกำหนดเงื่อนไขการเปลี่ยนสถานะ
-# เช่น ตรวจสอบว่า Animation เล่นจบหรือผู้เล่นกดปุ่ม
-# ทุกสถานะย่อยต้อง Override (เขียนโค้ดทับ) ฟังก์ชันนี้เพื่อกำหนดเงื่อนไขการเปลี่ยนสถานะของตัวเอง
 func transition() -> void:
 	pass
 
 func on_timeout():
-	print("Time out idle")
+	print("Idle timeout → Walk")
 	request_change_to(next_state)
