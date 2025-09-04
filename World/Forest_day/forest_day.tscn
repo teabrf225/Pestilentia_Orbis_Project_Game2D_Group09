@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://cqvp6siwv82"]
+[gd_scene load_steps=34 format=4 uid="uid://cqvp6siwv82"]
 
 [ext_resource type="Texture2D" uid="uid://byihd8rh5cc7t" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_6uywx"]
 [ext_resource type="Texture2D" uid="uid://h5emvth40ojm" path="res://Asset/Map/Jungle/1.Backround.png" id="1_q1b8r"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://c8nig531ghd1q" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="7_r2ywe"]
 [ext_resource type="Texture2D" uid="uid://o1cp5pnrlrdx" path="res://Asset/Map/DarkForest1.2/env_mon.png" id="8_ku6dd"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="11_kn21a"]
-[ext_resource type="PackedScene" uid="uid://cp31gdtdrtrd1" path="res://Resource/Character/RedSlime/RedSlime.tscn" id="11_ku6dd"]
 [ext_resource type="PackedScene" uid="uid://bym7jmphv7rcx" path="res://Resource/Character/King_Slime/King_Slime.tscn" id="13_nftlo"]
 [ext_resource type="PackedScene" uid="uid://bwtvdbrcjbq03" path="res://Resource/Trap/wood_spear.tscn" id="13_q8t2n"]
 [ext_resource type="PackedScene" uid="uid://cb0mkvfgesj8p" path="res://Resource/Potal/level_potal.tscn" id="14_nekhh"]
@@ -6407,9 +6406,6 @@ shape = SubResource("RectangleShape2D_ku6dd")
 debug_color = Color(0.964151, 0, 0.494479, 0.42)
 
 [node name="Mob" type="Node2D" parent="."]
-
-[node name="RedSlime" parent="Mob" instance=ExtResource("11_ku6dd")]
-position = Vector2(642, 740)
 
 [node name="KingSlime" parent="Mob" instance=ExtResource("13_nftlo")]
 position = Vector2(6821, 447)
