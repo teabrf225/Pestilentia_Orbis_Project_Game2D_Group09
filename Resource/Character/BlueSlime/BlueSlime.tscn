@@ -1,15 +1,20 @@
-[gd_scene load_steps=68 format=3 uid="uid://bqa42rdwapxhu"]
+[gd_scene load_steps=76 format=3 uid="uid://bqa42rdwapxhu"]
 
-[ext_resource type="Texture2D" uid="uid://boon7sb6t8a3w" path="res://Asset/Character/Slime Enemy/Idle/Sprite Sheet - Blue Idle.png" id="1_8lkex"]
-[ext_resource type="Texture2D" uid="uid://drw8t6gigie1c" path="res://Asset/Character/Slime Enemy/Death/Sprite Sheet - Blue Death.png" id="1_wiu4f"]
-[ext_resource type="Texture2D" uid="uid://bofb7ah4pirwx" path="res://Asset/Character/Slime Enemy/Hurt/Sprite Sheet - Blue Hurt.png" id="2_307ki"]
+[ext_resource type="Texture2D" uid="uid://dk7ylxwekq7qm" path="res://Asset/Character/Slime Enemy/Idle/Sprite Sheet - Blue Idle.png" id="1_8lkex"]
+[ext_resource type="Script" uid="uid://cr5e2udnelacb" path="res://Resource/Character/BlueSlime/blue_slime.gd" id="1_ef6ie"]
+[ext_resource type="Texture2D" uid="uid://bxkucv0wggxa4" path="res://Asset/Character/Slime Enemy/Death/Sprite Sheet - Blue Death.png" id="1_wiu4f"]
+[ext_resource type="Texture2D" uid="uid://52msxw08aici" path="res://Asset/Character/Slime Enemy/Hurt/Sprite Sheet - Blue Hurt.png" id="2_307ki"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="2_572j4"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="3_cut2e"]
-[ext_resource type="Texture2D" uid="uid://c2ou6bevhjebu" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Blue Jump Start-up.png" id="4_aysb4"]
-[ext_resource type="Texture2D" uid="uid://ct1beuxldxhlt" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Blue Jump to Fall.png" id="4_k5akx"]
-[ext_resource type="Texture2D" uid="uid://g030l4shtsqi" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Blue Jump Up.png" id="5_g7w7a"]
-[ext_resource type="Texture2D" uid="uid://bscku7cvvc5nd" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Blue Jump Down.png" id="7_x1fwv"]
-[ext_resource type="Texture2D" uid="uid://d4hq3oo17riba" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Blue Jump Land.png" id="8_lmqjf"]
+[ext_resource type="Texture2D" uid="uid://b0u0n3skdpqr0" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Blue Jump Start-up.png" id="4_aysb4"]
+[ext_resource type="Texture2D" uid="uid://h5ffy6nsiw86" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Blue Jump to Fall.png" id="4_k5akx"]
+[ext_resource type="Texture2D" uid="uid://de840d3gtsl75" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Blue Jump Up.png" id="5_g7w7a"]
+[ext_resource type="Texture2D" uid="uid://cntt30ppa722o" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Blue Jump Down.png" id="7_x1fwv"]
+[ext_resource type="Texture2D" uid="uid://b2vqev07spxmm" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Blue Jump Land.png" id="8_lmqjf"]
+[ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="11_x1fwv"]
+[ext_resource type="PackedScene" uid="uid://p6gt5mvfnbkc" path="res://Management/Component/detection_component.tscn" id="12_lmqjf"]
+[ext_resource type="PackedScene" uid="uid://1km386n64ium" path="res://Management/States/state_machine.tscn" id="14_8g3ed"]
+[ext_resource type="PackedScene" uid="uid://k0yvq00y0uwx" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/Health_bar.tscn" id="15_8g3ed"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yt8o1"]
 atlas = ExtResource("1_wiu4f")
@@ -418,7 +423,22 @@ size = Vector2(150, 115)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jh808"]
 size = Vector2(219, 140)
 
-[node name="BlueSlime" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ef6ie"]
+size = Vector2(30.8032, 29.9596)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ojc5b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5vmxv"]
+
+[node name="BlueSlime" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine")]
+script = ExtResource("1_ef6ie")
+health_component = NodePath("HealthComponent")
+hit_component = NodePath("HitComponent")
+attack_component = NodePath("AttackComponet")
+attack_collision = NodePath("AttackComponet/CollisionShape2D")
+detection_component = NodePath("detection_component")
+state_machine = NodePath("state_machine")
+metadata/_custom_type_script = "uid://c1kn7h3b4f70b"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2.00002, 8.99999)
@@ -440,3 +460,42 @@ health_component = NodePath("../HealthComponent")
 position = Vector2(-2.5, 45)
 shape = SubResource("RectangleShape2D_jh808")
 debug_color = Color(0, 0.618324, 0.207664, 0.42)
+
+[node name="AttackComponet" parent="." instance=ExtResource("11_x1fwv")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponet"]
+position = Vector2(-3.5, 43.5)
+rotation = -3.14159
+scale = Vector2(7.43429, 5.04012)
+shape = SubResource("RectangleShape2D_ef6ie")
+debug_color = Color(0.978639, 0, 0.394561, 0.42)
+
+[node name="detection_component" parent="." instance=ExtResource("12_lmqjf")]
+
+[node name="RayCast2D" type="RayCast2D" parent="detection_component"]
+target_position = Vector2(-500, 0)
+
+[node name="state_machine" parent="." instance=ExtResource("14_8g3ed")]
+
+[node name="HealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("15_8g3ed")]
+offset_left = -118.0
+offset_top = -55.0
+offset_right = 122.0
+offset_bottom = -51.0
+health_component = NodePath("../HealthComponent")
+
+[node name="Name" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -87.0
+offset_right = 41.0
+offset_bottom = -64.0
+text = "Blue Slime"
+label_settings = SubResource("LabelSettings_ojc5b")
+
+[node name="Debug" type="Label" parent="."]
+offset_left = -23.0
+offset_top = 119.0
+offset_right = 27.0
+offset_bottom = 142.0
+text = "Debug"
+label_settings = SubResource("LabelSettings_5vmxv")

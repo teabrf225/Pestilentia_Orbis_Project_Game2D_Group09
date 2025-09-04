@@ -1,20 +1,23 @@
-[gd_scene load_steps=77 format=3 uid="uid://cp31gdtdrtrd1"]
+[gd_scene load_steps=80 format=3 uid="uid://cp31gdtdrtrd1"]
 
-[ext_resource type="Texture2D" uid="uid://dub32alwswaul" path="res://Asset/Character/Slime Enemy/Death/Sprite Sheet - Red Death.png" id="2_evsk8"]
-[ext_resource type="Texture2D" uid="uid://kw47hx67foks" path="res://Asset/Character/Slime Enemy/Hurt/Sprite Sheet - Red Hurt.png" id="3_57ixl"]
-[ext_resource type="Texture2D" uid="uid://wj64l537f5fd" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Red Jump Start-up.png" id="4_cefik"]
-[ext_resource type="Texture2D" uid="uid://decdbbelgaovb" path="res://Asset/Character/Slime Enemy/Idle/Sprite Sheet - Red Idle.png" id="4_k0hoq"]
-[ext_resource type="Texture2D" uid="uid://c63bkfha7vkqo" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Red Jump to Fall.png" id="5_5t1d0"]
-[ext_resource type="Texture2D" uid="uid://c5s10odk8c0ck" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Red Jump Up.png" id="5_fpcx6"]
+[ext_resource type="Texture2D" uid="uid://dkwilqhqpqbe5" path="res://Asset/Character/Slime Enemy/Death/Sprite Sheet - Red Death.png" id="2_evsk8"]
+[ext_resource type="Texture2D" uid="uid://cog7vsip8kj0i" path="res://Asset/Character/Slime Enemy/Hurt/Sprite Sheet - Red Hurt.png" id="3_57ixl"]
+[ext_resource type="Texture2D" uid="uid://barrlnxegx5ow" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Red Jump Start-up.png" id="4_cefik"]
+[ext_resource type="Texture2D" uid="uid://bkgy4kl30e11h" path="res://Asset/Character/Slime Enemy/Idle/Sprite Sheet - Red Idle.png" id="4_k0hoq"]
+[ext_resource type="Texture2D" uid="uid://bfdvaiwicd68d" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Red Jump to Fall.png" id="5_5t1d0"]
+[ext_resource type="Texture2D" uid="uid://or51gx4dmtx" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Red Jump Up.png" id="5_fpcx6"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="6_7b4kb"]
-[ext_resource type="Texture2D" uid="uid://da5fu0fgbywye" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Red Jump Down.png" id="7_fo3h7"]
+[ext_resource type="Texture2D" uid="uid://r55cgp225m0n" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Red Jump Down.png" id="7_fo3h7"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="7_van83"]
-[ext_resource type="Texture2D" uid="uid://13tnkchh8je2" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Red Jump Land.png" id="8_f6fk6"]
+[ext_resource type="Texture2D" uid="uid://dbq0u7b8cmbkg" path="res://Asset/Character/Slime Enemy/Jump/Sprite Sheet - Red Jump Land.png" id="8_f6fk6"]
 [ext_resource type="PackedScene" uid="uid://k0yvq00y0uwx" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/Health_bar.tscn" id="8_fss0e"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="8_x35nn"]
 [ext_resource type="PackedScene" uid="uid://p6gt5mvfnbkc" path="res://Management/Component/detection_component.tscn" id="9_5m8lb"]
-[ext_resource type="FontFile" uid="uid://bxanbpdsln55f" path="res://Resource/Font/Silver.ttf" id="10_gpp2q"]
+[ext_resource type="FontFile" uid="uid://ct06fh3d1nc0b" path="res://Resource/Font/Silver.ttf" id="10_gpp2q"]
 [ext_resource type="Script" uid="uid://edrauioceubp" path="res://Management/States/state_machine.gd" id="12_x35nn"]
+[ext_resource type="Script" uid="uid://bafbu6fusljr4" path="res://Management/States/Enemy/slime_walk.gd" id="16_fpcx6"]
+[ext_resource type="Script" uid="uid://b14ovl76gvbk7" path="res://Management/States/Enemy/idle.gd" id="17_f6fk6"]
+[ext_resource type="Script" uid="uid://djh75x8ow673m" path="res://Resource/Character/RedSlime/slime_chase.gd" id="17_fo3h7"]
 
 [sub_resource type="GDScript" id="GDScript_1gmhd"]
 script/source = "extends Enemy
@@ -416,7 +419,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e3biv")
 }],
-"loop": true,
+"loop": false,
 "name": &"Jump",
 "speed": 8.0
 }]
@@ -440,8 +443,19 @@ shadow_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_gpp2q"]
 font_size = 96
 
-[node name="RedSlime" type="CharacterBody2D"]
+[node name="RedSlime" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine", "chase_state", "animation_control")]
 script = SubResource("GDScript_1gmhd")
+health_component = NodePath("HealthComponent")
+hit_component = NodePath("HitComponent")
+attack_component = NodePath("AttackComponent")
+attack_collision = NodePath("AttackComponent/CollisionShape2D")
+detection_component = NodePath("detection_component")
+state_machine = NodePath("EnemyStateMachine")
+chase_state = NodePath("EnemyStateMachine/slimeChase")
+animation_control = NodePath("AnimatedSprite2D")
+move_speed = 50.0
+jump_force = 100.0
+gravity = 60.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dv7fu")
@@ -477,20 +491,12 @@ position = Vector2(-24.75, 3.75)
 shape = SubResource("RectangleShape2D_1gmhd")
 debug_color = Color(0.989781, 0, 0.286363, 0.42)
 
-[node name="detection_component" parent="." node_paths=PackedStringArray("forward", "forward_up", "forward_down") instance=ExtResource("9_5m8lb")]
-forward = NodePath("forward")
-forward_up = NodePath("up")
-forward_down = NodePath("down")
+[node name="detection_component" parent="." node_paths=PackedStringArray("raycast_forward") instance=ExtResource("9_5m8lb")]
+raycast_forward = NodePath("forward")
 max_range = 300.0
 
 [node name="forward" type="RayCast2D" parent="detection_component"]
 target_position = Vector2(-200, 0)
-
-[node name="up" type="RayCast2D" parent="detection_component"]
-target_position = Vector2(-194, -37)
-
-[node name="down" type="RayCast2D" parent="detection_component"]
-target_position = Vector2(-195, 34)
 
 [node name="HealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_fss0e")]
 offset_left = -21.0
@@ -525,5 +531,32 @@ scale = Vector2(0.165, 0.165)
 text = "Debug"
 label_settings = SubResource("LabelSettings_gpp2q")
 
-[node name="EnemyStateMachine" type="Node" parent="."]
+[node name="EnemyStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "debug_label")]
 script = ExtResource("12_x35nn")
+initial_state = NodePath("slime_idle")
+debug_label = NodePath("../debug_action")
+
+[node name="slime_walk" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("enemy", "detection_component", "chase_state", "next_state", "animation_sprite")]
+script = ExtResource("16_fpcx6")
+enemy = NodePath("../..")
+detection_component = NodePath("../../detection_component")
+chase_state = NodePath("../slimeChase")
+next_state = NodePath("../slime_idle")
+name_animation = "Jump"
+animation_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="slimeChase" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("enemy", "detection_component", "normal_state", "animation_sprite")]
+script = ExtResource("17_fo3h7")
+enemy = NodePath("../..")
+detection_component = NodePath("../../detection_component")
+normal_state = NodePath("../slime_walk")
+name_animation = "Jump"
+animation_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="slime_idle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("enemy", "next_state", "chase_state", "animation_sprite")]
+script = ExtResource("17_f6fk6")
+enemy = NodePath("../..")
+next_state = NodePath("../slime_walk")
+chase_state = NodePath("../slimeChase")
+name_animation = "Idle"
+animation_sprite = NodePath("../../AnimatedSprite2D")
