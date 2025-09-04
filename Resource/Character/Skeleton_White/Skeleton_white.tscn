@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://d1gcxwge6bsvk"]
+[gd_scene load_steps=78 format=3 uid="uid://d1gcxwge6bsvk"]
 
 [ext_resource type="Texture2D" uid="uid://6uy0sn3ywpcf" path="res://Asset/Character/Skeletons_Free_Pack/Skeletons_Free_Pack/Skeleton_Sword/Skeleton_White/Skeleton_With_VFX/Skeleton_01_White_Attack1.png" id="1_jd186"]
 [ext_resource type="Script" uid="uid://u78cg2xglhpg" path="res://Resource/Character/Skeleton_White/skeleton_white.gd" id="1_pd3k5"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://k0yvq00y0uwx" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/Health_bar.tscn" id="13_b31sv"]
 [ext_resource type="Script" uid="uid://dbx872m0x5wi6" path="res://Management/States/Enemy/hurt.gd" id="13_vpr6r"]
 [ext_resource type="Script" uid="uid://b14ovl76gvbk7" path="res://Management/States/Enemy/idle.gd" id="14_we3kf"]
+[ext_resource type="Script" uid="uid://ddxd041s3h02i" path="res://Management/States/Enemy/dead.gd" id="15_we3kf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_we3kf"]
 atlas = ExtResource("1_jd186")
@@ -269,7 +270,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v10po")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack1",
 "speed": 5.0
 }, {
@@ -301,7 +302,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1mqkb")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack2",
 "speed": 5.0
 }, {
@@ -345,7 +346,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lwt13")
 }],
-"loop": true,
+"loop": false,
 "name": &"Die",
 "speed": 8.0
 }, {
@@ -365,7 +366,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1q6oo")
 }],
-"loop": true,
+"loop": false,
 "name": &"Hurt",
 "speed": 5.0
 }, {
@@ -449,7 +450,7 @@ height = 80.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_vpr6r"]
 
-[node name="SkeletonWhite" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine", "hurt_state", "idle_state", "animation_control")]
+[node name="SkeletonWhite" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine", "dead_state", "hurt_state", "idle_state", "animation_control")]
 script = ExtResource("1_pd3k5")
 health_component = NodePath("HealthComponent")
 hit_component = NodePath("HitComponent")
@@ -457,6 +458,7 @@ attack_component = NodePath("AttackComponet")
 attack_collision = NodePath("AttackComponet/CollisionShape2D")
 detection_component = NodePath("detection_component")
 state_machine = NodePath("state_machine")
+dead_state = NodePath("state_machine/dead")
 hurt_state = NodePath("state_machine/hurt")
 idle_state = NodePath("state_machine/Idle")
 animation_control = NodePath("AnimatedSprite2D")
@@ -465,8 +467,7 @@ metadata/_custom_type_script = "uid://c1kn7h3b4f70b"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cf4dy")
-animation = &"Attack2"
-frame_progress = 0.112367
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 10)
@@ -510,6 +511,12 @@ animation_sprite = NodePath("../../AnimatedSprite2D")
 script = ExtResource("14_we3kf")
 enemy = NodePath("../..")
 name_animation = "Idle"
+animation_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="dead" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "animation_sprite")]
+script = ExtResource("15_we3kf")
+enemy = NodePath("../..")
+name_animation = "Die"
 animation_sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="HealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("13_b31sv")]

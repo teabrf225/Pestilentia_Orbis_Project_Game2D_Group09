@@ -71,24 +71,36 @@ func _on_died():
 	# When the enemy dies, tell the State Machine to change to the 'dead' state
 	if state_machine and dead_state:
 		state_machine.change_state(dead_state)
-
-#func on_hit():
-#	if state_machine:
-#		state_machine.change_state(hurt_state)
-#		
-func on_hit():
-	state_machine.change_state(hurt_state)
-	var anima_sprite = $AnimatedSprite2D
-	if anima_sprite:
-		anima_sprite.play("Hurt")
-		anima_sprite.connect("animation_finished",Callable(self,"_on_hurt_anim_finished"),CONNECT_ONE_SHOT)
-	
-func _on_hurt_anim_finished():
-	if state_machine:
-		state_machine.change_state(idle_state)
-		var anim_sprite : AnimatedSprite2D = $AnimatedSprite2D
+		var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 		if anim_sprite:
-			anim_sprite.play("Idle")
+			anim_sprite.play("Dead")
+			anim_sprite.connect("animation_finished", Callable(self, "_on_dead_anim_finished"), CONNECT_ONE_SHOT)
+		
+
+func on_hit():
+	if state_machine:
+		if health_component.health > 0:
+			state_machine.change_state(hurt_state)
+			var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
+			if anim_sprite:
+				anim_sprite.play("Hurt")
+			
+
+func _on_dead_anim_finished():
+	queue_free()
+#func on_hit():
+#	state_machine.change_state(hurt_state)
+#	var anima_sprite = $AnimatedSprite2D
+#	if anima_sprite:
+#		anima_sprite.play("Hurt")
+#		anima_sprite.connect("animation_finished",Callable(self,"_on_hurt_anim_finished"),CONNECT_ONE_SHOT)
+	
+#func _on_hurt_anim_finished():
+	#if state_machine:
+	#	state_machine.change_state(idle_state)
+	#	var anim_sprite : AnimatedSprite2D = $AnimatedSprite2D
+	#	if anim_sprite:
+	#		anim_sprite.play("Idle")
 # ฟังก์ชันนี้จะถูกเรียกใช้โดยแต่ละ State เพื่อควบคุมทิศทางการหันหน้า
 func update_facing_direction(new_direction: String):
 	if new_direction.to_lower() == "right":

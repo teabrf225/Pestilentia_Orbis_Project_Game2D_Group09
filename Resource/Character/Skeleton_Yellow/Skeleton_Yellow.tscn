@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://bp5ups24coj03"]
+[gd_scene load_steps=78 format=3 uid="uid://bp5ups24coj03"]
 
 [ext_resource type="Script" uid="uid://bik50alfgdpjm" path="res://Resource/Character/Skeleton_Yellow/skeleton_yellow.gd" id="1_1gexy"]
 [ext_resource type="Texture2D" uid="uid://433o1ysmxavd" path="res://Asset/Character/Skeletons_Free_Pack/Skeletons_Free_Pack/Skeleton_Sword/Skeleton_Yellow/Skeleton_With_VFX/Skeleton_01_Yellow_Attack1.png" id="1_15lkl"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://dbx872m0x5wi6" path="res://Management/States/Enemy/hurt.gd" id="13_4reny"]
 [ext_resource type="PackedScene" uid="uid://k0yvq00y0uwx" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/Health_bar.tscn" id="13_bu6uv"]
 [ext_resource type="Script" uid="uid://b14ovl76gvbk7" path="res://Management/States/Enemy/idle.gd" id="14_6v3jw"]
+[ext_resource type="Script" uid="uid://ddxd041s3h02i" path="res://Management/States/Enemy/dead.gd" id="15_naup6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_naup6"]
 atlas = ExtResource("1_15lkl")
@@ -269,7 +270,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gmmc1")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack1",
 "speed": 5.0
 }, {
@@ -301,7 +302,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rpg7b")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack2",
 "speed": 5.0
 }, {
@@ -345,7 +346,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sweqm")
 }],
-"loop": true,
+"loop": false,
 "name": &"Die",
 "speed": 7.0
 }, {
@@ -365,7 +366,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_du80t")
 }],
-"loop": true,
+"loop": false,
 "name": &"Hurt",
 "speed": 5.0
 }, {
@@ -450,7 +451,7 @@ height = 208.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_4reny"]
 
-[node name="SkeletonYellow" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine", "hurt_state", "animation_control")]
+[node name="SkeletonYellow" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine", "dead_state", "hurt_state", "idle_state", "animation_control")]
 script = ExtResource("1_1gexy")
 health_component = NodePath("HealthComponent")
 hit_component = NodePath("HitComponent")
@@ -458,9 +459,11 @@ attack_component = NodePath("AttackComponet")
 attack_collision = NodePath("AttackComponet/CollisionShape2D")
 detection_component = NodePath("detection_component")
 state_machine = NodePath("state_machine")
+dead_state = NodePath("state_machine/dead")
 hurt_state = NodePath("state_machine/hurt")
+idle_state = NodePath("state_machine/Idle")
 animation_control = NodePath("AnimatedSprite2D")
-hp = 3000.0
+hp = 300.0
 metadata/_custom_type_script = "uid://c1kn7h3b4f70b"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -512,6 +515,12 @@ animation_sprite = NodePath("../../AnimatedSprite2D")
 script = ExtResource("14_6v3jw")
 enemy = NodePath("../..")
 name_animation = "Idle"
+animation_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="dead" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "animation_sprite")]
+script = ExtResource("15_naup6")
+enemy = NodePath("../..")
+name_animation = "Die"
 animation_sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="HealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("13_bu6uv")]

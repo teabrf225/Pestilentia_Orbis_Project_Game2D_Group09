@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://csp7ea7r7lmlw"]
+[gd_scene load_steps=35 format=3 uid="uid://csp7ea7r7lmlw"]
 
 [ext_resource type="Texture2D" uid="uid://dp8sr0u8mmi1g" path="res://Asset/Character/Dullahan_Attack.png" id="1_6s2io"]
 [ext_resource type="Script" uid="uid://bmb3iq1162l26" path="res://Resource/Character/Dullahan/dullahan.gd" id="1_8y8c1"]
@@ -7,6 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://eb0lornx766g" path="res://Asset/Character/Dullahan_Walk.png" id="4_708fv"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="5_pqjfa"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="6_f15lc"]
+[ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="8_380pm"]
+[ext_resource type="PackedScene" uid="uid://p6gt5mvfnbkc" path="res://Management/Component/detection_component.tscn" id="9_8lh1i"]
+[ext_resource type="PackedScene" uid="uid://1km386n64ium" path="res://Management/States/state_machine.tscn" id="10_jy5wc"]
+[ext_resource type="Script" uid="uid://b14ovl76gvbk7" path="res://Management/States/Enemy/idle.gd" id="11_u4xtc"]
+[ext_resource type="Script" uid="uid://ddxd041s3h02i" path="res://Management/States/Enemy/dead.gd" id="12_m5lea"]
+[ext_resource type="PackedScene" uid="uid://k0yvq00y0uwx" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/Health_bar.tscn" id="13_awufl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_80jjc"]
 atlas = ExtResource("1_6s2io")
@@ -158,10 +164,24 @@ height = 108.0
 radius = 50.0
 height = 150.0
 
-[node name="Dullahan" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component")]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k0aoq"]
+radius = 61.0
+height = 162.0
+
+[node name="Dullahan" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine", "dead_state", "idle_state", "animation_control")]
 script = ExtResource("1_8y8c1")
 health_component = NodePath("HealthComponent")
 hit_component = NodePath("HitComponent")
+attack_component = NodePath("AttackComponet")
+attack_collision = NodePath("AttackComponet/CollisionShape2D")
+detection_component = NodePath("detection_component")
+state_machine = NodePath("state_machine")
+dead_state = NodePath("state_machine/Dead")
+idle_state = NodePath("state_machine/Idle")
+animation_control = NodePath("AnimatedSprite2D")
+hp = 100.0
+dmg = 25.0
+max_vision = 500.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7d0uc")
@@ -183,3 +203,55 @@ health_component = NodePath("../HealthComponent")
 position = Vector2(9, 0)
 shape = SubResource("CapsuleShape2D_uqiud")
 debug_color = Color(7.21961e-07, 0.611266, 0.260552, 0.42)
+
+[node name="AttackComponet" parent="." instance=ExtResource("8_380pm")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponet"]
+position = Vector2(-26, -1)
+shape = SubResource("CapsuleShape2D_k0aoq")
+debug_color = Color(0.99027, 0, 0.280407, 0.42)
+
+[node name="detection_component" parent="." node_paths=PackedStringArray("raycast_forward") instance=ExtResource("9_8lh1i")]
+raycast_forward = NodePath("RayCast2D")
+
+[node name="RayCast2D" type="RayCast2D" parent="detection_component"]
+target_position = Vector2(-800, 0)
+
+[node name="state_machine" parent="." node_paths=PackedStringArray("initial_state", "debug_label") instance=ExtResource("10_jy5wc")]
+initial_state = NodePath("Idle")
+debug_label = NodePath("../Debug")
+
+[node name="Idle" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "next_state", "chase_state", "animation_sprite")]
+script = ExtResource("11_u4xtc")
+enemy = NodePath("../..")
+next_state = NodePath(".")
+chase_state = NodePath(".")
+name_animation = "Idle"
+animation_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="Dead" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "animation_sprite")]
+script = ExtResource("12_m5lea")
+enemy = NodePath("../..")
+name_animation = "Dead"
+animation_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="HealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("13_awufl")]
+offset_left = -105.0
+offset_top = -89.0
+offset_right = 135.0
+offset_bottom = -85.0
+health_component = NodePath("../HealthComponent")
+
+[node name="Name" type="Label" parent="."]
+offset_left = -14.0
+offset_top = -118.0
+offset_right = 26.0
+offset_bottom = -95.0
+text = "Dullahan"
+
+[node name="Debug" type="Label" parent="."]
+offset_left = -16.0
+offset_top = 87.0
+offset_right = 24.0
+offset_bottom = 110.0
+text = "Debug"

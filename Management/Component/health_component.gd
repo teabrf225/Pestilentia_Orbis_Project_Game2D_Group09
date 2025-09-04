@@ -17,7 +17,7 @@ func setup(_max_health = null,_health = null):
 	if _max_health != null:
 		max_health	= _max_health
 	if _health != null:
-		health = max_health if _health == "use_max_health" else _health if typeof(_health) in [TYPE_INT, TYPE_FLOAT] else health
+		health = max_health
 		print(get_tree()," Hp: ",health," Max Hp: ",max_health)
 	emit_signal("health_changed", health, max_health)
 
