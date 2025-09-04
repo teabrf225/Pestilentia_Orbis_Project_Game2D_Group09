@@ -21,7 +21,7 @@ var current_state: State = null
 func _ready() -> void:
 	# เก็บอ้างอิงของเจ้าของ (ตัวละครหลัก)
 	owner_node = owner
-	if not OS.is_debug_build():
+	if debug_label:
 		debug_label.visible = false
 	# เริ่มต้นด้วยสถานะเริ่มต้นที่กำหนดไว้
 	if initial_state:
