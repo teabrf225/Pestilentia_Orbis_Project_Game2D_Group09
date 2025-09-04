@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://csp7ea7r7lmlw"]
+[gd_scene load_steps=28 format=3 uid="uid://csp7ea7r7lmlw"]
 
 [ext_resource type="Texture2D" uid="uid://dp8sr0u8mmi1g" path="res://Asset/Character/Dullahan_Attack.png" id="1_6s2io"]
+[ext_resource type="Script" uid="uid://bmb3iq1162l26" path="res://Resource/Character/Dullahan/dullahan.gd" id="1_8y8c1"]
 [ext_resource type="Texture2D" uid="uid://vqdtqoopm1rl" path="res://Asset/Character/Dullahan_Dead.png" id="2_8y8c1"]
 [ext_resource type="Texture2D" uid="uid://o38ua0xg3cru" path="res://Asset/Character/Dullahan_Idel.png" id="3_dwuso"]
 [ext_resource type="Texture2D" uid="uid://eb0lornx766g" path="res://Asset/Character/Dullahan_Walk.png" id="4_708fv"]
@@ -157,7 +158,10 @@ height = 108.0
 radius = 50.0
 height = 150.0
 
-[node name="Dullahan" type="CharacterBody2D"]
+[node name="Dullahan" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component")]
+script = ExtResource("1_8y8c1")
+health_component = NodePath("HealthComponent")
+hit_component = NodePath("HitComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7d0uc")
@@ -169,6 +173,8 @@ position = Vector2(10, -2)
 shape = SubResource("CapsuleShape2D_4jhgf")
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_pqjfa")]
+max_health = 1.0
+die_and_hied = true
 
 [node name="HitComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_f15lc")]
 health_component = NodePath("../HealthComponent")

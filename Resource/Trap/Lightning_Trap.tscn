@@ -1,6 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://d24vl26w0wm2a"]
+[gd_scene load_steps=20 format=3 uid="uid://d24vl26w0wm2a"]
 
-[ext_resource type="Texture2D" uid="uid://bxo8ptdaifu7q" path="res://Asset/Trap/Lightning Trap/PNGs/Lightning Trap - Level 1.png" id="1_es7js"]
+[ext_resource type="Script" uid="uid://cjkhakt8qfjp4" path="res://Resource/Trap/lightning_trap.gd" id="1_5fltj"]
+[ext_resource type="Texture2D" uid="uid://b1r6uc8qr04sn" path="res://Asset/Trap/Lightning Trap/PNGs/Lightning Trap - Level 1.png" id="1_es7js"]
+[ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="3_t70gv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sb2fl"]
 atlas = ExtResource("1_es7js")
@@ -49,6 +51,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_sb2fl")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_sb2fl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb2fl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb2fl")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5fltj")
 }, {
 "duration": 1.0,
@@ -67,6 +78,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_qu02y")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_abkx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uu4ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qu02y")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_oaqx7")
 }, {
 "duration": 1.0,
@@ -74,22 +94,209 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bt7mh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb2fl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb2fl")
 }],
 "loop": true,
 "name": &"Lightning",
-"speed": 6.0
+"speed": 9.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kre8f"]
-size = Vector2(27, 147)
+size = Vector2(17, 0)
 
-[node name="LightningTrap" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88qkf"]
+size = Vector2(23, 0)
+
+[sub_resource type="Animation" id="Animation_uu4ui"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AttackComponet/CollisionShape2D:shape:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(23, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackComponet/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 87)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AttackComponet:active")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:shape:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(17, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 87)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_abkx8"]
+resource_name = "lightning"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AttackComponet/CollisionShape2D:shape:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.8, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(23, 0), Vector2(23, 7.8e+06), Vector2(23, 1.68e+07), Vector2(23, 1.68e+07)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackComponet/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.8, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 87), Vector2(0.5, 48), Vector2(0.5, 3), Vector2(0.5, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AttackComponet:active")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.5, 1.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:shape:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.8, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(17, 0), Vector2(17, 76), Vector2(17, 163), Vector2(17, 163)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.8, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 87), Vector2(0.5, 49), Vector2(0.5, 5.5), Vector2(0.5, 5.5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.55),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qu02y"]
+_data = {
+&"RESET": SubResource("Animation_uu4ui"),
+&"lightning": SubResource("Animation_abkx8")
+}
+
+[node name="LightningTrap" type="CharacterBody2D" groups=["Trap_Ground"]]
+script = ExtResource("1_5fltj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_r1tnk")
 animation = &"Lightning"
-frame_progress = 0.286073
+frame = 17
+frame_progress = 0.400939
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 87)
 shape = SubResource("RectangleShape2D_kre8f")
+disabled = true
+
+[node name="AttackComponet" parent="." instance=ExtResource("3_t70gv")]
+damage = 30.0
+knockback = 400.0
+type_entity = "trap_ground"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponet"]
+position = Vector2(0.5, 87)
+scale = Vector2(1, 1e-05)
+shape = SubResource("RectangleShape2D_88qkf")
+debug_color = Color(0.964706, 0, 0, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qu02y")
+}

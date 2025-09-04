@@ -144,6 +144,11 @@ func death_tween():
 	#AudioManager.respawn_sfx.play()
 	respawn_tween()
 	health_bar.reset_health()
+	
+	GameManager.player_died()
+	## Reset player หรือ queue_free() แล้ว respawn
+	#queue_free()
+
 
 func respawn_tween():
 	var tween = create_tween()

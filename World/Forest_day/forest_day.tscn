@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://cqvp6siwv82"]
+[gd_scene load_steps=35 format=4 uid="uid://cqvp6siwv82"]
 
 [ext_resource type="Texture2D" uid="uid://b4357itxyvejt" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_6uywx"]
 [ext_resource type="Texture2D" uid="uid://b0gqivkyfinit" path="res://Asset/Map/Jungle/1.Backround.png" id="1_q1b8r"]
@@ -12,11 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://bn2fq8i6yspkc" path="res://Asset/Map/DarkForest1.2/env_mon.png" id="8_ku6dd"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="11_kn21a"]
 [ext_resource type="PackedScene" uid="uid://cp31gdtdrtrd1" path="res://Resource/Character/RedSlime/RedSlime.tscn" id="11_ku6dd"]
+[ext_resource type="PackedScene" uid="uid://bym7jmphv7rcx" path="res://Resource/Character/King_Slime/King_Slime.tscn" id="13_nftlo"]
 [ext_resource type="PackedScene" uid="uid://bwtvdbrcjbq03" path="res://Resource/Trap/wood_spear.tscn" id="13_q8t2n"]
 [ext_resource type="PackedScene" uid="uid://cb0mkvfgesj8p" path="res://Resource/Potal/level_potal.tscn" id="14_nekhh"]
 [ext_resource type="PackedScene" uid="uid://cow2gjoks02t3" path="res://World/Forest_night/forest_night.tscn" id="15_0p7ir"]
 [ext_resource type="PackedScene" uid="uid://nh110a1yv3qb" path="res://Interface/Tutorial/tutorial.tscn" id="16_eri4k"]
 [ext_resource type="PackedScene" uid="uid://bky0sqoap6ank" path="res://Interface/Pause_menu/pause_menu.tscn" id="17_nftlo"]
+[ext_resource type="PackedScene" uid="uid://d5g41w7mkynq" path="res://Resource/Effect/fire.tscn" id="18_nftlo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0p7ir"]
 texture = ExtResource("7_r2ywe")
@@ -6367,6 +6369,10 @@ layer = 1
 tile_map_data = PackedByteArray("AAD5AB0AAQARABMAAAD5AB4AAQARABQAAAD5AB8AAQARABUAAAD6AB0AAQASABMAAAD6AB4AAQASABQAAAD6AB8AAQASABUAAAAEAR0AAQARABMAAAAEAR4AAQARABQAAAAEAR8AAQARABUAAAAFAR0AAQASABMAAAAFAR4AAQASABQAAAAFAR8AAQASABUAAAAXAR0AAQARABMAAAAXAR4AAQARABQAAAAXAR8AAQARABUAAAAYAR0AAQASABMAAAAYAR4AAQASABQAAAAYAR8AAQASABUAAAAlAR0AAQARABMAAAAlAR4AAQARABQAAAAlAR8AAQARABUAAAAmAR0AAQASABMAAAAmAR4AAQASABQAAAAmAR8AAQASABUAAAAfAR0AAQATABMAAAAfAR4AAQATABQAAAAfAR8AAQATABUAAAAgAR0AAQAUABMAAAAgAR4AAQAUABQAAAAgAR8AAQAUABUAAAAQAR0AAQATABMAAAAQAR4AAQATABQAAAAQAR8AAQATABUAAAARAR0AAQAUABMAAAARAR4AAQAUABQAAAARAR8AAQAUABUAAAD/AB0AAQATABMAAAD/AB4AAQATABQAAAD/AB8AAQATABUAAAAAAR0AAQAUABMAAAAAAR4AAQAUABQAAAAAAR8AAQAUABUAAADDAC4AAQARAAEAAADDAC8AAQARAAIAAADEAC4AAQASAAEAAADEAC8AAQASAAIAAADFAC0AAQATAAAAAADFAC4AAQATAAEAAADFAC8AAQATAAIAAADGAC0AAQAUAAAAAADGAC4AAQAUAAEAAADGAC8AAQAUAAIAAADHAC0AAQAVAAAAAADHAC4AAQAVAAEAAADHAC8AAQAVAAIAAADIAC0AAQAWAAAAAADIAC4AAQAWAAEAAADIAC8AAQAWAAIAAADJAC4AAQAXAAEAAADJAC8AAQAXAAIAAADKAC4AAQAYAAEAAADKAC8AAQAYAAIAAAApAC4AAQARAAEAAAApAC8AAQARAAIAAAAqAC4AAQASAAEAAAAqAC8AAQASAAIAAAArAC0AAQATAAAAAAArAC4AAQATAAEAAAArAC8AAQATAAIAAAAsAC0AAQAUAAAAAAAsAC4AAQAUAAEAAAAsAC8AAQAUAAIAAAAtAC0AAQAVAAAAAAAtAC4AAQAVAAEAAAAtAC8AAQAVAAIAAAAuAC0AAQAWAAAAAAAuAC4AAQAWAAEAAAAuAC8AAQAWAAIAAAAvAC4AAQAXAAEAAAAvAC8AAQAXAAIAAAAwAC4AAQAYAAEAAAAwAC8AAQAYAAIAAAA=")
 tile_set = SubResource("TileSet_jrng8")
 
+[node name="Fire" parent="." instance=ExtResource("18_nftlo")]
+position = Vector2(191, 720)
+scale = Vector2(0.6, 0.6)
+
 [node name="Knight" parent="." instance=ExtResource("3_5b50y")]
 position = Vector2(384, 687)
 use_knockback = true
@@ -6405,6 +6411,10 @@ debug_color = Color(0.964151, 0, 0.494479, 0.42)
 [node name="RedSlime" parent="Mob" instance=ExtResource("11_ku6dd")]
 position = Vector2(1872, 624)
 
+[node name="KingSlime" parent="Mob" instance=ExtResource("13_nftlo")]
+position = Vector2(6821, 447)
+scale = Vector2(2, 2)
+
 [node name="Trap" type="Node2D" parent="."]
 
 [node name="Wood_Spear" parent="Trap" instance=ExtResource("13_q8t2n")]
@@ -6433,5 +6443,7 @@ next_scene = ExtResource("15_0p7ir")
 
 [node name="PauseMenu" parent="CanvasLayer(PauseMenu)" index="0"]
 visible = false
+
+[connection signal="boss_defeated" from="Mob/KingSlime" to="LevelPotal" method="_on_king_slime_boss_defeated"]
 
 [editable path="CanvasLayer(PauseMenu)"]

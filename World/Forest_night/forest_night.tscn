@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://cow2gjoks02t3"]
+[gd_scene load_steps=34 format=4 uid="uid://cow2gjoks02t3"]
 
 [ext_resource type="Texture2D" uid="uid://mbvrr6a80b5t" path="res://Asset/Map/forest_night_layers/Layer_0011_0.png" id="1_35oa0"]
 [ext_resource type="PackedScene" uid="uid://cb0mkvfgesj8p" path="res://Resource/Potal/level_potal.tscn" id="1_ebbgy"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://b4357itxyvejt" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="14_v5nps"]
 [ext_resource type="Texture2D" uid="uid://b1d6nqb5ckiwn" path="res://Asset/Map/PixelFantasy_Caves_1.0/mainlev_build.png" id="15_35oa0"]
 [ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="17_1ocnr"]
+[ext_resource type="PackedScene" uid="uid://csp7ea7r7lmlw" path="res://Resource/Character/Dullahan/Dullahan.tscn" id="21_pkcsb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_263js"]
 texture = ExtResource("13_2k4r6")
@@ -4850,3 +4851,11 @@ limit_smoothed = true
 position_smoothing_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="Mob" type="Node2D" parent="."]
+
+[node name="Dullahan" parent="Mob" instance=ExtResource("21_pkcsb")]
+position = Vector2(6526, 451)
+scale = Vector2(1.5, 1.5)
+
+[connection signal="boss_defeated" from="Mob/Dullahan" to="LevelPotal" method="_on_dullahan_boss_defeated"]

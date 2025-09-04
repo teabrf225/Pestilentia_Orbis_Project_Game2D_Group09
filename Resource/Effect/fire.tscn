@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://d5g41w7mkynq"]
+
+[ext_resource type="Script" uid="uid://dya54rrjrogv7" path="res://Resource/Effect/fire.gd" id="1_monsm"]
+[ext_resource type="Texture2D" uid="uid://b57sdikf27r4c" path="res://Asset/fire.png" id="1_x233x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_monsm"]
+atlas = ExtResource("1_x233x")
+region = Rect2(31, 0, 63, 187)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r487n"]
+atlas = ExtResource("1_x233x")
+region = Rect2(87, 0, 63, 187)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnx7c"]
+atlas = ExtResource("1_x233x")
+region = Rect2(144, 0, 63, 187)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf5f7"]
+atlas = ExtResource("1_x233x")
+region = Rect2(207, 0, 63, 187)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swesr"]
+atlas = ExtResource("1_x233x")
+region = Rect2(263, 0, 63, 187)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhsb6"]
+atlas = ExtResource("1_x233x")
+region = Rect2(317, 0, 63, 187)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tslqx"]
+atlas = ExtResource("1_x233x")
+region = Rect2(372, 0, 63, 187)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1vwrx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_monsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r487n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnx7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uf5f7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swesr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhsb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tslqx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="Fire" type="Node2D"]
+script = ExtResource("1_monsm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1vwrx")
+frame_progress = 0.00349993

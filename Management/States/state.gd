@@ -15,8 +15,10 @@ signal request_state_change(new_state: State)
 @export var name_animation: String = ""
 @export var animation_player: AnimationPlayer
 @export var animation_sprite: AnimatedSprite2D
+var player : Player
 
-
+func _ready() -> void:
+	player = get_tree().get_first_node_in_group("player")
 # ฟังก์ชันหลักที่ถูกเรียกเมื่อเข้าสู่สถานะ
 # ใช้สำหรับตั้งค่าเริ่มต้นของสถานะ เช่น เริ่ม Animation หรือเปิดการทำงานของ _physics_process
 func enter():
