@@ -1,13 +1,14 @@
-[gd_scene load_steps=31 format=3 uid="uid://d3fhiak32cr5m"]
+[gd_scene load_steps=32 format=3 uid="uid://d3fhiak32cr5m"]
 
-[ext_resource type="Texture2D" uid="uid://ca0fi6n5vnwo8" path="res://Asset/Character/Lich_Attack.png" id="1_cw3yx"]
+[ext_resource type="Texture2D" uid="uid://haye5pim65m" path="res://Asset/Character/Lich_Attack.png" id="1_cw3yx"]
 [ext_resource type="Script" uid="uid://dan4jmyolj720" path="res://Resource/Character/Lich/lich.gd" id="1_u4geh"]
-[ext_resource type="Texture2D" uid="uid://bm1eld2vrq0l2" path="res://Asset/Character/Lich_Dead.png" id="2_eaq62"]
-[ext_resource type="Texture2D" uid="uid://c134syydrkrq8" path="res://Asset/Character/Lich_Idle.png" id="3_owiur"]
-[ext_resource type="Texture2D" uid="uid://cwauxaqkrjdlj" path="res://Asset/Character/Lich_Laser.png" id="4_eaq62"]
+[ext_resource type="Texture2D" uid="uid://bjt2pnovws7nj" path="res://Asset/Character/Lich_Dead.png" id="2_eaq62"]
+[ext_resource type="Texture2D" uid="uid://ccmra1k7ngxxa" path="res://Asset/Character/Lich_Idle.png" id="3_owiur"]
+[ext_resource type="Texture2D" uid="uid://pm14v4juuhn1" path="res://Asset/Character/Lich_Laser.png" id="4_eaq62"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="4_u4geh"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="5_ycojp"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="7_owiur"]
+[ext_resource type="PackedScene" uid="uid://p6gt5mvfnbkc" path="res://Management/Component/detection_component.tscn" id="8_ycojp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mw0s1"]
 atlas = ExtResource("1_cw3yx")
@@ -254,10 +255,13 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4geh"]
 size = Vector2(23.5418, 33.8)
 
-[node name="Lich" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component")]
+[node name="Lich" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component")]
 script = ExtResource("1_u4geh")
 health_component = NodePath("HealthComponent")
 hit_component = NodePath("HitComponent")
+attack_component = NodePath("AttackComponet")
+attack_collision = NodePath("AttackComponet/CollisionShape2D")
+detection_component = NodePath("detection_component")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
@@ -293,6 +297,11 @@ scale = Vector2(4.32031, 2.35547)
 texture = ExtResource("4_eaq62")
 hframes = 5
 vframes = 5
+
+[node name="detection_component" parent="." instance=ExtResource("8_ycojp")]
+
+[node name="RayCast2D" type="RayCast2D" parent="detection_component"]
+target_position = Vector2(-500, 0)
 
 [node name="AttackComponet" parent="." instance=ExtResource("7_owiur")]
 
