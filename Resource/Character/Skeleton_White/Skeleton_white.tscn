@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://d1gcxwge6bsvk"]
+[gd_scene load_steps=77 format=3 uid="uid://d1gcxwge6bsvk"]
 
 [ext_resource type="Texture2D" uid="uid://6uy0sn3ywpcf" path="res://Asset/Character/Skeletons_Free_Pack/Skeletons_Free_Pack/Skeleton_Sword/Skeleton_White/Skeleton_With_VFX/Skeleton_01_White_Attack1.png" id="1_jd186"]
 [ext_resource type="Script" uid="uid://u78cg2xglhpg" path="res://Resource/Character/Skeleton_White/skeleton_white.gd" id="1_pd3k5"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://p6gt5mvfnbkc" path="res://Management/Component/detection_component.tscn" id="11_rigl2"]
 [ext_resource type="PackedScene" uid="uid://1km386n64ium" path="res://Management/States/state_machine.tscn" id="12_vpr6r"]
 [ext_resource type="PackedScene" uid="uid://k0yvq00y0uwx" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/Health_bar.tscn" id="13_b31sv"]
+[ext_resource type="Script" uid="uid://dbx872m0x5wi6" path="res://Management/States/Enemy/hurt.gd" id="13_vpr6r"]
+[ext_resource type="Script" uid="uid://b14ovl76gvbk7" path="res://Management/States/Enemy/idle.gd" id="14_we3kf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_we3kf"]
 atlas = ExtResource("1_jd186")
@@ -447,7 +449,7 @@ height = 80.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_vpr6r"]
 
-[node name="SkeletonWhite" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine")]
+[node name="SkeletonWhite" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine", "hurt_state", "idle_state", "animation_control")]
 script = ExtResource("1_pd3k5")
 health_component = NodePath("HealthComponent")
 hit_component = NodePath("HitComponent")
@@ -455,6 +457,10 @@ attack_component = NodePath("AttackComponet")
 attack_collision = NodePath("AttackComponet/CollisionShape2D")
 detection_component = NodePath("detection_component")
 state_machine = NodePath("state_machine")
+hurt_state = NodePath("state_machine/hurt")
+idle_state = NodePath("state_machine/Idle")
+animation_control = NodePath("AnimatedSprite2D")
+hp = 300.0
 metadata/_custom_type_script = "uid://c1kn7h3b4f70b"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -488,7 +494,23 @@ debug_color = Color(0.980015, 0, 0.383243, 0.42)
 [node name="RayCast2D" type="RayCast2D" parent="detection_component"]
 target_position = Vector2(500, 0)
 
-[node name="state_machine" parent="." instance=ExtResource("12_vpr6r")]
+[node name="state_machine" parent="." node_paths=PackedStringArray("initial_state", "debug_label") instance=ExtResource("12_vpr6r")]
+initial_state = NodePath("Idle")
+debug_label = NodePath("../Debug")
+
+[node name="hurt" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "health", "next_state", "animation_sprite")]
+script = ExtResource("13_vpr6r")
+enemy = NodePath("../..")
+health = NodePath("../../HealthComponent")
+next_state = NodePath("../Idle")
+name_animation = "Hurt"
+animation_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="Idle" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "animation_sprite")]
+script = ExtResource("14_we3kf")
+enemy = NodePath("../..")
+name_animation = "Idle"
+animation_sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="HealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("13_b31sv")]
 offset_left = -120.0
