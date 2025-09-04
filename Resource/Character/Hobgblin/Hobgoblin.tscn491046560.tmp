@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bixktqhyg7if2"]
+[gd_scene load_steps=46 format=3 uid="uid://bixktqhyg7if2"]
 
 [ext_resource type="Script" uid="uid://buc6eso8xe56o" path="res://Resource/Character/Hobgblin/hobgoblin.gd" id="1_igrfi"]
 [ext_resource type="Texture2D" uid="uid://pe01wveibggv" path="res://Asset/Character/Hobgoblin/HobgoblinNoOutline/goblinsmasher_attack.png" id="1_l7ua8"]
@@ -17,7 +17,6 @@
 [ext_resource type="Script" uid="uid://ddxd041s3h02i" path="res://Management/States/Enemy/dead.gd" id="15_cwfel"]
 [ext_resource type="Script" uid="uid://crmbga700rv2f" path="res://Management/States/Enemy/chase.gd" id="16_68g0d"]
 [ext_resource type="FontFile" uid="uid://bxanbpdsln55f" path="res://Resource/Font/Silver.ttf" id="16_o23p2"]
-[ext_resource type="Script" uid="uid://bfehyvd8uuauv" path="res://Management/States/Enemy/enemy_attack.gd" id="17_68g0d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sag24"]
 atlas = ExtResource("1_l7ua8")
@@ -131,7 +130,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j41uo")
 }],
-"loop": false,
+"loop": true,
 "name": &"Attack",
 "speed": 5.0
 }, {
@@ -162,7 +161,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fjagk")
 }],
-"loop": false,
+"loop": true,
 "name": &"Hurt",
 "speed": 5.0
 }, {
@@ -249,7 +248,7 @@ direction = "Right"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(9.375, 9.375)
 sprite_frames = SubResource("SpriteFrames_t3cqs")
-animation = &"Attack"
+animation = &"Death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_kj2lf")
@@ -289,11 +288,10 @@ script = ExtResource("11_o23p2")
 initial_state = NodePath("Idle")
 debug_label = NodePath("../debug_action")
 
-[node name="Idle" type="Node" parent="fsm" node_paths=PackedStringArray("enemy", "next_state", "chase_state", "animation_sprite")]
+[node name="Idle" type="Node" parent="fsm" node_paths=PackedStringArray("enemy", "next_state", "animation_sprite")]
 script = ExtResource("13_kj2lf")
 enemy = NodePath("../..")
 next_state = NodePath("../Wander")
-chase_state = NodePath("../Chase")
 name_animation = "Idle"
 animation_sprite = NodePath("../../AnimatedSprite2D")
 
@@ -312,26 +310,10 @@ enemy = NodePath("../..")
 name_animation = "Death"
 animation_sprite = NodePath("../../AnimatedSprite2D")
 
-[node name="Chase" type="Node" parent="fsm" node_paths=PackedStringArray("enemy", "detection_component", "atk_state", "normal_state", "animation_sprite")]
+[node name="Chase" type="Node" parent="fsm" node_paths=PackedStringArray("enemy", "animation_sprite")]
 script = ExtResource("16_68g0d")
 enemy = NodePath("../..")
-detection_component = NodePath("../../detection_component")
-min_range_atk = 40.0
-atk_state = NodePath("../Attack")
-normal_state = NodePath("../Wander")
 name_animation = "Run"
-animation_sprite = NodePath("../../AnimatedSprite2D")
-
-[node name="Attack" type="Node" parent="fsm" node_paths=PackedStringArray("enemy", "detection_component", "attack_component", "attack_collision", "chase_state", "atk_state", "animation_sprite")]
-script = ExtResource("17_68g0d")
-enemy = NodePath("../..")
-detection_component = NodePath("../../detection_component")
-min_range_atk = 40.0
-attack_component = NodePath("../../AttackComponet")
-attack_collision = NodePath("../../AttackComponet/CollisionShape2D")
-chase_state = NodePath("../Chase")
-atk_state = NodePath(".")
-name_animation = "Attack"
 animation_sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="Name" type="Label" parent="."]

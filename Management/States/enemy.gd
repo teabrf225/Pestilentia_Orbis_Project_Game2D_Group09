@@ -13,6 +13,7 @@ class_name Enemy
 @export var detection_component: DetectionComponent
 @export var state_machine: StateMachine
 @export var dead_state: State
+@export var chase_state: State
 # เพิ่มตัวแปรสำหรับ Node ที่เก็บ Sprite/AnimationPlayer
 @export var animation_control: Node2D
 
