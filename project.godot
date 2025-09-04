@@ -16,7 +16,7 @@ run/main_scene="uid://bcmvkkx6ovlfh"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=60
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="uid://dhiqe31hcqjp3"
 
 [audio]
 
@@ -40,7 +40,8 @@ folder_colors={
 "res://Interface/": "pink",
 "res://Management/": "red",
 "res://Resource/": "teal",
-"res://World/": "green"
+"res://World/": "green",
+"res://docs/": "gray"
 }
 
 [input]
