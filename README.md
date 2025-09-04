@@ -8,9 +8,6 @@ https://docs.google.com/document/d/1jwUYVoKrzYlW4FP8yZENRFVg8EeeHwkiMioWPO45FYw/
 ## Story Broad Game
 https://www.canva.com/design/DAGwthCcmeA/mGa6Hz7V9qGyV9aUO-lrxA/edit?utm_content=DAGwthCcmeA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
-## Drive Project
-https://drive.google.com/drive/folders/1nSxi4w9HTV2oWJXG0EJnwBJoPFpaVf2s?usp=sharing
-
 # Member of AI Group-09
 (EN)
 1. Krissanapong Songkramsong 663380251-8 AI-Sec.02
