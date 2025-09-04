@@ -1,13 +1,21 @@
-[gd_scene load_steps=34 format=3 uid="uid://b6nyd7gjew1ty"]
+[gd_scene load_steps=42 format=3 uid="uid://b6nyd7gjew1ty"]
 
-[ext_resource type="Texture2D" uid="uid://75vnh0v3lc2n" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Hit-Vanish/Hit-Sheet-Black.png" id="1_2y3ii"]
+[ext_resource type="Texture2D" uid="uid://cs6el24echdul" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Hit-Vanish/Hit-Sheet-Black.png" id="1_2y3ii"]
+[ext_resource type="Script" uid="uid://cgq7n5hn3ybn4" path="res://Resource/Character/Boar/boar.gd" id="1_f5tei"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="1_m2qvm"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="2_hmax1"]
-[ext_resource type="Texture2D" uid="uid://4fkkm2tlrpat" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Idle/Idle-Sheet-export-Back.png" id="2_sx7no"]
-[ext_resource type="Texture2D" uid="uid://dwgdiusjeuuvi" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Run/Run-Sheet-Black.png" id="3_e55tx"]
-[ext_resource type="Texture2D" uid="uid://c3sswadxvuh76" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Walk/Walk-Base-SheetBlack.png" id="4_f5tei"]
+[ext_resource type="Texture2D" uid="uid://8stw67cy0vkn" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Idle/Idle-Sheet-export-Back.png" id="2_sx7no"]
+[ext_resource type="Texture2D" uid="uid://ytmh8r2sw4nn" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Run/Run-Sheet-Black.png" id="3_e55tx"]
+[ext_resource type="Texture2D" uid="uid://ckfatehqmyaeq" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Walk/Walk-Base-SheetBlack.png" id="4_f5tei"]
 [ext_resource type="PackedScene" uid="uid://k0yvq00y0uwx" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/Health_bar.tscn" id="7_e55tx"]
-[ext_resource type="FontFile" uid="uid://bxanbpdsln55f" path="res://Resource/Font/Silver.ttf" id="8_f5tei"]
+[ext_resource type="FontFile" uid="uid://ct06fh3d1nc0b" path="res://Resource/Font/Silver.ttf" id="8_f5tei"]
+[ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="10_j1qoi"]
+[ext_resource type="PackedScene" uid="uid://p6gt5mvfnbkc" path="res://Management/Component/detection_component.tscn" id="11_egdpa"]
+[ext_resource type="PackedScene" uid="uid://1km386n64ium" path="res://Management/States/state_machine.tscn" id="12_4yg17"]
+[ext_resource type="Script" uid="uid://crmbga700rv2f" path="res://Management/States/Enemy/chase.gd" id="13_xpxbd"]
+[ext_resource type="Script" uid="uid://ddxd041s3h02i" path="res://Management/States/Enemy/dead.gd" id="14_u1ifo"]
+[ext_resource type="Script" uid="uid://b14ovl76gvbk7" path="res://Management/States/Enemy/idle.gd" id="15_runmv"]
+[ext_resource type="Script" uid="uid://bfehyvd8uuauv" path="res://Management/States/Enemy/enemy_attack.gd" id="16_uwhie"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4qyw8"]
 atlas = ExtResource("1_2y3ii")
@@ -176,7 +184,7 @@ animations = [{
 radius = 39.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a61u5"]
-radius = 53.0094
+radius = 57.0351
 
 [sub_resource type="LabelSettings" id="LabelSettings_4qyw8"]
 font = ExtResource("8_f5tei")
@@ -188,13 +196,27 @@ shadow_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_j1qoi"]
 font_size = 96
 
-[node name="Boar" type="CharacterBody2D"]
+[node name="Boar" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine", "dead_state", "chase_state", "animation_control")]
+script = ExtResource("1_f5tei")
+health_component = NodePath("HealthComponent")
+hit_component = NodePath("HitComponent")
+attack_component = NodePath("AttackComponet")
+attack_collision = NodePath("AttackComponet/CollisionShape2D")
+detection_component = NodePath("detection_component")
+state_machine = NodePath("state_machine")
+dead_state = NodePath("state_machine/dead")
+chase_state = NodePath("state_machine/chase")
+animation_control = NodePath("AnimatedSprite2D")
+hp = 60.0
+dmg = 10.0
+use_knockback = true
+knockback_force = 1.0
+direction = "Left"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_tsvcu")
-animation = &"Walk"
-frame_progress = 0.992031
+animation = &"Hit-Vanish"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 11)
@@ -241,3 +263,41 @@ offset_bottom = 208.19
 scale = Vector2(0.525, 0.525)
 text = "Debug"
 label_settings = SubResource("LabelSettings_j1qoi")
+
+[node name="AttackComponet" parent="." instance=ExtResource("10_j1qoi")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponet"]
+position = Vector2(-2, 12)
+shape = SubResource("CircleShape2D_a61u5")
+debug_color = Color(0, 0.639978, 0.356783, 0.42)
+
+[node name="detection_component" parent="." node_paths=PackedStringArray("raycast_forward") instance=ExtResource("11_egdpa")]
+raycast_forward = NodePath("RayCast2D")
+
+[node name="RayCast2D" type="RayCast2D" parent="detection_component"]
+target_position = Vector2(500, 0)
+
+[node name="HealthComponent2" parent="." instance=ExtResource("1_m2qvm")]
+die_and_hied = true
+
+[node name="state_machine" parent="." node_paths=PackedStringArray("initial_state", "debug_label") instance=ExtResource("12_4yg17")]
+initial_state = NodePath("idle")
+debug_label = NodePath("../debug_action")
+
+[node name="chase" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "detection_component", "atk_state", "normal_state", "animation_sprite")]
+script = ExtResource("13_xpxbd")
+enemy = NodePath("../..")
+detection_component = NodePath("../../detection_component")
+atk_state = NodePath("../enemy_attack")
+normal_state = NodePath("../idle")
+name_animation = "Run"
+animation_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="dead" type="Node" parent="state_machine"]
+script = ExtResource("14_u1ifo")
+
+[node name="idle" type="Node" parent="state_machine"]
+script = ExtResource("15_runmv")
+
+[node name="enemy_attack" type="Node" parent="state_machine"]
+script = ExtResource("16_uwhie")
