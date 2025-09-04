@@ -1,23 +1,26 @@
-[gd_scene load_steps=35 format=4 uid="uid://cqvp6siwv82"]
+[gd_scene load_steps=38 format=4 uid="uid://cqvp6siwv82"]
 
-[ext_resource type="Texture2D" uid="uid://dffk1y1foyn0m" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_6uywx"]
-[ext_resource type="Texture2D" uid="uid://bu82h2ytdqmto" path="res://Asset/Map/Jungle/1.Backround.png" id="1_q1b8r"]
-[ext_resource type="Texture2D" uid="uid://248cox6q7bdf" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_biglw"]
+[ext_resource type="Texture2D" uid="uid://byihd8rh5cc7t" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_6uywx"]
+[ext_resource type="Texture2D" uid="uid://h5emvth40ojm" path="res://Asset/Map/Jungle/1.Backround.png" id="1_q1b8r"]
+[ext_resource type="Texture2D" uid="uid://dd3rvwjdkoaka" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_biglw"]
 [ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="3_5b50y"]
-[ext_resource type="Texture2D" uid="uid://mkgwrf4aom7g" path="res://Asset/Map/Jungle/3.Trees_front.png" id="3_unruh"]
-[ext_resource type="Texture2D" uid="uid://hxrd027h7vpn" path="res://Asset/Map/Jungle/4.Ground.png" id="4_r2ywe"]
-[ext_resource type="Texture2D" uid="uid://db0oltua68g2c" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="6_kn21a"]
-[ext_resource type="Texture2D" uid="uid://c34vprswue0rm" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="6_unruh"]
-[ext_resource type="Texture2D" uid="uid://b0qnnp6utdde8" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="7_r2ywe"]
-[ext_resource type="Texture2D" uid="uid://cxv5equec1fvx" path="res://Asset/Map/DarkForest1.2/env_mon.png" id="8_ku6dd"]
+[ext_resource type="Texture2D" uid="uid://clbgdsv1wbw4o" path="res://Asset/Map/Jungle/3.Trees_front.png" id="3_unruh"]
+[ext_resource type="Texture2D" uid="uid://c0xbxcb3xwpfi" path="res://Asset/Map/Jungle/4.Ground.png" id="4_r2ywe"]
+[ext_resource type="Texture2D" uid="uid://d1ios3i7gywm1" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props_16.png" id="6_kn21a"]
+[ext_resource type="Texture2D" uid="uid://b8h7t77v3wcni" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="6_unruh"]
+[ext_resource type="Texture2D" uid="uid://c8nig531ghd1q" path="res://Asset/Map/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="7_r2ywe"]
+[ext_resource type="Texture2D" uid="uid://o1cp5pnrlrdx" path="res://Asset/Map/DarkForest1.2/env_mon.png" id="8_ku6dd"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="11_kn21a"]
-[ext_resource type="PackedScene" uid="uid://cp31gdtdrtrd1" path="res://Resource/Character/RedSlime/RedSlime.tscn" id="11_ku6dd"]
 [ext_resource type="PackedScene" uid="uid://bym7jmphv7rcx" path="res://Resource/Character/King_Slime/King_Slime.tscn" id="13_nftlo"]
 [ext_resource type="PackedScene" uid="uid://bwtvdbrcjbq03" path="res://Resource/Trap/wood_spear.tscn" id="13_q8t2n"]
+[ext_resource type="PackedScene" uid="uid://b6nyd7gjew1ty" path="res://Resource/Character/Boar/Boar.tscn" id="14_1fb1v"]
 [ext_resource type="PackedScene" uid="uid://cb0mkvfgesj8p" path="res://Resource/Potal/level_potal.tscn" id="14_nekhh"]
 [ext_resource type="PackedScene" uid="uid://cow2gjoks02t3" path="res://World/Forest_night/forest_night.tscn" id="15_0p7ir"]
+[ext_resource type="PackedScene" uid="uid://bqk5ot8usv1hw" path="res://Resource/Character/Small Bee/Small Bee.tscn" id="15_x7xwr"]
+[ext_resource type="PackedScene" uid="uid://bixktqhyg7if2" path="res://Resource/Character/Hobgblin/Hobgoblin.tscn" id="16_ahlgf"]
 [ext_resource type="PackedScene" uid="uid://nh110a1yv3qb" path="res://Interface/Tutorial/tutorial.tscn" id="16_eri4k"]
 [ext_resource type="PackedScene" uid="uid://bky0sqoap6ank" path="res://Interface/Pause_menu/pause_menu.tscn" id="17_nftlo"]
+[ext_resource type="PackedScene" uid="uid://bmjr4l5epu22q" path="res://Resource/Trap/invisible_wall.tscn" id="18_2uwg3"]
 [ext_resource type="PackedScene" uid="uid://d5g41w7mkynq" path="res://Resource/Effect/fire.tscn" id="18_nftlo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0p7ir"]
@@ -6400,6 +6403,7 @@ color = Color(1, 0, 0, 1)
 [node name="AttackComponet" parent="DeadLine" instance=ExtResource("11_kn21a")]
 active = true
 damage = 1e+06
+type_entity = "trap_ground"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadLine/AttackComponet"]
 position = Vector2(4324, 19.5)
@@ -6408,12 +6412,22 @@ debug_color = Color(0.964151, 0, 0.494479, 0.42)
 
 [node name="Mob" type="Node2D" parent="."]
 
-[node name="RedSlime" parent="Mob" instance=ExtResource("11_ku6dd")]
-position = Vector2(1872, 624)
-
-[node name="KingSlime" parent="Mob" instance=ExtResource("13_nftlo")]
+[node name="KingSlime" parent="Mob" node_paths=PackedStringArray("attack_component", "attack_collision") instance=ExtResource("13_nftlo")]
 position = Vector2(6821, 447)
 scale = Vector2(2, 2)
+attack_component = NodePath("../../DeadLine/AttackComponet")
+attack_collision = NodePath("../../DeadLine/AttackComponet/CollisionShape2D")
+
+[node name="Boar" parent="Mob" instance=ExtResource("14_1fb1v")]
+position = Vector2(1608, 610)
+
+[node name="SmallBee" parent="Mob" instance=ExtResource("15_x7xwr")]
+position = Vector2(2829, 705)
+hp = 40.0
+dmg = 20.0
+
+[node name="Hobgoblin" parent="Mob" instance=ExtResource("16_ahlgf")]
+position = Vector2(5598, 740)
 
 [node name="Trap" type="Node2D" parent="."]
 
@@ -6431,6 +6445,24 @@ position = Vector2(1403, 747)
 
 [node name="Wood_Spear5" parent="Trap" instance=ExtResource("13_q8t2n")]
 position = Vector2(1452, 748)
+
+[node name="Invisible wall" parent="Trap" instance=ExtResource("18_2uwg3")]
+position = Vector2(5226, 714)
+
+[node name="Invisible wall2" parent="Trap" instance=ExtResource("18_2uwg3")]
+position = Vector2(6414, 509)
+
+[node name="Invisible wall3" parent="Trap" instance=ExtResource("18_2uwg3")]
+position = Vector2(3831, 319)
+
+[node name="Invisible wall4" parent="Trap" instance=ExtResource("18_2uwg3")]
+position = Vector2(4921, 318)
+
+[node name="Invisible wall5" parent="Trap" instance=ExtResource("18_2uwg3")]
+position = Vector2(1493, 604)
+
+[node name="Invisible wall6" parent="Trap" instance=ExtResource("18_2uwg3")]
+position = Vector2(2549, 456)
 
 [node name="LevelPotal" parent="." instance=ExtResource("14_nekhh")]
 position = Vector2(7397, 520)

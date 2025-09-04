@@ -1,15 +1,19 @@
-[gd_scene load_steps=29 format=3 uid="uid://bqk5ot8usv1hw"]
+[gd_scene load_steps=33 format=3 uid="uid://bqk5ot8usv1hw"]
 
 [ext_resource type="Script" uid="uid://dbbfra1e1j173" path="res://Resource/Character/Small Bee/small_bee.gd" id="1_bf1v7"]
-[ext_resource type="Texture2D" uid="uid://b6ylfdoicy41q" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Attack/Attack-Sheet.png" id="1_ofxg2"]
-[ext_resource type="Texture2D" uid="uid://bol3jd45h0rev" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Fly/Fly-Sheet.png" id="2_vckj8"]
-[ext_resource type="Texture2D" uid="uid://cgqy3nh6lypdc" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Hit/Hit-Sheet.png" id="3_v77tc"]
+[ext_resource type="Texture2D" uid="uid://brle72docnq7b" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Attack/Attack-Sheet.png" id="1_ofxg2"]
+[ext_resource type="Texture2D" uid="uid://b5rba07b7p2ow" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Fly/Fly-Sheet.png" id="2_vckj8"]
+[ext_resource type="Texture2D" uid="uid://de1etynwrtp6d" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Small Bee/Hit/Hit-Sheet.png" id="3_v77tc"]
 [ext_resource type="PackedScene" uid="uid://dlbdph7xajp0w" path="res://Management/Component/health_component.tscn" id="4_bf1v7"]
 [ext_resource type="PackedScene" uid="uid://bfdwgq4sgixi5" path="res://Management/Component/hit_component.tscn" id="5_dmnft"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="7_dmnft"]
 [ext_resource type="PackedScene" uid="uid://p6gt5mvfnbkc" path="res://Management/Component/detection_component.tscn" id="8_t0f35"]
 [ext_resource type="PackedScene" uid="uid://1km386n64ium" path="res://Management/States/state_machine.tscn" id="9_dmnft"]
 [ext_resource type="PackedScene" uid="uid://k0yvq00y0uwx" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/Health_bar.tscn" id="10_t0f35"]
+[ext_resource type="Script" uid="uid://crmbga700rv2f" path="res://Management/States/Enemy/chase.gd" id="10_wnbmn"]
+[ext_resource type="Script" uid="uid://b14ovl76gvbk7" path="res://Management/States/Enemy/idle.gd" id="11_or8xx"]
+[ext_resource type="Script" uid="uid://dbx872m0x5wi6" path="res://Management/States/Enemy/hurt.gd" id="12_w7ig6"]
+[ext_resource type="Script" uid="uid://bfehyvd8uuauv" path="res://Management/States/Enemy/enemy_attack.gd" id="13_6gw5q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0f35"]
 atlas = ExtResource("1_ofxg2")
@@ -74,7 +78,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ccxjf")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack",
 "speed": 5.0
 }, {
@@ -91,7 +95,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6gw5q")
 }],
-"loop": true,
+"loop": false,
 "name": &"Fly",
 "speed": 5.0
 }, {
@@ -108,7 +112,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h1qtf")
 }],
-"loop": true,
+"loop": false,
 "name": &"Hit",
 "speed": 5.0
 }]
@@ -129,7 +133,7 @@ height = 138.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_pptub"]
 
-[node name="SmallBee" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine")]
+[node name="SmallBee" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine", "chase_state", "hurt_state", "idle_state", "animation_control")]
 script = ExtResource("1_bf1v7")
 health_component = NodePath("HealthComponent")
 hit_component = NodePath("HitComponent")
@@ -137,18 +141,28 @@ attack_component = NodePath("AttackComponet")
 attack_collision = NodePath("AttackComponet/CollisionShape2D")
 detection_component = NodePath("detection_component")
 state_machine = NodePath("state_machine")
+chase_state = NodePath("state_machine/chase")
+hurt_state = NodePath("state_machine/hit")
+idle_state = NodePath("state_machine/Fly")
+animation_control = NodePath("AnimatedSprite2D")
+hp = 60.0
+dmg = 15.0
+use_knockback = true
+knockback_force = 1.0
+move_speed = 100.0
 metadata/_custom_type_script = "uid://c1kn7h3b4f70b"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_vvpdx")
-animation = &"Hit"
-frame_progress = 0.0453226
+animation = &"Attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ofxg2")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_bf1v7")]
+max_health = 1.0
+die_and_hied = true
 
 [node name="HitComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_dmnft")]
 health_component = NodePath("../HealthComponent")
@@ -163,12 +177,51 @@ debug_color = Color(0, 0.647986, 0.195116, 0.42)
 shape = SubResource("CapsuleShape2D_bf1v7")
 debug_color = Color(0.96405, 2.88785e-07, 0.49508, 0.42)
 
-[node name="detection_component" parent="." instance=ExtResource("8_t0f35")]
+[node name="detection_component" parent="." node_paths=PackedStringArray("raycast_forward") instance=ExtResource("8_t0f35")]
+raycast_forward = NodePath("RayCast2D")
 
 [node name="RayCast2D" type="RayCast2D" parent="detection_component"]
 target_position = Vector2(-500, 0)
 
-[node name="state_machine" parent="." instance=ExtResource("9_dmnft")]
+[node name="state_machine" parent="." node_paths=PackedStringArray("initial_state", "debug_label") instance=ExtResource("9_dmnft")]
+initial_state = NodePath("Fly")
+debug_label = NodePath("../Debug")
+
+[node name="chase" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "detection_component", "atk_state", "normal_state", "animation_sprite")]
+script = ExtResource("10_wnbmn")
+enemy = NodePath("../..")
+detection_component = NodePath("../../detection_component")
+atk_state = NodePath("../attack")
+normal_state = NodePath(".")
+name_animation = "Fly"
+animation_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="Fly" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "next_state", "chase_state", "animation_sprite")]
+script = ExtResource("11_or8xx")
+enemy = NodePath("../..")
+next_state = NodePath(".")
+chase_state = NodePath("../chase")
+name_animation = "Fly"
+animation_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="hit" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "health", "next_state", "animation_sprite")]
+script = ExtResource("12_w7ig6")
+enemy = NodePath("../..")
+health = NodePath("../../HealthComponent")
+next_state = NodePath("../chase")
+name_animation = "Hit"
+animation_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="attack" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "detection_component", "attack_component", "attack_collision", "chase_state", "atk_state", "animation_sprite")]
+script = ExtResource("13_6gw5q")
+enemy = NodePath("../..")
+detection_component = NodePath("../../detection_component")
+attack_component = NodePath("../../AttackComponet")
+attack_collision = NodePath("../../AttackComponet/CollisionShape2D")
+chase_state = NodePath("../chase")
+atk_state = NodePath(".")
+name_animation = "Attack"
+animation_sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="HealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("10_t0f35")]
 offset_left = -116.0

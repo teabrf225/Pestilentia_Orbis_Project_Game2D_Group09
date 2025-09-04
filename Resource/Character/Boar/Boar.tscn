@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b6nyd7gjew1ty"]
+[gd_scene load_steps=43 format=3 uid="uid://b6nyd7gjew1ty"]
 
 [ext_resource type="Texture2D" uid="uid://cs6el24echdul" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Hit-Vanish/Hit-Sheet-Black.png" id="1_2y3ii"]
 [ext_resource type="Script" uid="uid://cgq7n5hn3ybn4" path="res://Resource/Character/Boar/boar.gd" id="1_f5tei"]
@@ -13,9 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://p6gt5mvfnbkc" path="res://Management/Component/detection_component.tscn" id="11_egdpa"]
 [ext_resource type="PackedScene" uid="uid://1km386n64ium" path="res://Management/States/state_machine.tscn" id="12_4yg17"]
 [ext_resource type="Script" uid="uid://crmbga700rv2f" path="res://Management/States/Enemy/chase.gd" id="13_xpxbd"]
-[ext_resource type="Script" uid="uid://ddxd041s3h02i" path="res://Management/States/Enemy/dead.gd" id="14_u1ifo"]
 [ext_resource type="Script" uid="uid://b14ovl76gvbk7" path="res://Management/States/Enemy/idle.gd" id="15_runmv"]
 [ext_resource type="Script" uid="uid://bfehyvd8uuauv" path="res://Management/States/Enemy/enemy_attack.gd" id="16_uwhie"]
+[ext_resource type="Script" uid="uid://dbx872m0x5wi6" path="res://Management/States/Enemy/hurt.gd" id="17_xpxbd"]
+[ext_resource type="Script" uid="uid://xqqhkh47biey" path="res://Management/States/Enemy/wander.gd" id="18_u1ifo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4qyw8"]
 atlas = ExtResource("1_2y3ii")
@@ -112,7 +113,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cfmt1")
 }],
-"loop": true,
+"loop": false,
 "name": &"Hit-Vanish",
 "speed": 5.0
 }, {
@@ -152,7 +153,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hocv3")
 }],
-"loop": true,
+"loop": false,
 "name": &"Run",
 "speed": 5.0
 }, {
@@ -175,7 +176,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q6dfp")
 }],
-"loop": true,
+"loop": false,
 "name": &"Walk",
 "speed": 5.0
 }]
@@ -196,7 +197,7 @@ shadow_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_j1qoi"]
 font_size = 96
 
-[node name="Boar" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine", "dead_state", "chase_state", "animation_control")]
+[node name="Boar" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "hit_component", "attack_component", "attack_collision", "detection_component", "state_machine", "dead_state", "chase_state", "hurt_state", "idle_state", "animation_control")]
 script = ExtResource("1_f5tei")
 health_component = NodePath("HealthComponent")
 hit_component = NodePath("HitComponent")
@@ -204,25 +205,30 @@ attack_component = NodePath("AttackComponet")
 attack_collision = NodePath("AttackComponet/CollisionShape2D")
 detection_component = NodePath("detection_component")
 state_machine = NodePath("state_machine")
-dead_state = NodePath("state_machine/dead")
+dead_state = NodePath("")
 chase_state = NodePath("state_machine/chase")
+hurt_state = NodePath("state_machine/Hit-Vanish")
+idle_state = NodePath("state_machine/idle")
 animation_control = NodePath("AnimatedSprite2D")
 hp = 60.0
 dmg = 10.0
 use_knockback = true
 knockback_force = 1.0
+move_speed = 100.0
 direction = "Left"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_tsvcu")
-animation = &"Hit-Vanish"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 11)
 shape = SubResource("CircleShape2D_v60wj")
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_m2qvm")]
+max_health = 1.0
+die_and_hied = true
 
 [node name="HitComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_hmax1")]
 health_component = NodePath("../HealthComponent")
@@ -293,11 +299,36 @@ normal_state = NodePath("../idle")
 name_animation = "Run"
 animation_sprite = NodePath("../../AnimatedSprite2D")
 
-[node name="dead" type="Node" parent="state_machine"]
-script = ExtResource("14_u1ifo")
-
-[node name="idle" type="Node" parent="state_machine"]
+[node name="idle" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "next_state", "chase_state", "animation_sprite")]
 script = ExtResource("15_runmv")
+enemy = NodePath("../..")
+next_state = NodePath("../wander")
+chase_state = NodePath("../chase")
+name_animation = "Idle"
+animation_sprite = NodePath("../../AnimatedSprite2D")
 
-[node name="enemy_attack" type="Node" parent="state_machine"]
+[node name="enemy_attack" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "detection_component", "attack_component", "attack_collision", "chase_state", "atk_state")]
 script = ExtResource("16_uwhie")
+enemy = NodePath("../..")
+detection_component = NodePath("../../detection_component")
+attack_component = NodePath("../../AttackComponet")
+attack_collision = NodePath("../../AttackComponet/CollisionShape2D")
+chase_state = NodePath("../chase")
+atk_state = NodePath(".")
+
+[node name="Hit-Vanish" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "health", "next_state", "animation_sprite")]
+script = ExtResource("17_xpxbd")
+enemy = NodePath("../..")
+health = NodePath("../../HealthComponent")
+next_state = NodePath("../chase")
+name_animation = "Hit-Vanish"
+animation_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="wander" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "detection_component", "next_state", "chase_state", "animation_sprite")]
+script = ExtResource("18_u1ifo")
+enemy = NodePath("../..")
+detection_component = NodePath("../../detection_component")
+next_state = NodePath("../idle")
+chase_state = NodePath("../chase")
+name_animation = "Walk"
+animation_sprite = NodePath("../../AnimatedSprite2D")
