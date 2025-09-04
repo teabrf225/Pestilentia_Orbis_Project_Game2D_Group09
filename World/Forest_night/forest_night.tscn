@@ -1,29 +1,28 @@
-[gd_scene load_steps=39 format=4 uid="uid://cow2gjoks02t3"]
+[gd_scene load_steps=38 format=4 uid="uid://cow2gjoks02t3"]
 
-[ext_resource type="Texture2D" uid="uid://08ii01p1adil" path="res://Asset/Map/forest_night_layers/Layer_0011_0.png" id="1_35oa0"]
+[ext_resource type="Texture2D" uid="uid://cmmtu4tko4elv" path="res://Asset/Map/forest_night_layers/Layer_0011_0.png" id="1_35oa0"]
 [ext_resource type="PackedScene" uid="uid://cb0mkvfgesj8p" path="res://Resource/Potal/level_potal.tscn" id="1_ebbgy"]
-[ext_resource type="Texture2D" uid="uid://b3q7t4lqld7k1" path="res://Asset/Map/forest_night_layers/Layer_0010_1.png" id="2_263js"]
+[ext_resource type="Texture2D" uid="uid://qwu7cvv1t8p3" path="res://Asset/Map/forest_night_layers/Layer_0010_1.png" id="2_263js"]
 [ext_resource type="PackedScene" uid="uid://duntasaydgctd" path="res://World/Cave/cave.tscn" id="2_pkcsb"]
-[ext_resource type="Texture2D" uid="uid://dsg0v0py4qipe" path="res://Asset/Map/forest_night_layers/Layer_0009_2.png" id="3_ebbgy"]
-[ext_resource type="Texture2D" uid="uid://bvbpxxqyrmkla" path="res://Asset/Map/forest_night_layers/Layer_0008_3.png" id="4_pkcsb"]
-[ext_resource type="Texture2D" uid="uid://bcmbdpbeyyi1p" path="res://Asset/Map/forest_night_layers/Layer_0007_Lights.png" id="5_cqug0"]
-[ext_resource type="Texture2D" uid="uid://dilg5xnykw2rw" path="res://Asset/Map/forest_night_layers/Layer_0006_4.png" id="6_jnm1t"]
-[ext_resource type="Texture2D" uid="uid://0nnmx4jtxtby" path="res://Asset/Map/forest_night_layers/Layer_0005_5.png" id="7_wvlmc"]
-[ext_resource type="Texture2D" uid="uid://cpnrdc1titnxf" path="res://Asset/Map/forest_night_layers/Layer_0004_Lights.png" id="8_hnfc2"]
-[ext_resource type="Texture2D" uid="uid://c6fdjcjq7pb80" path="res://Asset/Map/forest_night_layers/Layer_0003_6.png" id="9_8pukk"]
-[ext_resource type="Texture2D" uid="uid://dwmrjlm56claf" path="res://Asset/Map/forest_night_layers/Layer_0002_7.png" id="10_hwxkb"]
-[ext_resource type="Texture2D" uid="uid://cfoow8n4etsby" path="res://Asset/Map/forest_night_layers/Layer_0001_8.png" id="11_dxoe6"]
-[ext_resource type="Texture2D" uid="uid://cl60x11d46eel" path="res://Asset/Map/forest_night_layers/Layer_0000_9.png" id="12_0ixls"]
-[ext_resource type="Texture2D" uid="uid://plbhaakelsaf" path="res://Asset/Map/DarkForest1.2/env_mon.png" id="13_2k4r6"]
-[ext_resource type="Texture2D" uid="uid://bucw67krgk6h4" path="res://Asset/Map/DarkForest1.2/env_ground.png" id="14_2k4r6"]
-[ext_resource type="Texture2D" uid="uid://cucus3kovnucj" path="res://Asset/Map/DarkForest1.2/env_trees.png" id="14_35oa0"]
-[ext_resource type="Texture2D" uid="uid://ct5ibxg5qw0b8" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="14_v5nps"]
-[ext_resource type="Texture2D" uid="uid://dyytsd5wm6ii4" path="res://Asset/Map/PixelFantasy_Caves_1.0/mainlev_build.png" id="15_35oa0"]
+[ext_resource type="Texture2D" uid="uid://1rrrq3l244tr" path="res://Asset/Map/forest_night_layers/Layer_0009_2.png" id="3_ebbgy"]
+[ext_resource type="Texture2D" uid="uid://dh2b01vqlhaw1" path="res://Asset/Map/forest_night_layers/Layer_0008_3.png" id="4_pkcsb"]
+[ext_resource type="Texture2D" uid="uid://c56ss8nn5jvfa" path="res://Asset/Map/forest_night_layers/Layer_0007_Lights.png" id="5_cqug0"]
+[ext_resource type="Texture2D" uid="uid://wchbowpwjcfb" path="res://Asset/Map/forest_night_layers/Layer_0006_4.png" id="6_jnm1t"]
+[ext_resource type="Texture2D" uid="uid://tabdxo74elat" path="res://Asset/Map/forest_night_layers/Layer_0005_5.png" id="7_wvlmc"]
+[ext_resource type="Texture2D" uid="uid://l4sjurivxdq4" path="res://Asset/Map/forest_night_layers/Layer_0004_Lights.png" id="8_hnfc2"]
+[ext_resource type="Texture2D" uid="uid://cen1g83thbtk2" path="res://Asset/Map/forest_night_layers/Layer_0003_6.png" id="9_8pukk"]
+[ext_resource type="Texture2D" uid="uid://cvv0214b2ygw5" path="res://Asset/Map/forest_night_layers/Layer_0002_7.png" id="10_hwxkb"]
+[ext_resource type="Texture2D" uid="uid://bhmhf0vpp3i2d" path="res://Asset/Map/forest_night_layers/Layer_0001_8.png" id="11_dxoe6"]
+[ext_resource type="Texture2D" uid="uid://4o6ilk4aeq64" path="res://Asset/Map/forest_night_layers/Layer_0000_9.png" id="12_0ixls"]
+[ext_resource type="Texture2D" uid="uid://cxv5equec1fvx" path="res://Asset/Map/DarkForest1.2/env_mon.png" id="13_2k4r6"]
+[ext_resource type="Texture2D" uid="uid://byr45o1i0iu1t" path="res://Asset/Map/DarkForest1.2/env_ground.png" id="14_2k4r6"]
+[ext_resource type="Texture2D" uid="uid://bw103m1jhftej" path="res://Asset/Map/DarkForest1.2/env_trees.png" id="14_35oa0"]
+[ext_resource type="Texture2D" uid="uid://dffk1y1foyn0m" path="res://Asset/Map/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="14_v5nps"]
+[ext_resource type="Texture2D" uid="uid://bh8o5jmewrlsn" path="res://Asset/Map/PixelFantasy_Caves_1.0/mainlev_build.png" id="15_35oa0"]
 [ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="17_1ocnr"]
 [ext_resource type="PackedScene" uid="uid://csp7ea7r7lmlw" path="res://Resource/Character/Dullahan/Dullahan.tscn" id="21_pkcsb"]
 [ext_resource type="PackedScene" uid="uid://ckisicctkp4mg" path="res://Resource/Character/Zombie/Zombie.tscn" id="22_wvlmc"]
 [ext_resource type="PackedScene" uid="uid://d1gcxwge6bsvk" path="res://Resource/Character/Skeleton_White/Skeleton_white.tscn" id="23_hnfc2"]
-[ext_resource type="PackedScene" uid="uid://bp5ups24coj03" path="res://Resource/Character/Skeleton_Yellow/Skeleton_Yellow.tscn" id="24_8pukk"]
 [ext_resource type="PackedScene" uid="uid://cgc0uecse1pph" path="res://Resource/Trap/SandWorm_Trap.tscn" id="25_hnfc2"]
 [ext_resource type="PackedScene" uid="uid://bmjr4l5epu22q" path="res://Resource/Trap/invisible_wall.tscn" id="26_8pukk"]
 
@@ -4860,7 +4859,7 @@ editor_draw_drag_margin = true
 [node name="Mob" type="Node2D" parent="."]
 
 [node name="Dullahan" parent="Mob" instance=ExtResource("21_pkcsb")]
-position = Vector2(6526, 451)
+position = Vector2(6471, 442)
 scale = Vector2(1.5, 1.5)
 
 [node name="Zombie" parent="Mob" instance=ExtResource("22_wvlmc")]
@@ -4888,19 +4887,13 @@ position = Vector2(5779, 461)
 position = Vector2(1117, 452)
 
 [node name="SkeletonWhite2" parent="Mob" instance=ExtResource("23_hnfc2")]
-position = Vector2(599, 714)
+position = Vector2(585, 704)
 
 [node name="SkeletonWhite3" parent="Mob" instance=ExtResource("23_hnfc2")]
 position = Vector2(1844, 716)
 
 [node name="SkeletonWhite4" parent="Mob" instance=ExtResource("23_hnfc2")]
 position = Vector2(5272, 474)
-
-[node name="SkeletonYellow" parent="Mob" instance=ExtResource("24_8pukk")]
-position = Vector2(2175, 716)
-
-[node name="SkeletonYellow2" parent="Mob" instance=ExtResource("24_8pukk")]
-position = Vector2(5550, 476)
 
 [node name="SandWermTrap" parent="Mob" instance=ExtResource("25_hnfc2")]
 position = Vector2(4129, 424)

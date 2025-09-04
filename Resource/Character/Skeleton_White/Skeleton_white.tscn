@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://d1gcxwge6bsvk"]
+[gd_scene load_steps=80 format=3 uid="uid://d1gcxwge6bsvk"]
 
 [ext_resource type="Texture2D" uid="uid://6uy0sn3ywpcf" path="res://Asset/Character/Skeletons_Free_Pack/Skeletons_Free_Pack/Skeleton_Sword/Skeleton_White/Skeleton_With_VFX/Skeleton_01_White_Attack1.png" id="1_jd186"]
 [ext_resource type="Script" uid="uid://u78cg2xglhpg" path="res://Resource/Character/Skeleton_White/skeleton_white.gd" id="1_pd3k5"]
@@ -16,6 +16,8 @@
 [ext_resource type="Script" uid="uid://dbx872m0x5wi6" path="res://Management/States/Enemy/hurt.gd" id="13_vpr6r"]
 [ext_resource type="Script" uid="uid://b14ovl76gvbk7" path="res://Management/States/Enemy/idle.gd" id="14_we3kf"]
 [ext_resource type="Script" uid="uid://ddxd041s3h02i" path="res://Management/States/Enemy/dead.gd" id="15_we3kf"]
+[ext_resource type="Script" uid="uid://bfehyvd8uuauv" path="res://Management/States/Enemy/enemy_attack.gd" id="16_pjgrp"]
+[ext_resource type="Script" uid="uid://xqqhkh47biey" path="res://Management/States/Enemy/wander.gd" id="17_ke404"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_we3kf"]
 atlas = ExtResource("1_jd186")
@@ -442,9 +444,8 @@ height = 48.0
 radius = 16.0
 height = 60.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_we3kf"]
-radius = 23.0
-height = 80.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjgrp"]
+size = Vector2(45.5, 14)
 
 [sub_resource type="LabelSettings" id="LabelSettings_rigl2"]
 
@@ -462,18 +463,24 @@ dead_state = NodePath("state_machine/dead")
 hurt_state = NodePath("state_machine/hurt")
 idle_state = NodePath("state_machine/Idle")
 animation_control = NodePath("AnimatedSprite2D")
-hp = 300.0
+hp = 70.0
+dmg = 10.0
+move_speed = 50.0
+direction = "Right"
 metadata/_custom_type_script = "uid://c1kn7h3b4f70b"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cf4dy")
-animation = &"Idle"
+animation = &"Attack1"
+frame = 9
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 10)
 shape = SubResource("CapsuleShape2D_iwmeq")
 
 [node name="HealthComponent" parent="." instance=ExtResource("7_rigl2")]
+max_health = 1.0
 
 [node name="HitComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_vpr6r")]
 health_component = NodePath("../HealthComponent")
@@ -486,14 +493,15 @@ debug_color = Color(0.0848156, 0.643135, 0.256684, 0.42)
 [node name="AttackComponet" parent="." instance=ExtResource("10_b31sv")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponet"]
-position = Vector2(-2, 9)
-shape = SubResource("CapsuleShape2D_we3kf")
+position = Vector2(26.25, 1)
+shape = SubResource("RectangleShape2D_pjgrp")
 debug_color = Color(0.980015, 0, 0.383243, 0.42)
 
-[node name="detection_component" parent="." instance=ExtResource("11_rigl2")]
+[node name="detection_component" parent="." node_paths=PackedStringArray("raycast_forward") instance=ExtResource("11_rigl2")]
+raycast_forward = NodePath("RayCast2D")
 
 [node name="RayCast2D" type="RayCast2D" parent="detection_component"]
-target_position = Vector2(500, 0)
+target_position = Vector2(250, 0)
 
 [node name="state_machine" parent="." node_paths=PackedStringArray("initial_state", "debug_label") instance=ExtResource("12_vpr6r")]
 initial_state = NodePath("Idle")
@@ -507,9 +515,10 @@ next_state = NodePath("../Idle")
 name_animation = "Hurt"
 animation_sprite = NodePath("../../AnimatedSprite2D")
 
-[node name="Idle" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "animation_sprite")]
+[node name="Idle" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "next_state", "animation_sprite")]
 script = ExtResource("14_we3kf")
 enemy = NodePath("../..")
+next_state = NodePath("../Walk")
 name_animation = "Idle"
 animation_sprite = NodePath("../../AnimatedSprite2D")
 
@@ -519,11 +528,29 @@ enemy = NodePath("../..")
 name_animation = "Die"
 animation_sprite = NodePath("../../AnimatedSprite2D")
 
+[node name="Attack" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "detection_component", "attack_component", "attack_collision", "atk_state", "animation_sprite")]
+script = ExtResource("16_pjgrp")
+enemy = NodePath("../..")
+detection_component = NodePath("../../detection_component")
+attack_component = NodePath("../../AttackComponet")
+attack_collision = NodePath("../../AttackComponet/CollisionShape2D")
+atk_state = NodePath(".")
+name_animation = "Attack1"
+animation_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="Walk" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "detection_component", "next_state", "animation_sprite")]
+script = ExtResource("17_ke404")
+enemy = NodePath("../..")
+detection_component = NodePath("../../detection_component")
+next_state = NodePath("../Idle")
+name_animation = "Walk"
+animation_sprite = NodePath("../../AnimatedSprite2D")
+
 [node name="HealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("13_b31sv")]
-offset_left = -120.0
+offset_left = -35.0
 offset_top = -38.0
-offset_right = 120.0
-offset_bottom = -34.0
+offset_right = 32.0
+offset_bottom = -33.0
 health_component = NodePath("../HealthComponent")
 
 [node name="Debug" type="Label" parent="."]
@@ -535,9 +562,9 @@ text = "Debug"
 label_settings = SubResource("LabelSettings_rigl2")
 
 [node name="Name" type="Label" parent="."]
-offset_left = -59.0
-offset_top = -65.0
-offset_right = 58.0
-offset_bottom = -42.0
-text = "Skeleton White"
+offset_left = -35.0
+offset_top = -64.0
+offset_right = 33.0
+offset_bottom = -41.0
+text = "Skeleton"
 label_settings = SubResource("LabelSettings_vpr6r")

@@ -53,5 +53,5 @@ func _physics_process(_delta: float) -> void:
 		current_state.transition()
 		
 		# อัปเดต debug text หากมี
-		if debug_label:
-			debug_label.text = current_state.name
+		#if debug_label:
+			#debug_label.text = current_state.name

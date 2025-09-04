@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://csp7ea7r7lmlw"]
+[gd_scene load_steps=36 format=3 uid="uid://csp7ea7r7lmlw"]
 
 [ext_resource type="Texture2D" uid="uid://dp8sr0u8mmi1g" path="res://Asset/Character/Dullahan_Attack.png" id="1_6s2io"]
 [ext_resource type="Script" uid="uid://bmb3iq1162l26" path="res://Resource/Character/Dullahan/dullahan.gd" id="1_8y8c1"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://1km386n64ium" path="res://Management/States/state_machine.tscn" id="10_jy5wc"]
 [ext_resource type="Script" uid="uid://b14ovl76gvbk7" path="res://Management/States/Enemy/idle.gd" id="11_u4xtc"]
 [ext_resource type="Script" uid="uid://ddxd041s3h02i" path="res://Management/States/Enemy/dead.gd" id="12_m5lea"]
+[ext_resource type="Script" uid="uid://bfehyvd8uuauv" path="res://Management/States/Enemy/enemy_attack.gd" id="13_8lh1i"]
 [ext_resource type="PackedScene" uid="uid://k0yvq00y0uwx" path="res://Interface/GUI_Ingame/Hp_Linear_Bar/Health_bar.tscn" id="13_awufl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_80jjc"]
@@ -97,7 +98,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jy5wc")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack",
 "speed": 5.0
 }, {
@@ -117,7 +118,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i54p0")
 }],
-"loop": true,
+"loop": false,
 "name": &"Dead",
 "speed": 5.0
 }, {
@@ -180,13 +181,12 @@ dead_state = NodePath("state_machine/Dead")
 idle_state = NodePath("state_machine/Idle")
 animation_control = NodePath("AnimatedSprite2D")
 hp = 100.0
-dmg = 25.0
-max_vision = 500.0
+dmg = 20.0
+move_speed = 200.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7d0uc")
 animation = &"Walk"
-frame_progress = 0.886816
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(10, -2)
@@ -194,7 +194,6 @@ shape = SubResource("CapsuleShape2D_4jhgf")
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_pqjfa")]
 max_health = 1.0
-die_and_hied = true
 
 [node name="HitComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_f15lc")]
 health_component = NodePath("../HealthComponent")
@@ -221,11 +220,9 @@ target_position = Vector2(-800, 0)
 initial_state = NodePath("Idle")
 debug_label = NodePath("../Debug")
 
-[node name="Idle" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "next_state", "chase_state", "animation_sprite")]
+[node name="Idle" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "animation_sprite")]
 script = ExtResource("11_u4xtc")
 enemy = NodePath("../..")
-next_state = NodePath(".")
-chase_state = NodePath(".")
 name_animation = "Idle"
 animation_sprite = NodePath("../../AnimatedSprite2D")
 
@@ -233,6 +230,16 @@ animation_sprite = NodePath("../../AnimatedSprite2D")
 script = ExtResource("12_m5lea")
 enemy = NodePath("../..")
 name_animation = "Dead"
+animation_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="attack" type="Node" parent="state_machine" node_paths=PackedStringArray("enemy", "detection_component", "attack_component", "attack_collision", "atk_state", "animation_sprite")]
+script = ExtResource("13_8lh1i")
+enemy = NodePath("../..")
+detection_component = NodePath("../../detection_component")
+attack_component = NodePath("../../AttackComponet")
+attack_collision = NodePath("../../AttackComponet/CollisionShape2D")
+atk_state = NodePath(".")
+name_animation = "Attack"
 animation_sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="HealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("13_awufl")]

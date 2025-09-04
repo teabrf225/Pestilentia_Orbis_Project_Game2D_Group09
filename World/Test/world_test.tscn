@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dlhjieromwo4r"]
+[gd_scene load_steps=19 format=4 uid="uid://dlhjieromwo4r"]
 
 [ext_resource type="Texture2D" uid="uid://bu82h2ytdqmto" path="res://Asset/Map/Jungle/1.Backround.png" id="1_88t1m"]
 [ext_resource type="Texture2D" uid="uid://248cox6q7bdf" path="res://Asset/Map/Jungle/2.Trees_back.png" id="2_ioul8"]
@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://ptcb6lyi73id" path="res://Resource/Character/Player/player.tscn" id="8_88t1m"]
 [ext_resource type="PackedScene" uid="uid://cl83v3c8s8h2q" path="res://Management/Component/attack_component.tscn" id="9_ioul8"]
 [ext_resource type="PackedScene" uid="uid://bky0sqoap6ank" path="res://Interface/Pause_menu/pause_menu.tscn" id="11_lfcpg"]
-[ext_resource type="PackedScene" uid="uid://bp5ups24coj03" path="res://Resource/Character/Skeleton_Yellow/Skeleton_Yellow.tscn" id="11_oaxnm"]
+[ext_resource type="PackedScene" uid="uid://ckisicctkp4mg" path="res://Resource/Character/Zombie/Zombie.tscn" id="11_oaxnm"]
+[ext_resource type="PackedScene" uid="uid://d1gcxwge6bsvk" path="res://Resource/Character/Skeleton_White/Skeleton_white.tscn" id="12_s8a55"]
+[ext_resource type="PackedScene" uid="uid://bp5ups24coj03" path="res://Resource/Character/Skeleton_Yellow/Skeleton_Yellow.tscn" id="13_6oi5g"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6uywx"]
 
@@ -1109,5 +1111,11 @@ debug_color = Color(0.964151, 0, 0.494479, 0.42)
 
 [node name="PauseMenu" parent="." instance=ExtResource("11_lfcpg")]
 
-[node name="SkeletonYellow" parent="." instance=ExtResource("11_oaxnm")]
-position = Vector2(2067, 604)
+[node name="Zombie" parent="." instance=ExtResource("11_oaxnm")]
+position = Vector2(2110, 516)
+
+[node name="SkeletonWhite" parent="." instance=ExtResource("12_s8a55")]
+position = Vector2(2427, 615)
+
+[node name="SkeletonYellow" parent="." instance=ExtResource("13_6oi5g")]
+position = Vector2(1753, 586)
