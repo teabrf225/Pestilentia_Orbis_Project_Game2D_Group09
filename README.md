@@ -2,11 +2,17 @@
 
 Development Game-2D Version Demo
 
+Pestilentia Orbis
+![Pestilentia Orbis Icon](https://github.com/teabrf225/Pestilentia_Orbis_Project_Game2D_Group09/blob/main/Pestilentia_Orbis_Icon.png)
+
+เนื้อเรื่องย่อ
+ณ อาณาจักรแห่งหนึ่งได้เกิดโรคระบาดเกิดขึ้นซึ่งได้คร่าชีวิตผู้คนไปมากมายนับไม่ถ้วน จนเกือบจะถึงคราวที่อาณาจักรจะล่มสลาย ผู้คนที่ยังหลงเหลือมีความเชื่อว่าโรคร้ายเหล่านี้เกิดจากคำสาปของปีศาจร้ายอย่าง Lich ที่ต้องการจะครอบงำอาณาจักร กษัตริย์ของอาณาจักร ได้มีราชโองการส่งผู้นำทัพอัศวินคนสุดท้ายนามว่า Biggy ที่เป็นเป็นดั่งมือขวาของพระองค์ เพื่อไปปราบปีศาจ Lich เพื่อหวังว่าคำสาปนี้จะหมดไปจากอาณาจักร 
+	Biggy จึงได้เริ่มเดินออกทางเข้าสู่พื้นที่ป่า ที่ซึ่งเคยเป็นพื้นที่ปลอดภัย แต่บัดนี้ที่แห่งนี้ได้เต็มไปด้วยgoblin อีกทั้งยังมีสิ่งมีชีวิตอันตรายอย่าง King slime อยู่ในส่วนลึกของป่า คอยเฝ้าซากปรักหักพังที่เป็นทางลัดเข้าไปสู่ป่ามืด เพื่อที่จะไปกำจัด Lich ให้เร็วที่สุด Biggy จำเป็นต้องใช้เส้นทางนี้เท่านั้น
+	ป่ามืด สถานที่ที่เก็บซ่อนทางเข้าสู่ถ้ำร้าง ที่เป็นแหล่งกบดาลของ Lich ป่านี้จึงได้รับผลกระทบจากเวทย์มืดไปด้วย ภายในป่าเต็มไปด้วย zombie และ skeleton อีกทั้ง Lich ได้สั่งให้ deathknight มือขวาของ Lich นามว่า Dullahan อัศวินไร้หัว เฝ้าทางเข้าถ้ำไว้
+	ถ้ำร้าง ปราการสุดท้ายของปีศาจผู้ชั่วร้าย Lich ได้วางกำลังพลต่างๆ ไม่ว่าจะเป็น ghoul หรือ black mage ไว้ป้องกันผู้รุกราน เพื่อที่จะไม่ให้ใครมาขัดขวางพิธีกรรมมหาคำสาป ในการเปลี่ยนทั่วทั้งโลกให้เป็น undead ภายใต้อาณัติของ Lich และนี่คือปลายทางของ Biggy อัศวินคนสุดท้ายแห่งอาณาจักร ผุ้ที่ถูกลิขิตให้ต้องแก้คำสาปเพื่อช่วยโลก
+
 ## เอกสารโครงงาน Game 2D
 https://docs.google.com/document/d/1jwUYVoKrzYlW4FP8yZENRFVg8EeeHwkiMioWPO45FYw/edit?usp=sharing
-
-## Story Broad Game
-https://www.canva.com/design/DAGwthCcmeA/mGa6Hz7V9qGyV9aUO-lrxA/edit?utm_content=DAGwthCcmeA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 # Member of AI Group-09
 (EN)
@@ -20,3 +26,5 @@ https://www.canva.com/design/DAGwthCcmeA/mGa6Hz7V9qGyV9aUO-lrxA/edit?utm_content
 2. นายธนธร บุญเต็ม 663380263-7 AI-Sec.01
 3. นายภควัต ชูโชติรส 663380287-7 AI-Sec.02
 4. นายภิณัฐคณิน พิสิษฐกุล 663380528-1 AI-Sec.02
+
+ 04/09/2025
